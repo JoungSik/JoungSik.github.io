@@ -6,7 +6,16 @@
     <description>Recent content in Posts on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 05 Oct 2021 22:30:06 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Oct 2021 23:15:35 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>사이드 프로젝트 - 링크 공유 서비스 설계</title>
+      <link>https://joungsik.github.io/post/2021_10_06/</link>
+      <pubDate>Wed, 06 Oct 2021 23:15:35 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_06/</guid>
+      <description>사이드 프로젝트 - 링크 공유 서비스 설계</description>
+    </item>
+    
     <item>
       <title>Hugo 사용법</title>
       <link>https://joungsik.github.io/post/2021_10_05/</link>
