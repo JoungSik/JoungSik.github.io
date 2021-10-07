@@ -5,6 +5,52 @@
     <link>https://joungsik.github.io/tags/</link>
     <description>Recent content in Tags on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-kr</language><atom:link href="https://joungsik.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>ko-kr</language>
+    <lastBuildDate>Thu, 07 Oct 2021 21:58:13 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ruby</title>
+      <link>https://joungsik.github.io/tags/ruby/</link>
+      <pubDate>Thu, 07 Oct 2021 21:58:13 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ruby on rails</title>
+      <link>https://joungsik.github.io/tags/ruby-on-rails/</link>
+      <pubDate>Thu, 07 Oct 2021 21:58:13 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/tags/ruby-on-rails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>side project</title>
+      <link>https://joungsik.github.io/tags/side-project/</link>
+      <pubDate>Wed, 06 Oct 2021 23:15:35 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/tags/side-project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://joungsik.github.io/tags/go/</link>
+      <pubDate>Tue, 05 Oct 2021 22:30:06 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://joungsik.github.io/tags/hugo/</link>
+      <pubDate>Tue, 05 Oct 2021 22:30:06 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

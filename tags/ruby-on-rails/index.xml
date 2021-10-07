@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ruby on rails on JoungSik</title>
+    <link>https://joungsik.github.io/tags/ruby-on-rails/</link>
+    <description>Recent content in ruby on rails on JoungSik</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Thu, 07 Oct 2021 21:58:13 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/ruby-on-rails/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ruby On Rails &#43; Devise 로 jwt 인증 구현하기</title>
+      <link>https://joungsik.github.io/post/2021_10_07/</link>
+      <pubDate>Thu, 07 Oct 2021 21:58:13 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_07/</guid>
+      <description>Ruby On Rails + Devise 로 jwt 인증 구현하기</description>
+    </item>
+    
+  </channel>
+</rss>
