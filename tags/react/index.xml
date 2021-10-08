@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react on JoungSik</title>
+    <link>https://joungsik.github.io/tags/react/</link>
+    <description>Recent content in react on JoungSik</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Fri, 08 Oct 2021 23:47:41 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Typescript React, Vercel 배포</title>
+      <link>https://joungsik.github.io/post/2021_10_08/</link>
+      <pubDate>Fri, 08 Oct 2021 23:47:41 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_08/</guid>
+      <description>Typescript React, Vercel 배포</description>
+    </item>
+    
+  </channel>
+</rss>
