@@ -6,7 +6,16 @@
     <description>Recent content in ruby on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 07 Oct 2021 21:58:13 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Oct 2021 01:40:58 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>프로그래머스 알고리즘 문제 Level 1 (10.07 ~ 10.10)</title>
+      <link>https://joungsik.github.io/post/2021_10_10/</link>
+      <pubDate>Sun, 10 Oct 2021 01:40:58 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_10/</guid>
+      <description>프로그래머스 알고리즘 문제 Level 1 (10.07 ~ 10.10)</description>
+    </item>
+    
     <item>
       <title>Ruby On Rails &#43; Devise 로 jwt 인증 구현하기</title>
       <link>https://joungsik.github.io/post/2021_10_07/</link>
