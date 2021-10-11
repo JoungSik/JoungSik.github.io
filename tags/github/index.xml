@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github on JoungSik</title>
+    <link>https://joungsik.github.io/tags/github/</link>
+    <description>Recent content in github on JoungSik</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Mon, 11 Oct 2021 19:25:08 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vercel Env &#43; Github Docker Env 설정</title>
+      <link>https://joungsik.github.io/post/2021_10_11/</link>
+      <pubDate>Mon, 11 Oct 2021 19:25:08 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_11/</guid>
+      <description>Vercel Env + Github Docker Env 설정</description>
+    </item>
+    
+  </channel>
+</rss>

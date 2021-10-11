@@ -6,7 +6,16 @@
     <description>Recent content on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 10 Oct 2021 20:12:15 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Oct 2021 19:25:08 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vercel Env &#43; Github Docker Env 설정</title>
+      <link>https://joungsik.github.io/post/2021_10_11/</link>
+      <pubDate>Mon, 11 Oct 2021 19:25:08 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_11/</guid>
+      <description>Vercel Env + Github Docker Env 설정</description>
+    </item>
+    
     <item>
       <title>React-Query</title>
       <link>https://joungsik.github.io/post/2021_10_10_2/</link>
