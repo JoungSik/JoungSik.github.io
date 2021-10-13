@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>oop on JoungSik</title>
+    <link>https://joungsik.github.io/tags/oop/</link>
+    <description>Recent content in oop on JoungSik</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Wed, 13 Oct 2021 23:49:41 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>루비로 배우는 객체지향 디자인 1장</title>
+      <link>https://joungsik.github.io/post/2021_10_13/</link>
+      <pubDate>Wed, 13 Oct 2021 23:49:41 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_13/</guid>
+      <description>루비로 배우는 객체지향 디자인 1장, 객체지향 디자인</description>
+    </item>
+    
+  </channel>
+</rss>

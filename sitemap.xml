@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://joungsik.github.io/</loc>
+    <lastmod>2021-10-13T23:52:38+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/oop/</loc>
+    <lastmod>2021-10-13T23:52:38+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/post/</loc>
+    <lastmod>2021-10-13T23:52:38+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/ruby/</loc>
+    <lastmod>2021-10-13T23:52:38+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/</loc>
+    <lastmod>2021-10-13T23:52:38+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/post/2021_10_13/</loc>
+    <lastmod>2021-10-13T23:52:38+09:00</lastmod>
+  </url><url>
     <loc>https://joungsik.github.io/post/2021_10_12/</loc>
     <lastmod>2021-10-12T21:29:15+09:00</lastmod>
   </url><url>
-    <loc>https://joungsik.github.io/</loc>
-    <lastmod>2021-10-12T21:29:15+09:00</lastmod>
-  </url><url>
-    <loc>https://joungsik.github.io/post/</loc>
-    <lastmod>2021-10-12T21:29:15+09:00</lastmod>
-  </url><url>
     <loc>https://joungsik.github.io/tags/react-hook-form/</loc>
-    <lastmod>2021-10-12T21:29:15+09:00</lastmod>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/</loc>
     <lastmod>2021-10-12T21:29:15+09:00</lastmod>
   </url><url>
     <loc>https://joungsik.github.io/tags/typescript/</loc>
@@ -39,9 +48,6 @@
     <lastmod>2021-10-10T20:18:48+09:00</lastmod>
   </url><url>
     <loc>https://joungsik.github.io/tags/programmers/</loc>
-    <lastmod>2021-10-10T01:43:24+09:00</lastmod>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/ruby/</loc>
     <lastmod>2021-10-10T01:43:24+09:00</lastmod>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_10/</loc>
