@@ -6,7 +6,16 @@
     <description>Recent content in ruby on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 13 Oct 2021 23:49:41 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Oct 2021 05:43:31 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rails Devise, Permission 관리 라이브러리</title>
+      <link>https://joungsik.github.io/post/2021_10_15/</link>
+      <pubDate>Fri, 15 Oct 2021 05:43:31 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_15/</guid>
+      <description>Rails Devise, Permission 관리 라이브러리, rolify + cancancan 사용하기</description>
+    </item>
+    
     <item>
       <title>루비로 배우는 객체지향 디자인 1장</title>
       <link>https://joungsik.github.io/post/2021_10_13/</link>
