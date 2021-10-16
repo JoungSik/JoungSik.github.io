@@ -6,7 +6,16 @@
     <description>Recent content in ruby on rails on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 15 Oct 2021 05:43:31 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/ruby-on-rails/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Oct 2021 09:40:25 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/ruby-on-rails/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ruby On Rails API mode 에서 SNS 로그인 구현</title>
+      <link>https://joungsik.github.io/post/2021_10_16/</link>
+      <pubDate>Sat, 16 Oct 2021 09:40:25 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_16/</guid>
+      <description>Ruby On Rails API mode 에서 SNS 로그인을 omniauth 로 구현</description>
+    </item>
+    
     <item>
       <title>Rails Devise, Permission 관리 라이브러리</title>
       <link>https://joungsik.github.io/post/2021_10_15/</link>
