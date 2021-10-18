@@ -6,20 +6,11 @@
     <description>Recent content in Tags on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 17 Oct 2021 07:44:15 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>programmers</title>
-      <link>https://joungsik.github.io/tags/programmers/</link>
-      <pubDate>Sun, 17 Oct 2021 07:44:15 +0900</pubDate>
-      
-      <guid>https://joungsik.github.io/tags/programmers/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Mon, 18 Oct 2021 23:28:45 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ruby</title>
       <link>https://joungsik.github.io/tags/ruby/</link>
-      <pubDate>Sun, 17 Oct 2021 07:44:15 +0900</pubDate>
+      <pubDate>Mon, 18 Oct 2021 23:28:45 +0900</pubDate>
       
       <guid>https://joungsik.github.io/tags/ruby/</guid>
       <description></description>
@@ -28,9 +19,27 @@
     <item>
       <title>ruby on rails</title>
       <link>https://joungsik.github.io/tags/ruby-on-rails/</link>
-      <pubDate>Sat, 16 Oct 2021 09:40:25 +0900</pubDate>
+      <pubDate>Mon, 18 Oct 2021 23:28:45 +0900</pubDate>
       
       <guid>https://joungsik.github.io/tags/ruby-on-rails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SNS 로그인</title>
+      <link>https://joungsik.github.io/tags/sns-%EB%A1%9C%EA%B7%B8%EC%9D%B8/</link>
+      <pubDate>Mon, 18 Oct 2021 23:28:45 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/tags/sns-%EB%A1%9C%EA%B7%B8%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programmers</title>
+      <link>https://joungsik.github.io/tags/programmers/</link>
+      <pubDate>Sun, 17 Oct 2021 07:44:15 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/tags/programmers/</guid>
       <description></description>
     </item>
     
