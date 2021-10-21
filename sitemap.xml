@@ -2,11 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://joungsik.github.io/tags/docker/</loc>
+    <lastmod>2021-10-22T01:13:34+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/github/</loc>
+    <lastmod>2021-10-22T01:13:34+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/post/2021_10_21/</loc>
+    <lastmod>2021-10-22T01:13:34+09:00</lastmod>
+  </url><url>
     <loc>https://joungsik.github.io/</loc>
-    <lastmod>2021-10-20T01:49:35+09:00</lastmod>
+    <lastmod>2021-10-22T01:13:34+09:00</lastmod>
   </url><url>
     <loc>https://joungsik.github.io/post/</loc>
-    <lastmod>2021-10-20T01:49:35+09:00</lastmod>
+    <lastmod>2021-10-22T01:13:34+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/</loc>
+    <lastmod>2021-10-22T01:13:34+09:00</lastmod>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_19/</loc>
     <lastmod>2021-10-20T01:49:35+09:00</lastmod>
@@ -15,9 +27,6 @@
     <lastmod>2021-10-20T01:49:35+09:00</lastmod>
   </url><url>
     <loc>https://joungsik.github.io/tags/ruby-on-rails/</loc>
-    <lastmod>2021-10-20T01:49:35+09:00</lastmod>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/</loc>
     <lastmod>2021-10-20T01:49:35+09:00</lastmod>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_18/</loc>
@@ -55,9 +64,6 @@
   </url><url>
     <loc>https://joungsik.github.io/tags/typescript/</loc>
     <lastmod>2021-10-12T21:29:15+09:00</lastmod>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/github/</loc>
-    <lastmod>2021-10-11T19:28:58+09:00</lastmod>
   </url><url>
     <loc>https://joungsik.github.io/tags/vercel/</loc>
     <lastmod>2021-10-11T19:28:58+09:00</lastmod>
