@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://joungsik.github.io/</loc>
+    <lastmod>2021-10-23T12:21:19+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/oop/</loc>
+    <lastmod>2021-10-23T12:21:19+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/post/</loc>
+    <lastmod>2021-10-23T12:21:19+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/ruby/</loc>
+    <lastmod>2021-10-23T12:21:19+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/</loc>
+    <lastmod>2021-10-23T12:21:19+09:00</lastmod>
+  </url><url>
+    <loc>https://joungsik.github.io/post/2021_10_23/</loc>
+    <lastmod>2021-10-23T12:21:19+09:00</lastmod>
+  </url><url>
     <loc>https://joungsik.github.io/tags/docker/</loc>
     <lastmod>2021-10-22T01:13:34+09:00</lastmod>
   </url><url>
@@ -11,19 +29,7 @@
     <loc>https://joungsik.github.io/post/2021_10_21/</loc>
     <lastmod>2021-10-22T01:13:34+09:00</lastmod>
   </url><url>
-    <loc>https://joungsik.github.io/</loc>
-    <lastmod>2021-10-22T01:13:34+09:00</lastmod>
-  </url><url>
-    <loc>https://joungsik.github.io/post/</loc>
-    <lastmod>2021-10-22T01:13:34+09:00</lastmod>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/</loc>
-    <lastmod>2021-10-22T01:13:34+09:00</lastmod>
-  </url><url>
     <loc>https://joungsik.github.io/post/2021_10_19/</loc>
-    <lastmod>2021-10-20T01:49:35+09:00</lastmod>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/ruby/</loc>
     <lastmod>2021-10-20T01:49:35+09:00</lastmod>
   </url><url>
     <loc>https://joungsik.github.io/tags/ruby-on-rails/</loc>
@@ -46,9 +52,6 @@
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_15/</loc>
     <lastmod>2021-10-15T20:55:17+09:00</lastmod>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/oop/</loc>
-    <lastmod>2021-10-16T02:42:28+09:00</lastmod>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_14/</loc>
     <lastmod>2021-10-16T02:42:28+09:00</lastmod>
