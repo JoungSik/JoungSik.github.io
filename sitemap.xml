@@ -4,121 +4,201 @@
   <url>
     <loc>https://joungsik.github.io/</loc>
     <lastmod>2021-10-24T17:26:07+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/</loc>
     <lastmod>2021-10-24T17:26:07+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/programmers/</loc>
     <lastmod>2021-10-24T17:26:07+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/ruby/</loc>
     <lastmod>2021-10-24T17:26:07+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/</loc>
     <lastmod>2021-10-24T17:26:07+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_24/</loc>
     <lastmod>2021-10-24T17:26:07+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/oop/</loc>
     <lastmod>2021-10-23T12:21:19+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_23/</loc>
     <lastmod>2021-10-23T12:21:19+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/docker/</loc>
     <lastmod>2021-10-22T01:13:34+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/github/</loc>
     <lastmod>2021-10-22T01:13:34+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_21/</loc>
     <lastmod>2021-10-22T01:13:34+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_19/</loc>
     <lastmod>2021-10-20T01:49:35+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/ruby-on-rails/</loc>
     <lastmod>2021-10-20T01:49:35+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_18/</loc>
     <lastmod>2021-10-18T23:34:04+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/sns-%EB%A1%9C%EA%B7%B8%EC%9D%B8/</loc>
     <lastmod>2021-10-18T23:34:04+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_17/</loc>
     <lastmod>2021-10-17T07:45:27+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_16/</loc>
     <lastmod>2021-10-16T09:40:23+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_15/</loc>
     <lastmod>2021-10-15T20:55:17+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_14/</loc>
     <lastmod>2021-10-16T02:42:28+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_13/</loc>
     <lastmod>2021-10-13T23:52:38+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_12/</loc>
     <lastmod>2021-10-12T21:29:15+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/react-hook-form/</loc>
     <lastmod>2021-10-12T21:29:15+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/typescript/</loc>
     <lastmod>2021-10-12T21:29:15+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/vercel/</loc>
     <lastmod>2021-10-11T19:28:58+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_11/</loc>
     <lastmod>2021-10-11T19:28:58+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/react/</loc>
     <lastmod>2021-10-10T20:18:48+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/react-query/</loc>
     <lastmod>2021-10-10T20:18:48+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_10_2/</loc>
     <lastmod>2021-10-10T20:18:48+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_10/</loc>
     <lastmod>2021-10-10T01:43:24+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_09/</loc>
     <lastmod>2021-10-09T23:32:22+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/chakra-ui/</loc>
     <lastmod>2021-10-09T23:32:22+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_08/</loc>
     <lastmod>2021-10-10T20:18:26+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_07/</loc>
     <lastmod>2021-10-07T23:28:25+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/side-project/</loc>
     <lastmod>2021-10-09T01:01:52+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_06/</loc>
     <lastmod>2021-10-09T01:01:52+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/go/</loc>
     <lastmod>2021-10-07T23:15:56+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/hugo/</loc>
     <lastmod>2021-10-07T23:15:56+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_05/</loc>
     <lastmod>2021-10-07T23:15:56+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/readme/</loc>
     <lastmod>2021-10-09T01:55:39+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/categories/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
