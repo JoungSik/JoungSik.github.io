@@ -6,7 +6,16 @@
     <description>Recent content on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 24 Oct 2021 10:55:42 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Oct 2021 22:03:50 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo 블로그 SEO 적용하기</title>
+      <link>https://joungsik.github.io/post/2021_10_25/</link>
+      <pubDate>Mon, 25 Oct 2021 22:03:50 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_25/</guid>
+      <description>Hugo 블로그 SEO 적용하기</description>
+    </item>
+    
     <item>
       <title>프로그래머스 알고리즘 문제 Level 1 (10.18 ~ 10.24, 4주차)</title>
       <link>https://joungsik.github.io/post/2021_10_24/</link>
