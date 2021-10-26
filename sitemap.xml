@@ -2,6 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://joungsik.github.io/post/2021_10_26/</loc>
+    <lastmod>2021-10-26T21:51:01+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/gts/</loc>
+    <lastmod>2021-10-26T21:51:01+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/</loc>
+    <lastmod>2021-10-26T21:51:01+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/post/</loc>
+    <lastmod>2021-10-26T21:51:01+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/</loc>
+    <lastmod>2021-10-26T21:51:01+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/typescript/</loc>
+    <lastmod>2021-10-26T21:51:01+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://joungsik.github.io/tags/hugo/</loc>
     <lastmod>2021-10-25T22:08:03+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -12,22 +42,7 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://joungsik.github.io/</loc>
-    <lastmod>2021-10-25T22:08:03+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/post/</loc>
-    <lastmod>2021-10-25T22:08:03+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://joungsik.github.io/tags/seo/</loc>
-    <lastmod>2021-10-25T22:08:03+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/</loc>
     <lastmod>2021-10-25T22:08:03+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -123,11 +138,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/react-hook-form/</loc>
-    <lastmod>2021-10-12T21:29:15+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/typescript/</loc>
     <lastmod>2021-10-12T21:29:15+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

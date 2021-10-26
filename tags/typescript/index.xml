@@ -6,7 +6,16 @@
     <description>Recent content in TypeScript on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 12 Oct 2021 21:23:34 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Oct 2021 21:49:06 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>google typescript guide 로 typescript 프로젝트 설정</title>
+      <link>https://joungsik.github.io/post/2021_10_26/</link>
+      <pubDate>Tue, 26 Oct 2021 21:49:06 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_26/</guid>
+      <description>google typescript guide 로 typescript 프로젝트 설정</description>
+    </item>
+    
     <item>
       <title>form 처리를 위한 라이브러리, TypeScript 로 사용하기</title>
       <link>https://joungsik.github.io/post/2021_10_12/</link>
