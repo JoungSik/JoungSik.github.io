@@ -6,7 +6,16 @@
     <description>Recent content on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 26 Oct 2021 21:49:06 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Oct 2021 23:59:59 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ruby JSON.parse key symbolize</title>
+      <link>https://joungsik.github.io/post/2021_10_29/</link>
+      <pubDate>Fri, 29 Oct 2021 23:59:59 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_29/</guid>
+      <description>Ruby JSON.parse key symbolize</description>
+    </item>
+    
     <item>
       <title>google typescript guide 로 typescript 프로젝트 설정</title>
       <link>https://joungsik.github.io/post/2021_10_26/</link>
