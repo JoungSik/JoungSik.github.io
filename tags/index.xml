@@ -6,7 +6,16 @@
     <description>Recent content in Tags on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 29 Oct 2021 23:59:59 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Oct 2021 21:36:43 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>github</title>
+      <link>https://joungsik.github.io/tags/github/</link>
+      <pubDate>Sat, 30 Oct 2021 21:36:43 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/tags/github/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ruby</title>
       <link>https://joungsik.github.io/tags/ruby/</link>
@@ -76,15 +85,6 @@
       <pubDate>Thu, 21 Oct 2021 23:59:59 +0900</pubDate>
       
       <guid>https://joungsik.github.io/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>github</title>
-      <link>https://joungsik.github.io/tags/github/</link>
-      <pubDate>Thu, 21 Oct 2021 23:59:59 +0900</pubDate>
-      
-      <guid>https://joungsik.github.io/tags/github/</guid>
       <description></description>
     </item>
     
