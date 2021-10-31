@@ -6,7 +6,16 @@
     <description>Recent content on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 30 Oct 2021 21:36:43 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Oct 2021 22:02:08 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>프로그래머스 알고리즘 문제 Level 1 (10.25 ~ 10.31, 5주차)</title>
+      <link>https://joungsik.github.io/post/2021_10_31/</link>
+      <pubDate>Sun, 31 Oct 2021 22:02:08 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_10_31/</guid>
+      <description>프로그래머스 알고리즘 문제 Level 1</description>
+    </item>
+    
     <item>
       <title>Pull Requests 에서 연결된 issue 한번에 닫기</title>
       <link>https://joungsik.github.io/post/2021_10_30/</link>
