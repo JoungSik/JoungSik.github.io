@@ -6,7 +6,16 @@
     <description>Recent content in ruby on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 31 Oct 2021 22:02:08 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Nov 2021 23:59:59 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Faraday - Ruby HTTP Client library</title>
+      <link>https://joungsik.github.io/post/2021_11_01/</link>
+      <pubDate>Mon, 01 Nov 2021 23:59:59 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_11_01/</guid>
+      <description>Faraday - Ruby HTTP Client library</description>
+    </item>
+    
     <item>
       <title>프로그래머스 알고리즘 문제 Level 1 (10.25 ~ 10.31, 5주차)</title>
       <link>https://joungsik.github.io/post/2021_10_31/</link>
