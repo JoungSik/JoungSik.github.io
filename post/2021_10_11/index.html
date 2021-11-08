@@ -167,9 +167,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Mon, 11 Oct 2021 19:28:58 &#43;0900"
+                  Modified <relative-time datetime="Tue, 09 Nov 2021 00:31:01 &#43;0900"
                     class="no-wrap">
-                    Mon, 11 Oct 2021 19:28:58 &#43;0900</relative-time>
+                    Tue, 09 Nov 2021 00:31:01 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -229,14 +229,14 @@
 <p>오늘까지 작업했던 LinkCloud-Web 의 개발버전 테스트를 위해 코드를 작성하고 Deploy 를 진행했습니다.</p>
 <p>그런데 배포를 하던 중 서버의 주소를 환경변수 값으로 설정했던 부분을 잊어 Vercel 에 환경변수 값을 지정해줬는데 여전히 localhost 값으로 되어 있어 글을 작성하게 되었습니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">const</span> <span class="nx">baseUrl</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SERVER_URL</span> <span class="o">||</span> <span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">;</span>
-</code></pre></div><p><img src="/post/2021_10_11/1.png" alt="1"></p>
-<p><img src="/post/2021_10_11/2.png" alt="2"></p>
+</code></pre></div><p><img src="/post/2021_10/2021_10_11/1.png" alt="1"></p>
+<p><img src="/post/2021_10/2021_10_11/2.png" alt="2"></p>
 <p>환경변수의 키 값이 잘못된건 아닐까 하는 생각에 키를 변경했습니다.</p>
 <p>앞에 REACT_APP_ 를 붙이면 됩니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">const</span> <span class="nx">baseUrl</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_SERVER_URL</span> <span class="o">||</span> <span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">;</span>
 </code></pre></div><p>코드뿐만 아니라 vercel 에서도 값을 변경해줘야 합니다.</p>
-<p><img src="/post/2021_10_11/3.png" alt="3"></p>
-<p><img src="/post/2021_10_11/4.png" alt="4"></p>
+<p><img src="/post/2021_10/2021_10_11/3.png" alt="3"></p>
+<p><img src="/post/2021_10/2021_10_11/4.png" alt="4"></p>
 <p>해결 방법은 이렇게 끝났지만 환경변수 이야기가 나온김에 github 에서는 빌드시 환경변수를 어떻게 설정하고 사용하는지 알아보죠.</p>
 <hr>
 <p>먼저 환경변수 값은 API_KEY 처럼 노출하면 안되는 값이나 노출시키고 싶지 않은 부분을 코드에 노출시키지 않고 작성하는 방법입니다.</p>
@@ -283,7 +283,7 @@
 </span></code></pre></div><p>이중에서 MASTER_KEY 는 서버의 인증정보와 관련된 서버 내부 Key 값들을 열람할 수 있는 암호키 이기 때문에 더 조심해야 하는 값 입니다.</p>
 <p>실제 깃헙 저장소의 settings 에 들어가보면 이미지처럼 그 값을 볼 수 없고 update/remove 만 할 수 있게 되어 있는데 때때로는 답답하지만 그 값을 좀 더 안전하게 지켜준다는 느낌이 들어 좋습니다.</p>
 <p>대신 까먹으면 엄청나게 힘들어져서.. 따로 <a href="https://www.notion.so/">Notion</a> 페이지에도 저장하고 있습니다..</p>
-<p><img src="/post/2021_10_11/5.png" alt="5"></p>
+<p><img src="/post/2021_10/2021_10_11/5.png" alt="5"></p>
 </article>
               </div>
             </div>

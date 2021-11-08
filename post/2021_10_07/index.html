@@ -167,9 +167,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Thu, 07 Oct 2021 23:28:25 &#43;0900"
+                  Modified <relative-time datetime="Tue, 09 Nov 2021 00:28:43 &#43;0900"
                     class="no-wrap">
-                    Thu, 07 Oct 2021 23:28:25 &#43;0900</relative-time>
+                    Tue, 09 Nov 2021 00:28:43 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -246,7 +246,7 @@ gem 'rock-cors'
 </code></pre></div><h2 id="devise-모델-설정">devise 모델 설정</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails g devise:install
 </code></pre></div><p>그러면 이미지처럼 devise 에 대한 설명을 콘솔로 출력해줍니다. 이 내용을 보고 따라해도 괜찮습니다.</p>
-<p><img src="/post/2021_10_07/devise_install.png" alt="devise_install"></p>
+<p><img src="/post/2021_10/2021_10_07/devise_install.png" alt="devise_install"></p>
 <p>지금 중요한 부분은 devise 설정이기 때문에 나머지 설정을 진행해보죠!</p>
 <ol>
 <li>유저 생성</li>
@@ -257,7 +257,7 @@ gem 'rock-cors'
 rails db:create
 rails db:migrate
 </code></pre></div><p>진행하면 아래 이미지처럼 DB 에 테이블이 생기는 모습을 볼 수 있습니다. 지금은 DB 를 따로 설정해서 생성한게 아니라서 sqlite 로 되어 있지만 rails new 명령을 실행하실때 DB 선택을 해주시면 됩니다.</p>
-<p><img src="/post/2021_10_07/database.png" alt="database"></p>
+<p><img src="/post/2021_10/2021_10_07/database.png" alt="database"></p>
 <p>다른 사이트에서는 jwt 토큰을 관리하는 테이블을 따로 만들지만 이번엔 따로 만들지 않고 진행하겠습니다.</p>
 <p>app/model/user.rb 파일을 수정합니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
@@ -280,7 +280,7 @@ rails db:migrate
 </code></pre></div><p>다시 마이그레이션을 해줍니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails db:migrate
 </code></pre></div><p>jti 가 생성 된걸 확인 할 수 있습니다.</p>
-<p><img src="/post/2021_10_07/add_jti.png" alt="add_jti"></p>
+<p><img src="/post/2021_10/2021_10_07/add_jti.png" alt="add_jti"></p>
 <h2 id="controllers-설정">Controllers 설정</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails g devise:controllers users
 </code></pre></div><p>이제 app/controllers/users 안에 생성된 devise controllers 를 볼 수 있습니다.</p>
@@ -342,7 +342,7 @@ rails db:migrate
              <span class="p">}</span>
 <span class="k">end</span>
 </code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails routes
-</code></pre></div><p><img src="/post/2021_10_07/routes.png" alt="routes"></p>
+</code></pre></div><p><img src="/post/2021_10/2021_10_07/routes.png" alt="routes"></p>
 <h2 id="devise-추가-설정">devise 추가 설정</h2>
 <p>config/initializers/devise.rb 에 추가 설정을 합니다.</p>
 <p>좀 더 다양한 설정이 있지만 저는 이정도만 진행 했습니다. 더 많은 설정은 <a href="https://github.com/waiting-for-dev/devise-jwt">devise-jwt</a> 에서 확인하시면 됩니다.</p>
@@ -365,10 +365,10 @@ rails db:migrate
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">curl -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;{ &#34;email&#34;: &#34;test@example.com&#34;, &#34;password&#34;: &#34;qwer1234&#34; }&#39;</span> http://localhost:3000/users
 </code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;message&#34;</span><span class="p">:</span><span class="s2">&#34;회원가입에 성공했습니다.&#34;</span><span class="p">}</span>
 </code></pre></div><p>형태의 응답이 오는걸 확인 할 수 있습니다.</p>
-<p><img src="/post/2021_10_07/register.png" alt="register"></p>
+<p><img src="/post/2021_10/2021_10_07/register.png" alt="register"></p>
 <p>다음은 로그인 입니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">curl -X POST -i -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;{ &#34;email&#34;: &#34;test@example.com&#34;, &#34;password&#34;: &#34;qwer1234&#34; }&#39;</span> http://localhost:3000/login
-</code></pre></div><p><img src="/post/2021_10_07/login.png" alt="login"></p>
+</code></pre></div><p><img src="/post/2021_10/2021_10_07/login.png" alt="login"></p>
 <p>헤더에 있는 Authorization 를 jwt 인증이 필요한 request 의 헤더에 넣으면 jwt 인증이 확인 됩니다.</p>
 </article>
               </div>

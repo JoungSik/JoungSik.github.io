@@ -6,7 +6,16 @@
     <description>Recent content on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 06 Nov 2021 15:06:12 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Nov 2021 23:42:46 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 설치 및 프로젝트 설정</title>
+      <link>https://joungsik.github.io/post/2021_11_08/</link>
+      <pubDate>Mon, 08 Nov 2021 23:42:46 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_11_08/</guid>
+      <description>Go 설치 및 go module 프로젝트 설정</description>
+    </item>
+    
     <item>
       <title>변경에 유연한 컴포넌트 만들기 읽고 생각 정리</title>
       <link>https://joungsik.github.io/post/2021_11_06/</link>

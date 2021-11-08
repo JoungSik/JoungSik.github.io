@@ -167,9 +167,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sat, 16 Oct 2021 09:40:23 &#43;0900"
+                  Modified <relative-time datetime="Tue, 09 Nov 2021 00:31:25 &#43;0900"
                     class="no-wrap">
-                    Sat, 16 Oct 2021 09:40:23 &#43;0900</relative-time>
+                    Tue, 09 Nov 2021 00:31:25 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -240,15 +240,15 @@
 </code></pre></div><ul>
 <li>다음은 <a href="https://developers.naver.com">Naver Developers</a> 페이지에 Application 등록을 하고 Application 정보의 <strong>Client ID</strong> 와 <strong>Client Secret</strong> 를 잘 저장해줍니다.</li>
 </ul>
-<p><img src="/post/2021_10_16/1.png" alt="1"></p>
+<p><img src="/post/2021_10/2021_10_16/1.png" alt="1"></p>
 <ul>
 <li>두번째 탭의 API 설정에서 네아로 (네이버 아이디로 로그인) 에서 유저에게 받아올 정보를 체크해줍니다.</li>
 </ul>
-<p><img src="/post/2021_10_16/2.png" alt="2"></p>
+<p><img src="/post/2021_10/2021_10_16/2.png" alt="2"></p>
 <ul>
 <li>아래로 스크롤 해서 로그인 오픈 API 서비스 환경에서 서비스 URL 과 네이버 아이디로 로그인 Callback URL 을 등록합니다.</li>
 </ul>
-<p><img src="/post/2021_10_16/3.png" alt="3"></p>
+<p><img src="/post/2021_10/2021_10_16/3.png" alt="3"></p>
 <ul>
 <li>devise 로 생성한 user.rb 파일을 수정합니다.</li>
 </ul>
@@ -356,7 +356,7 @@
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div><p>이렇게 구현하면 되고 로그인 하는 방법은 http://localhost:3000/auth/naver 로 웹 페이지 이동을 하면 아래 이미지처럼 SNS 인증 페이지로 넘어가고 로그인이 완료되면 redirect_to 를 통해 지정한 링크로 넘어가게 됩니다.</p>
-<p><img src="/post/2021_10_16/4.png" alt="4"></p>
+<p><img src="/post/2021_10/2021_10_16/4.png" alt="4"></p>
 <p>약 2일 약간 안되는 삽질을 통해 구현 했는데 삽질을 통해 얻은 경험은 쉽게 안잊혀지는 것 같습니다.</p>
 <p>물론 몇개월, 몇년이 지나면 잊혀지겠지만 그때 이 글을 보면 다시 기억이 새록새록 떠오를 것 같네요.</p>
 <h2 id="참조-링크">참조 링크</h2>

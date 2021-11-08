@@ -167,9 +167,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Fri, 22 Oct 2021 01:13:34 &#43;0900"
+                  Modified <relative-time datetime="Tue, 09 Nov 2021 00:32:51 &#43;0900"
                     class="no-wrap">
-                    Fri, 22 Oct 2021 01:13:34 &#43;0900</relative-time>
+                    Tue, 09 Nov 2021 00:32:51 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -281,11 +281,11 @@
 </span><span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io/company/base-image:latest</span><span class="w">
 </span></code></pre></div><p>환경 변수로 받게 되는 TOKEN 값을 GitHub 홈페이지에서 입력해줍니다.</p>
 <p>organizations 설정 페이지에서 Secrets 를 공유하는 방법도 있지만 유료 플랜이고 현재 회사에서는 유료로 GitHub 을 사용하고 있지 않아 개별 저장소로 가서 TOKEN 값을 입력합니다.</p>
-<p><img src="/post/2021_10_21/1.png" alt="1"></p>
+<p><img src="/post/2021_10/2021_10_21/1.png" alt="1"></p>
 <p>TOKEN 값을 입력하는 방법은 <a href="https://joungsik.medium.com/github-actions-%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4-docker-hub-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0-c92452c71e90">예전 블로그</a>에 작성해두었습니다.</p>
-<p><img src="/post/2021_10_21/2.png" alt="2"></p>
+<p><img src="/post/2021_10/2021_10_21/2.png" alt="2"></p>
 <p>이제 Public 으로 설정을 바꿔주고 다시 dockerfile 을 수정해 packages 와 연결을 해줍니다.</p>
-<p><img src="/post/2021_10_21/3.png" alt="3"></p>
+<p><img src="/post/2021_10/2021_10_21/3.png" alt="3"></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> ruby:3.0.0</span><span class="err">
 </span><span class="err"></span><span class="k">LABEL</span> org.opencontainers.image.source https://github.com/OWNER/REPO<span class="err">
 </span><span class="err">
@@ -298,8 +298,8 @@
 </span><span class="err"></span><span class="k">RUN</span> mkdir -p /workspace/tmp<span class="err">
 </span><span class="err"></span><span class="k">RUN</span> mkdir -p /workspace/tmp/pids<span class="err">
 </span></code></pre></div><p>그러면 다음처럼 깔끔하게 정리되어 나옵니다.</p>
-<p><img src="/post/2021_10_21/4.png" alt="4"></p>
-<p><img src="/post/2021_10_21/5.png" alt="5"></p>
+<p><img src="/post/2021_10/2021_10_21/4.png" alt="4"></p>
+<p><img src="/post/2021_10/2021_10_21/5.png" alt="5"></p>
 <h2 id="적용">적용</h2>
 <p>다음은 이런 도커 컨테이너를 불러와 작업하는 방법 입니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> ghcr.io/company/base-image:latest</span><span class="err">
