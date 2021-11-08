@@ -6,7 +6,16 @@
     <description>Recent content in Posts on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 08 Nov 2021 23:42:46 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Nov 2021 03:38:12 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기</title>
+      <link>https://joungsik.github.io/post/2021_11_09/</link>
+      <pubDate>Tue, 09 Nov 2021 03:38:12 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_11_09/</guid>
+      <description>Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기</description>
+    </item>
+    
     <item>
       <title>Go 설치 및 프로젝트 설정</title>
       <link>https://joungsik.github.io/post/2021_11_08/</link>

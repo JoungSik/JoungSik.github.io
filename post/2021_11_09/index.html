@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://joungsik.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://joungsik.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://joungsik.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://joungsik.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://joungsik.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://joungsik.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://joungsik.github.io/css/syntax.css' />
+    <title>Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기 - JoungSik</title>
+    
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
+    
+    <meta name="theme-color" content="#1e2327">
+    <meta name="naver-site-verification" content="897620aba8ba7aa292baac576c13b337c3c0b021" />
+
+    
+    <meta name="description"
+  content="Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기" />
+<meta name="keywords"
+  content='ruby, rails' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://joungsik.github.io/post/2021_11_09/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기 - JoungSik" />
+<meta name="twitter:description"
+  content="Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기" />
+<meta name="twitter:site" content="https://joungsik.github.io/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://joungsik.github.io/">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기 - JoungSik">
+<meta property="og:description"
+  content="Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기" />
+<meta property="og:url" content="https://joungsik.github.io/post/2021_11_09/" />
+<meta property="og:site_name" content="Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기" />
+<meta property="og:image"
+  content="https://joungsik.github.io/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2021-11-09 03:38:12 &#43;0900 KST" />
+
+
+
+
+
+
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DL4SWDGV72"></script>
+<script>
+  if (navigator.doNotTrack !== '1') {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-DL4SWDGV72');
+  }
+</script>
+
+
+
+</head>
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://joungsik.github.io/">
+        <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://joungsik.github.io/">
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://joungsik.github.io/">
+        <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+          width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+  
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://joungsik.github.io/">
+                  <img class=" avatar-user"
+                    src="https://avatars.githubusercontent.com/u/6128807?v=4"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://joungsik.github.io/">JoungSik</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://joungsik.github.io/post/2021_11_09/">Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Tue, 09 Nov 2021 03:38:12 &#43;0900"
+                    class="no-wrap">
+                    Tue, 09 Nov 2021 03:38:12 &#43;0900</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Tue, 09 Nov 2021 03:40:36 &#43;0900"
+                    class="no-wrap">
+                    Tue, 09 Nov 2021 03:40:36 &#43;0900</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" class="btn btn-octicon m-0 mr-2 p-2" aria-haspopup="menu" aria-label="Table of Contents" role="button">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                          781 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/ruby">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      ruby
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/rails">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      rails
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5">
+                <article class="markdown-body entry-content container-lg"><h1 id="rails-api-mode-에서-activeadmin-을-사용해-admin-페이지-만들기">Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기</h1>
+<p>레일즈는 원래 풀스택 프레임워크 입니다. 하지만 옵션에 따라서는 API 형태로만 프레임워크를 사용 할 수도 있습니다.</p>
+<p>저는 특별한 일이 없다면 레일즈는 항상 API 모드로만 사용하는데 별도의 관리자 페이지를 위해서 일부러 풀스택 프레임워크를 사용하는 방향은 좋다고 생각하지 않아 항상 이런 관리자 페이지를 만들 수 있는 라이브러리에 대해서 고민을 하고 있습니다.</p>
+<p>이번에 2개의 라이브러리 중에서 고민하다가 하나로 결정을 내리게 되어 그 사용법에 대해서 적고자 합니다.</p>
+<p>사용할 라이브러리는 다음과 같습니다. <a href="https://github.com/activeadmin/activeadmin">activeadmin/activeadmin</a></p>
+<h2 id="설치">설치</h2>
+<p><a href="https://activeadmin.info/0-installation.html">installation</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">&#39;activeadmin&#39;</span>
+</code></pre></div><p>하지만 설치 전 분명 API 모드라서 에러가 생길 것이기 때문에 에러가 없도록 코드를 먼저 수정해줍니다.</p>
+<p>config/application.rb</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s2">&#34;sprockets/railtie&#34;</span> <span class="c1"># 주석처리 해제</span>
+
+<span class="c1"># 아래 코드는 Application class 안에 작성합니다.</span>
+<span class="n">config</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Flash</span>
+<span class="n">config</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">MethodOverride</span>
+<span class="n">config</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Cookies</span>
+<span class="n">config</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Session</span><span class="o">::</span><span class="no">CookieStore</span>
+</code></pre></div><p>app/controllers/application_controller.rb</p>
+<p>상속 받는 Controller 를 API 에서 Base 로 바꾸고 필요에 따라 API 를 상속 받아 씁니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+</code></pre></div><p>app/assets/config/manifest.js</p>
+<p>파일을 추가합니다. 따로 내용은 추가하지 않아도 됩니다.</p>
+<p>Gemfile</p>
+<p>activeadmin 에서는 sass 를 쓰나봅니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">&#39;sass-rails&#39;</span>
+</code></pre></div><p>이제 드디어 설치합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails g active_admin:install --skip-users
+</code></pre></div><p>옵션에 따라 명령어가 조금 달라집니다.</p>
+<p>devise 를 사용하지 않는 경우, 이미 존재하는 user 클래스가 있다면? 저는 이미 사용하고 있는 클래스가 있어서 적용했습니다.</p>
+<p><img src="/post/2021_11/2021_11_09/1.png" alt="1"></p>
+<p>설치가 확인 되었으니 기본설정을 합니다.</p>
+<p>대체로 admin 유저로 설정이 되어 있으니 user 로 바꿔 줍니다.</p>
+<p>config/initializers/active_admin.rb</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">authentication_method</span> <span class="o">=</span> <span class="ss">:authenticate_user!</span> <span class="c1"># 보안 증명 메서드</span>
+<span class="n">config</span><span class="o">.</span><span class="n">current_user_method</span> <span class="o">=</span> <span class="ss">:current_user</span> <span class="c1"># 접속 유저 확인 메서드</span>
+<span class="n">config</span><span class="o">.</span><span class="n">logout_link_path</span> <span class="o">=</span> <span class="ss">:destroy_user_session_path</span> <span class="c1"># 로그아웃 링크도 admin 으로 되어 있어 수정</span>
+<span class="n">config</span><span class="o">.</span><span class="n">comments</span> <span class="o">=</span> <span class="kp">false</span> <span class="c1"># 무슨 설정인지는 모르겠지만 상단에서 누르면 에러가 나서 없앴습니다.</span>
+</code></pre></div><p>이제 다시 서버를 리스타트 해줍니다.</p>
+<p>다만 이렇게 해주었더니 문제가 발생했습니다.</p>
+<p><img src="/post/2021_11/2021_11_09/2.png" alt="2"></p>
+<p>당장 해결할 방법은 찾지 못했는데 아무래도 꼼수를 조금 찾아봐야 해결 할 수 있을 것 같네요.</p>
+<hr>
+<p>아니면 관리자 페이지도 분리하거나 아니면 풀스택으로 관리자 페이지만 구현하고 나머지는 API 형태로 만드는것도 방법일듯 합니다.</p>
+<p>다음에는 풀스택 프레임워크로 레일즈를 사용할때 적용해보도록 하겠습니다.</p>
+<h2 id="참고">참고</h2>
+<p><a href="https://medium.com/alturasoluciones/how-to-set-up-rails-api-app-to-use-activeadmin-79b418df8aad">How to set up Rails API app to use ActiveAdmin?</a></p>
+<p><a href="https://hwangwoojindev.tistory.com/4">루비 온 레일즈를 위한 관리 프레임워크, ActiveAdmin</a></p>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+ 
+ 
+ 
+ window.onload = function () {
+   const header = document.getElementById('post-header');
+   const headerHeight = header.offsetHeight;
+   
+   document.documentElement.style.scrollPaddingTop = headerHeight + 10 + "px";
+ }
+
+ const tocToggleButton = document.getElementById("toc-toggle");
+
+ const tippyInstance = tippy('#toc-toggle', {
+  trigger: 'click',
+  content: '<div id="table-of-contents">\u003cnav id=\u0022TableOfContents\u0022\u003e\n  \u003cul\u003e\n    \u003cli\u003e\u003ca href=\u0022#설치\u0022\u003e설치\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#참고\u0022\u003e참고\u003c\/a\u003e\u003c\/li\u003e\n  \u003c\/ul\u003e\n\u003c\/nav\u003e</div>',
+  allowHTML: true,
+  placement: 'bottom-start',
+  interactive: true,
+  arrow: false,
+  maxWidth: "none",
+  onHide: function () { tocToggleButton.classList.remove("hover"); },
+  onShow: function () { tocToggleButton.classList.add("hover"); },
+  onShown: function () {
+    selectTableOfContentsOption();
+
+    if (window.hasSetupTableOfContentsListeners) {
+      return;
+    }
+
+    const tableOfContents = document.getElementById("table-of-contents");
+    tableOfContents.addEventListener('click', function () {
+      
+      tippyInstance[0].hide();
+    });
+
+    window.hasSetupTableOfContentsListeners = true;
+  }
+ });
+
+ function selectTableOfContentsOption () {
+   const optionSelectedClass = 'table-of-contents-option-selected';
+
+   const tableOfContentsOptions = document.querySelectorAll("#table-of-contents > nav > ul li");
+
+   for (const option of tableOfContentsOptions) {
+     
+
+     const [child] = option.children;
+     if (child.tagName.toLowerCase() !== 'a') {
+       continue;
+     }
+
+     if (window.location.href === child.href) {
+       child.classList.add(optionSelectedClass);
+     } else {
+       child.classList.remove(optionSelectedClass);
+     }
+   }
+ }
+
+ window.onhashchange = selectTableOfContentsOption;
+</script>
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://joungsik.github.io/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://joungsik.github.io/js/github-style.js"></script>
+
+
+
+</html>
