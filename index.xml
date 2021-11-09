@@ -6,7 +6,16 @@
     <description>Recent content on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 09 Nov 2021 03:38:12 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Nov 2021 02:25:28 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rails &#43; React 사용하기</title>
+      <link>https://joungsik.github.io/post/2021_11_10/</link>
+      <pubDate>Wed, 10 Nov 2021 02:25:28 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_11_10/</guid>
+      <description>Rails + React 사용하기</description>
+    </item>
+    
     <item>
       <title>Rails API mode 에서 ActiveAdmin 을 사용해 Admin 페이지 만들기</title>
       <link>https://joungsik.github.io/post/2021_11_09/</link>
@@ -283,7 +292,7 @@
       <pubDate>Tue, 05 Oct 2021 03:05:09 +0900</pubDate>
       
       <guid>https://joungsik.github.io/readme/</guid>
-      <description>History    Company Date     MadxCompany 2019.05 ~   INNORIX 2018.03 ~ 2019.01   The Ventures Lab 2014.01 ~ 2016.10     Work Skills  Ruby / Ruby On Rails React React Native JavaScript Java / Android Python / Selenium Docker  Hobby Skills  Go TypeScript   Side Projects  After (private): gift for mother, Android application to send business cards automatically after a phone call.</description>
+      <description>History    Company Date     MadxCompany 2019.05 ~   INNORIX 2018.03 ~ 2019.01   The Ventures Lab 2014.01 ~ 2016.10     Work Skills  Ruby / Ruby On Rails Go / Echo React React Native JavaScript / TypeScript Java / Android Python / Selenium Docker AWS   Side Projects  After (private): gift for mother, Android application to send business cards automatically after a phone call.</description>
     </item>
     
   </channel>
