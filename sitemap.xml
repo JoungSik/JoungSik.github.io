@@ -3,7 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://joungsik.github.io/</loc>
-    <lastmod>2021-11-19T00:01:09+09:00</lastmod>
+    <lastmod>2021-11-20T01:53:46+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/post/</loc>
+    <lastmod>2021-11-20T01:53:46+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/react/</loc>
+    <lastmod>2021-11-20T01:53:46+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/post/2021_11_19/</loc>
+    <lastmod>2021-11-20T01:53:46+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/</loc>
+    <lastmod>2021-11-20T01:53:46+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -12,17 +32,7 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://joungsik.github.io/post/</loc>
-    <lastmod>2021-11-19T00:01:09+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://joungsik.github.io/tags/ruby/</loc>
-    <lastmod>2021-11-19T00:01:09+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/</loc>
     <lastmod>2021-11-19T00:01:09+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -93,11 +103,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_11_10/</loc>
-    <lastmod>2021-11-10T02:27:13+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/react/</loc>
     <lastmod>2021-11-10T02:27:13+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
