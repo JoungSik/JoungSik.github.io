@@ -10,7 +10,7 @@
     <link rel="stylesheet" href='https://joungsik.github.io/css/light.css' />
     <link rel="stylesheet" href='https://joungsik.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://joungsik.github.io/css/syntax.css' />
-    <title>Golang override json - JoungSik</title>
+    <title>Golang marshal, unmarshal override json - JoungSik</title>
     
     <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
@@ -19,7 +19,7 @@
 
     
     <meta name="description"
-  content="Golang override json" />
+  content="Golang marshal, unmarshal override json" />
 <meta name="keywords"
   content='golang, json' />
 <meta name="robots" content="noodp" />
@@ -27,9 +27,9 @@
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Golang override json - JoungSik" />
+<meta name="twitter:title" content="Golang marshal, unmarshal override json - JoungSik" />
 <meta name="twitter:description"
-  content="Golang override json" />
+  content="Golang marshal, unmarshal override json" />
 <meta name="twitter:site" content="https://joungsik.github.io/" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image"
@@ -37,11 +37,11 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Golang override json - JoungSik">
+<meta property="og:title" content="Golang marshal, unmarshal override json - JoungSik">
 <meta property="og:description"
-  content="Golang override json" />
+  content="Golang marshal, unmarshal override json" />
 <meta property="og:url" content="https://joungsik.github.io/post/2021_11_22/" />
-<meta property="og:site_name" content="Golang override json" />
+<meta property="og:site_name" content="Golang marshal, unmarshal override json" />
 <meta property="og:image"
   content="https://joungsik.github.io/">
 <meta property="og:image:width" content="2048">
@@ -158,7 +158,7 @@
                   <span class="author">
                     <a href="https://joungsik.github.io/">JoungSik</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://joungsik.github.io/post/2021_11_22/">Golang override json</a></strong>
+                      href="https://joungsik.github.io/post/2021_11_22/">Golang marshal, unmarshal override json</a></strong>
                 </h1>
                 <div class="note m-0">
                   Created <relative-time datetime="Mon, 22 Nov 2021 01:22:43 &#43;0900"
@@ -167,9 +167,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Mon, 22 Nov 2021 01:23:47 &#43;0900"
+                  Modified <relative-time datetime="Mon, 22 Nov 2021 01:27:35 &#43;0900"
                     class="no-wrap">
-                    Mon, 22 Nov 2021 01:23:47 &#43;0900</relative-time>
+                    Mon, 22 Nov 2021 01:27:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -193,7 +193,7 @@
                         <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
                       </svg>
                     </summary>
-                          371 Words
+                          373 Words
                     
 
                   </div>
@@ -216,7 +216,7 @@
 
 
               <div class="Box-body px-5 pb-5">
-                <article class="markdown-body entry-content container-lg"><h1 id="golang-override-json">Golang override json</h1>
+                <article class="markdown-body entry-content container-lg"><h1 id="golang-marshal-unmarshal-override-json">Golang marshal, unmarshal override json</h1>
 <p>Golang 으로 웹 어플리케이션을 작성하던 중 DB 에서 가져온 데이터를 JSON 형식으로 반환해줘야 하는 상황이 있습니다.</p>
 <p>그런데 이미 DB 칼럼과 같은 형태로 만들어진 구조체를 그대로 JSON 변환 하면 필요하지 않았던 데이터까지 같이 나오는 경우가 있는데 이때 JSON 으로 변환 하는 코드를 오버라이드 하는 방법을 적어보려고 합니다.</p>
 <p>방법은 굉장히 간단합니다.</p>

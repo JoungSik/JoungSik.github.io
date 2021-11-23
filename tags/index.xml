@@ -6,22 +6,31 @@
     <description>Recent content in Tags on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 22 Nov 2021 01:22:43 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Nov 2021 23:59:59 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>react</title>
+      <link>https://joungsik.github.io/tags/react/</link>
+      <pubDate>Tue, 23 Nov 2021 23:59:59 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TypeScript</title>
+      <link>https://joungsik.github.io/tags/typescript/</link>
+      <pubDate>Tue, 23 Nov 2021 23:59:59 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/tags/typescript/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>golang</title>
       <link>https://joungsik.github.io/tags/golang/</link>
       <pubDate>Mon, 22 Nov 2021 01:22:43 +0900</pubDate>
       
       <guid>https://joungsik.github.io/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>react</title>
-      <link>https://joungsik.github.io/tags/react/</link>
-      <pubDate>Sun, 21 Nov 2021 21:29:44 +0900</pubDate>
-      
-      <guid>https://joungsik.github.io/tags/react/</guid>
       <description></description>
     </item>
     
@@ -67,15 +76,6 @@
       <pubDate>Fri, 12 Nov 2021 00:25:56 +0900</pubDate>
       
       <guid>https://joungsik.github.io/tags/rails/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>TypeScript</title>
-      <link>https://joungsik.github.io/tags/typescript/</link>
-      <pubDate>Fri, 12 Nov 2021 00:25:56 +0900</pubDate>
-      
-      <guid>https://joungsik.github.io/tags/typescript/</guid>
       <description></description>
     </item>
     

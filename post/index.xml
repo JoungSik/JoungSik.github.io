@@ -6,14 +6,23 @@
     <description>Recent content in Posts on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 22 Nov 2021 01:22:43 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Nov 2021 23:59:59 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Golang override json</title>
+      <title>React Context API TypeScript 로 사용하기</title>
+      <link>https://joungsik.github.io/post/2021_11_23/</link>
+      <pubDate>Tue, 23 Nov 2021 23:59:59 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_11_23/</guid>
+      <description>React Context API TypeScript 로 사용하기</description>
+    </item>
+    
+    <item>
+      <title>Golang marshal, unmarshal override json</title>
       <link>https://joungsik.github.io/post/2021_11_22/</link>
       <pubDate>Mon, 22 Nov 2021 01:22:43 +0900</pubDate>
       
       <guid>https://joungsik.github.io/post/2021_11_22/</guid>
-      <description>Golang override json</description>
+      <description>Golang marshal, unmarshal override json</description>
     </item>
     
     <item>

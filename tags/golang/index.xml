@@ -8,12 +8,12 @@
     <language>ko-kr</language>
     <lastBuildDate>Mon, 22 Nov 2021 01:22:43 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Golang override json</title>
+      <title>Golang marshal, unmarshal override json</title>
       <link>https://joungsik.github.io/post/2021_11_22/</link>
       <pubDate>Mon, 22 Nov 2021 01:22:43 +0900</pubDate>
       
       <guid>https://joungsik.github.io/post/2021_11_22/</guid>
-      <description>Golang override json</description>
+      <description>Golang marshal, unmarshal override json</description>
     </item>
     
     <item>

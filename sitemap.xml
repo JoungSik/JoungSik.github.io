@@ -2,33 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://joungsik.github.io/tags/golang/</loc>
-    <lastmod>2021-11-22T01:23:47+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/post/2021_11_22/</loc>
-    <lastmod>2021-11-22T01:23:47+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://joungsik.github.io/</loc>
-    <lastmod>2021-11-22T01:23:47+09:00</lastmod>
+    <lastmod>2021-11-24T01:01:47+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/</loc>
-    <lastmod>2021-11-22T01:23:47+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/</loc>
-    <lastmod>2021-11-22T01:23:47+09:00</lastmod>
+    <lastmod>2021-11-24T01:01:47+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/tags/react/</loc>
-    <lastmod>2021-11-21T21:30:17+09:00</lastmod>
+    <lastmod>2021-11-24T01:01:47+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/post/2021_11_23/</loc>
+    <lastmod>2021-11-24T01:01:47+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/</loc>
+    <lastmod>2021-11-24T01:01:47+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/typescript/</loc>
+    <lastmod>2021-11-24T01:01:47+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/golang/</loc>
+    <lastmod>2021-11-22T01:27:35+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/post/2021_11_22/</loc>
+    <lastmod>2021-11-22T01:27:35+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -98,11 +108,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_11_12/</loc>
-    <lastmod>2021-11-12T00:27:51+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/typescript/</loc>
     <lastmod>2021-11-12T00:27:51+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

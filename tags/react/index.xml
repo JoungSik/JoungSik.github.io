@@ -6,7 +6,16 @@
     <description>Recent content in react on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 21 Nov 2021 21:29:44 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Nov 2021 23:59:59 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React Context API TypeScript 로 사용하기</title>
+      <link>https://joungsik.github.io/post/2021_11_23/</link>
+      <pubDate>Tue, 23 Nov 2021 23:59:59 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_11_23/</guid>
+      <description>React Context API TypeScript 로 사용하기</description>
+    </item>
+    
     <item>
       <title>React VAC Pattern</title>
       <link>https://joungsik.github.io/post/2021_11_21/</link>
