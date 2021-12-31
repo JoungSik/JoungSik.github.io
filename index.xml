@@ -6,7 +6,21 @@
     <description>Recent content on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 30 Dec 2021 01:03:16 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Dec 2021 11:53:16 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Boot 에서 React 사용하기</title>
+      <link>https://joungsik.github.io/post/2021_12_31/</link>
+      <pubDate>Fri, 31 Dec 2021 11:53:16 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2021_12_31/</guid>
+      <description>Spring Boot 에서 React 사용하기</description>
+      
+      <category>spring boot</category>
+      
+      <category>react</category>
+      
+    </item>
+    
     <item>
       <title>토비의 스프링 - 4장</title>
       <link>https://joungsik.github.io/post/2021_12_30/</link>
@@ -725,7 +739,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://joungsik.github.io/readme/</guid>
-      <description>History    Company Date     MadxCompany 2019.05 ~   INNORIX 2018.03 ~ 2019.01   The Ventures Lab 2014.01 ~ 2016.10    Blog 
+      <description>History    Company Date     MadxCompany 2019.05 ~ 2021.12   INNORIX 2018.03 ~ 2019.01   The Ventures Lab 2014.01 ~ 2016.10    Blog 
 Social    
  Languages 
 Frameworks Tools  Side Projects (Public)    
