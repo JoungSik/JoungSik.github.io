@@ -2,6 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://joungsik.github.io/tags/docker/</loc>
+    <lastmod>2022-05-15T21:04:10+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/elastic-beanstalk/</loc>
+    <lastmod>2022-05-15T21:04:10+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/github/</loc>
+    <lastmod>2022-05-15T21:04:10+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/github-actions/</loc>
+    <lastmod>2022-05-15T21:04:10+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/post/2022_05_15/</loc>
+    <lastmod>2022-05-15T21:04:10+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/</loc>
+    <lastmod>2022-05-15T21:04:10+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/post/</loc>
+    <lastmod>2022-05-15T21:04:10+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://joungsik.github.io/tags/</loc>
+    <lastmod>2022-05-15T21:04:10+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://joungsik.github.io/tags/bot/</loc>
     <lastmod>2022-03-23T04:01:03+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -12,27 +52,12 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://joungsik.github.io/</loc>
-    <lastmod>2022-03-23T04:01:03+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/post/</loc>
-    <lastmod>2022-03-23T04:01:03+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://joungsik.github.io/tags/ruby/</loc>
     <lastmod>2022-03-23T04:01:03+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2022_03_23/</loc>
-    <lastmod>2022-03-23T04:01:03+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/</loc>
     <lastmod>2022-03-23T04:01:03+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -297,11 +322,6 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://joungsik.github.io/tags/elastic-beanstalk/</loc>
-    <lastmod>2021-11-28T20:57:59+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://joungsik.github.io/post/2021_11_02/</loc>
     <lastmod>2021-11-28T20:57:59+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -323,11 +343,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_31/</loc>
-    <lastmod>2021-11-28T20:57:59+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/github/</loc>
     <lastmod>2021-11-28T20:57:59+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -368,11 +383,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://joungsik.github.io/post/2021_10_23/</loc>
-    <lastmod>2021-11-28T20:57:59+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://joungsik.github.io/tags/docker/</loc>
     <lastmod>2021-11-28T20:57:59+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

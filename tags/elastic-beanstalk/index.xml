@@ -6,7 +6,16 @@
     <description>Recent content in elastic beanstalk on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 03 Nov 2021 23:59:59 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/elastic-beanstalk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 May 2022 20:55:11 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/elastic-beanstalk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub Actions 로 올린 Private registry 의 도커 이미지를 elastic beanstalk 으로 배포하는 방법</title>
+      <link>https://joungsik.github.io/post/2022_05_15/</link>
+      <pubDate>Sun, 15 May 2022 20:55:11 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2022_05_15/</guid>
+      <description>Github Actions 를 통한 Docker 이미지 생성 및 Packages 에 Private 로 업로드 후 AWS Elastic Beanstalk 으로 배포</description>
+    </item>
+    
     <item>
       <title>AWS Elastic Beanstalk nginx 옵션 추가 하기</title>
       <link>https://joungsik.github.io/post/2021_11_03/</link>
