@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -233,14 +233,14 @@
 <p>이번에 진행하는 <a href="https://github.com/JoungSik/LinkCloud">링크 공유 서비스</a> 에서는 FE 구현을 할 때 React 기반 정적 사이트로 구현을 하려고 합니다.</p>
 <p>처음에는 공부를 겸해서 Nextjs 로 구현 할까도 생각했지만 각 페이지별 SEO 가 필요한 프로젝트가 아니고 실제 페이지 수도 그렇게 많지 않을거라고 생각하고 있기 떄문에 좀 더 간단한 React 로 구성했습니다.</p>
 <h2 id="프로젝트-구성">프로젝트 구성</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">yarn create react-app linkcloud-web --template typescript
-</code></pre></div><p>그리고 저장소 생성합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yarn create react-app linkcloud-web --template typescript
+</span></span></code></pre></div><p>그리고 저장소 생성합니다.</p>
 <p><img src="/post/2021_10/2021_10_08/new_repo.png" alt="new_repo"></p>
 <p>이미 commit 은 되어 있으니 생성한 저장소로 remote 만 추가하고 푸쉬 합니다.</p>
 <p><img src="/post/2021_10/2021_10_08/git_log.png" alt="git_log"></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">git remote add origin git@github.com:JoungSik/LinkCloud-web.git
-git push --set-upstream origin master
-</code></pre></div><h2 id="vercel-배포">vercel 배포</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git remote add origin git@github.com:JoungSik/LinkCloud-web.git
+</span></span><span class="line"><span class="cl">git push --set-upstream origin master
+</span></span></code></pre></div><h2 id="vercel-배포">vercel 배포</h2>
 <p><a href="https://vercel.com/home">홈페이지</a>에 접속 합니다.</p>
 <p><img src="/post/2021_10/2021_10_08/login.png" alt="login"></p>
 <p>로그인 이후 repository 를 추가해주면 자동으로 빌드 후 배포를 해줍니다.</p>

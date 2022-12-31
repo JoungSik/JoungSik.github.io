@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 15 May 2022 21:04:10 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 15 May 2022 21:04:10 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -197,7 +197,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      1265 Words
+                      1333 Words
                     
 
                   </div>
@@ -276,63 +276,63 @@
 <p>이후 생성된 키는 어딘가에 잘 저장해두시기 바랍니다.</p>
 <h2 id="github-actions-를-통한-docker-이미지-생성-및-packages-에-private-로-업로드">Github Actions 를 통한 Docker 이미지 생성 및 Packages 에 Private 로 업로드</h2>
 <p>제 <a href="https://github.com/JoungSik/LinkCloud">프로젝트</a>의 <code>.github/workflows/published.yml</code> 을 참고 하시면 사실 다 있긴 합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Create and publish a Docker image</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">main ]</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">env</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">REGISTRY</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io</span><span class="w">
-</span><span class="w">  </span><span class="nt">IMAGE_NAME</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.repository }}</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">build-and-push-image</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span><span class="w">    </span><span class="nt">permissions</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l">read</span><span class="w">
-</span><span class="w">      </span><span class="nt">packages</span><span class="p">:</span><span class="w"> </span><span class="l">write</span><span class="w">
-</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout repository</span><span class="w">
-</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Log in to the Container registry</span><span class="w">
-</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/login-action@v1</span><span class="w">
-</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">registry</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io</span><span class="w">
-</span><span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.actor }}</span><span class="w">
-</span><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.TOKEN }}</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and push Docker image</span><span class="w">
-</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/build-push-action@v2</span><span class="w">
-</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w">
-</span><span class="w">          </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l">./Dockerfile</span><span class="w">
-</span><span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io/joungsik/linkcloud:latest</span><span class="w">
-</span><span class="w">          </span><span class="nt">build-args</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span><span class="sd">            </span><span class="w">            </span><span class="l">MASTER_KEY=${{ secrets.MASTER_KEY }}</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy Docker image</span><span class="w">
-</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/setup-python@v3</span><span class="w">
-</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.7&#39;</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span><span class="sd">          mkdir -p ~/.aws
-</span><span class="sd">          echo &#34;[eb-cli]
-</span><span class="sd">          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}
-</span><span class="sd">          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}&#34; &gt; ~/.aws/credentials 
-</span><span class="sd">          
-</span><span class="sd">          cd deploy
-</span><span class="sd">          curl -O https://bootstrap.pypa.io/get-pip.py
-</span><span class="sd">          python get-pip.py --user
-</span><span class="sd">          pip install awsebcli --upgrade --user
-</span><span class="sd">          eb --version
-</span><span class="sd">          eb deploy</span><span class="w">          
-</span><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">AWS_ACCESS_KEY_ID</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.AWS_ACCESS_KEY_ID }}</span><span class="w">
-</span><span class="w">          </span><span class="nt">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.AWS_SECRET_ACCESS_KEY }}</span><span class="w">
-</span><span class="w">          </span><span class="nt">AWS_DEFAULT_REGION</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.AWS_DEFAULT_REGION }}</span><span class="w">
-</span></code></pre></div><p>미리 설정 해줘야 하는 secrets 의 값들은 github repository 의 settings 에서 입력 가능합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Create and publish a Docker image</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">main ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">REGISTRY</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">IMAGE_NAME</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.repository }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build-and-push-image</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">permissions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l">read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">packages</span><span class="p">:</span><span class="w"> </span><span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout repository</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Log in to the Container registry</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/login-action@v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">registry</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.actor }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.TOKEN }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and push Docker image</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/build-push-action@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l">./Dockerfile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io/joungsik/linkcloud:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">build-args</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">            </span><span class="w">            </span><span class="l">MASTER_KEY=${{ secrets.MASTER_KEY }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy Docker image</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/setup-python@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.7&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          mkdir -p ~/.aws
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;[eb-cli]
+</span></span></span><span class="line"><span class="cl"><span class="sd">          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}
+</span></span></span><span class="line"><span class="cl"><span class="sd">          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}&#34; &gt; ~/.aws/credentials 
+</span></span></span><span class="line"><span class="cl"><span class="sd">          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          cd deploy
+</span></span></span><span class="line"><span class="cl"><span class="sd">          curl -O https://bootstrap.pypa.io/get-pip.py
+</span></span></span><span class="line"><span class="cl"><span class="sd">          python get-pip.py --user
+</span></span></span><span class="line"><span class="cl"><span class="sd">          pip install awsebcli --upgrade --user
+</span></span></span><span class="line"><span class="cl"><span class="sd">          eb --version
+</span></span></span><span class="line"><span class="cl"><span class="sd">          eb deploy</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_ACCESS_KEY_ID</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.AWS_ACCESS_KEY_ID }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.AWS_SECRET_ACCESS_KEY }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_DEFAULT_REGION</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.AWS_DEFAULT_REGION }}</span><span class="w">
+</span></span></span></code></pre></div><p>미리 설정 해줘야 하는 secrets 의 값들은 github repository 의 settings 에서 입력 가능합니다.</p>
 <p>name 단위로 설명하겠습니다.</p>
 <ul>
 <li>
@@ -372,39 +372,39 @@
 <p><img src="/post/2022_05/2022_05_15/3.png" alt="3"></p>
 <p>다른 부분은 이미 블로그에 설명을 했으니 참고하시면 되고 이번에 주의 깊게 봐야 하는 부분은 <code>Dockerrun.aws.json</code> 파일 입니다.</p>
 <p>내용은 다음과 같습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json">   
-<span class="p">{</span>
-  <span class="nt">&#34;AWSEBDockerrunVersion&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;Authentication&#34;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&#34;Bucket&#34;</span><span class="p">:</span> <span class="s2">&#34;elasticbeanstalk-ap-northeast-2-아무튼 숫자임&#34;</span><span class="p">,</span>
-    <span class="nt">&#34;Key&#34;</span><span class="p">:</span> <span class="s2">&#34;dockercfg&#34;</span>
-  <span class="p">},</span>
-  <span class="nt">&#34;Image&#34;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;ghcr.io/joungsik/linkcloud:latest&#34;</span><span class="p">,</span>
-    <span class="nt">&#34;Update&#34;</span><span class="p">:</span> <span class="s2">&#34;true&#34;</span>
-  <span class="p">},</span>
-  <span class="nt">&#34;Ports&#34;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&#34;ContainerPort&#34;</span><span class="p">:</span> <span class="s2">&#34;3000&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;HostPort&#34;</span><span class="p">:</span> <span class="mi">80</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="nt">&#34;Logging&#34;</span><span class="p">:</span> <span class="s2">&#34;/var/log/nginx&#34;</span>
-<span class="p">}</span>
-</code></pre></div><p><code>Authentication</code> 을 보시면 <code>Bucket</code> 과 <code>Key</code> 가 나오는데 이 부분에 인증 정보를 넣어주시면 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;AWSEBDockerrunVersion&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Authentication&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Bucket&#34;</span><span class="p">:</span> <span class="s2">&#34;elasticbeanstalk-ap-northeast-2-아무튼 숫자임&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Key&#34;</span><span class="p">:</span> <span class="s2">&#34;dockercfg&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Image&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;ghcr.io/joungsik/linkcloud:latest&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Update&#34;</span><span class="p">:</span> <span class="s2">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ports&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;ContainerPort&#34;</span><span class="p">:</span> <span class="s2">&#34;3000&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;HostPort&#34;</span><span class="p">:</span> <span class="mi">80</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Logging&#34;</span><span class="p">:</span> <span class="s2">&#34;/var/log/nginx&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><code>Authentication</code> 을 보시면 <code>Bucket</code> 과 <code>Key</code> 가 나오는데 이 부분에 인증 정보를 넣어주시면 됩니다.</p>
 <p>저는 elasticbeanstalk 이 배포 되는 S3에 인증 파일을 추가했습니다.</p>
 <p><img src="/post/2022_05/2022_05_15/4.png" alt="4"></p>
 <p>dockercfg 파일의 구조가 저는 몇번을 헤맸는데 내용은 아래와 같습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-	<span class="nt">&#34;auths&#34;</span><span class="p">:</span> <span class="p">{</span>
-		<span class="nt">&#34;ghcr.io&#34;</span><span class="p">:</span> <span class="p">{</span>
-			<span class="nt">&#34;auth&#34;</span><span class="p">:</span> <span class="s2">&#34;key&#34;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>auth 옆의 키 값은 <a href="https://stackoverflow.com/a/45671103">링크</a> 를 통해 생성할 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">echo</span> -n <span class="s1">&#39;username:password&#39;</span> <span class="p">|</span> base64
-</code></pre></div><p>아래는 제가 참고 했던 링크들 입니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;auths&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;ghcr.io&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&#34;auth&#34;</span><span class="p">:</span> <span class="s2">&#34;key&#34;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>auth 옆의 키 값은 <a href="https://stackoverflow.com/a/45671103">링크</a> 를 통해 생성할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> -n <span class="s1">&#39;username:password&#39;</span> <span class="p">|</span> base64
+</span></span></code></pre></div><p>아래는 제가 참고 했던 링크들 입니다.</p>
 <ul>
 <li>
 <p><a href="https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/single-container-docker-configuration.html#docker-configuration.remote-repo">https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/single-container-docker-configuration.html#docker-configuration.remote-repo</a></p>

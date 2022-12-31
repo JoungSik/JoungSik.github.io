@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -238,43 +238,43 @@
 <p><a href="https://www.ruby-toolbox.com/categories/http_clients">Ruby Toolbox</a></p>
 <p>두 글을 본 결과로 <a href="https://github.com/lostisland/faraday">Faraday</a> 라는 젬을 사용하게 되었습니다.</p>
 <h2 id="설치">설치</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">&#39;faraday&#39;</span>
-</code></pre></div><p><a href="https://lostisland.github.io/faraday/usage/">사용법</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">gem</span> <span class="s1">&#39;faraday&#39;</span>
+</span></span></code></pre></div><p><a href="https://lostisland.github.io/faraday/usage/">사용법</a></p>
 <p>사실 문서를 확인하는게 제일 좋습니다.</p>
 <h2 id="예시">예시</h2>
 <p>기존에 제가 사용하던 코드 입니다.</p>
 <p>iamport 에서 API 사용을 위한 토큰을 발급하는 API 입니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;net/http&#39;</span>
-
-<span class="k">module</span> <span class="nn">Iamport</span>
-  <span class="no">BASE_URL</span> <span class="o">=</span> <span class="s2">&#34;https://api.iamport.kr&#34;</span><span class="o">.</span><span class="n">freeze</span>
-
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">token</span>
-    <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">#{</span><span class="no">BASE_URL</span><span class="si">}</span><span class="s2">/users/getToken&#34;</span><span class="p">)</span>
-    <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
-    <span class="n">request</span><span class="o">.</span><span class="n">set_form_data</span><span class="p">({</span> <span class="ss">imp_key</span><span class="p">:</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;IAMPORT_KEY&#39;</span><span class="o">]</span><span class="p">,</span> <span class="ss">imp_secret</span><span class="p">:</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;IAMPORT_SECRET&#39;</span><span class="o">]</span> <span class="p">})</span>
-
-    <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">uri</span><span class="o">.</span><span class="n">hostname</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="ss">:use_ssl</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">http</span><span class="o">|</span>
-      <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span> <span class="n">request</span>
-      <span class="n">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="ss">symbolize_names</span><span class="p">:</span> <span class="kp">true</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">body</span><span class="o">[</span><span class="ss">:response</span><span class="o">][</span><span class="ss">:access_token</span><span class="o">]</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><p>이번엔 Faraday 로 구현한 코드 입니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;faraday&#39;</span>
-
-<span class="k">module</span> <span class="nn">Iamport</span>
-  <span class="no">BASE_URL</span> <span class="o">=</span> <span class="s2">&#34;https://api.iamport.kr&#34;</span><span class="o">.</span><span class="n">freeze</span>
-
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">token</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">imp_key</span><span class="p">:</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;IAMPORT_KEY&#39;</span><span class="o">]</span><span class="p">,</span> <span class="ss">imp_secret</span><span class="p">:</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;IAMPORT_SECRET&#39;</span><span class="o">]</span> <span class="p">}</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="no">Faraday</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">#{</span><span class="no">BASE_URL</span><span class="si">}</span><span class="s2">/users/getToken&#34;</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="ss">symbolize_names</span><span class="p">:</span> <span class="kp">true</span><span class="p">)</span>
-    <span class="n">body</span><span class="o">[</span><span class="ss">:response</span><span class="o">][</span><span class="ss">:access_token</span><span class="o">]</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="nb">require</span> <span class="s1">&#39;net/http&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">module</span> <span class="nn">Iamport</span>
+</span></span><span class="line"><span class="cl">  <span class="no">BASE_URL</span> <span class="o">=</span> <span class="s2">&#34;https://api.iamport.kr&#34;</span><span class="o">.</span><span class="n">freeze</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">token</span>
+</span></span><span class="line"><span class="cl">    <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">#{</span><span class="no">BASE_URL</span><span class="si">}</span><span class="s2">/users/getToken&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">request</span><span class="o">.</span><span class="n">set_form_data</span><span class="p">({</span> <span class="ss">imp_key</span><span class="p">:</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;IAMPORT_KEY&#39;</span><span class="o">]</span><span class="p">,</span> <span class="ss">imp_secret</span><span class="p">:</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;IAMPORT_SECRET&#39;</span><span class="o">]</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">uri</span><span class="o">.</span><span class="n">hostname</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="ss">:use_ssl</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">http</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">      <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span> <span class="n">request</span>
+</span></span><span class="line"><span class="cl">      <span class="n">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="ss">symbolize_names</span><span class="p">:</span> <span class="kp">true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">body</span><span class="o">[</span><span class="ss">:response</span><span class="o">][</span><span class="ss">:access_token</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>이번엔 Faraday 로 구현한 코드 입니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="nb">require</span> <span class="s1">&#39;faraday&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">module</span> <span class="nn">Iamport</span>
+</span></span><span class="line"><span class="cl">  <span class="no">BASE_URL</span> <span class="o">=</span> <span class="s2">&#34;https://api.iamport.kr&#34;</span><span class="o">.</span><span class="n">freeze</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">token</span>
+</span></span><span class="line"><span class="cl">    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">imp_key</span><span class="p">:</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;IAMPORT_KEY&#39;</span><span class="o">]</span><span class="p">,</span> <span class="ss">imp_secret</span><span class="p">:</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;IAMPORT_SECRET&#39;</span><span class="o">]</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="no">Faraday</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">#{</span><span class="no">BASE_URL</span><span class="si">}</span><span class="s2">/users/getToken&#34;</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="ss">symbolize_names</span><span class="p">:</span> <span class="kp">true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">body</span><span class="o">[</span><span class="ss">:response</span><span class="o">][</span><span class="ss">:access_token</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <p>큰 차이점은 SSL 을 굳이 설정해주지 않아도 되는 점과 URI 화 안해도 되는게 좋았고 여기선 나오지 않았지만 헤더를 설정 하는 부분도 굉장히 편리했습니다.</p>
 <p><a href="https://github.com/iamport/iamport-rest-client-ruby">iamport ruby client</a> 의 경우에는 <a href="https://github.com/jnunemaker/httparty">httparty</a> 를 사용하고 있었습니다.</p>
 <p>직접 만들게 된 이유는 0.3.0 이후 버전 업데이트가 이루어지지 않았던 점이 가장 크고 REST API 형식이라 나중에 다른 결제 모듈을 사용한다면 따로 구현을 해두는게 외부 API 와도 의존성을 잘라낼 수 있다는 점에서도 직접 만들고 싶어서 작업하고 있습니다.</p>

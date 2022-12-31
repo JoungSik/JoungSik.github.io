@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -237,154 +237,154 @@
 <hr>
 <h2 id="weekly-challenge">Weekly Challenge</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/82612">1주차 부족한 금액 계산하기</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">money</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">money</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="n">count</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">*</span> <span class="n">price</span><span class="p">}</span>
-    <span class="k">return</span> <span class="n">answer</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">answer</span><span class="o">.</span><span class="n">abs</span> <span class="p">:</span> <span class="mi">0</span>
-<span class="k">end</span>
-</code></pre></div><p><a href="https://programmers.co.kr/learn/courses/30/lessons/83201">2주차 상호평가</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">scores</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
-        <span class="n">nums</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">scores</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">score</span><span class="o">|</span>
-            <span class="n">scores</span><span class="o">[</span><span class="n">score</span><span class="o">][</span><span class="n">user</span><span class="o">]</span>
-        <span class="k">end</span>
-        
-        <span class="n">max_index</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">nums</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">max_index</span> <span class="o">==</span> <span class="n">user</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">==</span> <span class="n">nums</span><span class="o">.</span><span class="n">max</span> <span class="p">}</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
-            <span class="n">nums</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">==</span> <span class="n">nums</span><span class="o">.</span><span class="n">max</span> <span class="p">}</span>
-        <span class="k">end</span>
-        
-        <span class="n">min_index</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">nums</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">min_index</span> <span class="o">==</span> <span class="n">user</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">==</span> <span class="n">nums</span><span class="o">.</span><span class="n">min</span> <span class="p">}</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
-            <span class="n">nums</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">==</span> <span class="n">nums</span><span class="o">.</span><span class="n">min</span> <span class="p">}</span>
-        <span class="k">end</span>
-        
-        <span class="n">nums</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">el</span><span class="o">|</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">el</span> <span class="p">}</span> <span class="o">/</span> <span class="n">nums</span><span class="o">.</span><span class="n">size</span>
-    <span class="k">end</span>
-    
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">total</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">num</span><span class="o">|</span> 
-        <span class="k">case</span> <span class="n">num</span>
-        <span class="k">when</span> <span class="mi">90</span><span class="o">.</span><span class="mi">0</span><span class="o">..</span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span>
-            <span class="s1">&#39;A&#39;</span>
-        <span class="k">when</span> <span class="mi">80</span><span class="o">.</span><span class="mi">0</span><span class="o">..</span><span class="mi">89</span><span class="o">.</span><span class="mi">9</span>
-            <span class="s1">&#39;B&#39;</span>
-        <span class="k">when</span> <span class="mi">70</span><span class="o">.</span><span class="mi">0</span><span class="o">..</span><span class="mi">79</span><span class="o">.</span><span class="mi">9</span>
-            <span class="s1">&#39;C&#39;</span>
-        <span class="k">when</span> <span class="mi">50</span><span class="o">.</span><span class="mi">0</span><span class="o">..</span><span class="mi">69</span><span class="o">.</span><span class="mi">9</span>
-            <span class="s1">&#39;D&#39;</span>
-        <span class="k">else</span>
-            <span class="s1">&#39;F&#39;</span>
-        <span class="k">end</span>
-    <span class="p">}</span>
-    
-    <span class="k">return</span> <span class="n">answer</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">money</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="n">money</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="n">count</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">*</span> <span class="n">price</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">answer</span><span class="o">.</span><span class="n">abs</span> <span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p><a href="https://programmers.co.kr/learn/courses/30/lessons/83201">2주차 상호평가</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">scores</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nums</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">scores</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">score</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">            <span class="n">scores</span><span class="o">[</span><span class="n">score</span><span class="o">][</span><span class="n">user</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">end</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">max_index</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">nums</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">max_index</span> <span class="o">==</span> <span class="n">user</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">==</span> <span class="n">nums</span><span class="o">.</span><span class="n">max</span> <span class="p">}</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nums</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">==</span> <span class="n">nums</span><span class="o">.</span><span class="n">max</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">end</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">min_index</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">nums</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">min_index</span> <span class="o">==</span> <span class="n">user</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">==</span> <span class="n">nums</span><span class="o">.</span><span class="n">min</span> <span class="p">}</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nums</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">==</span> <span class="n">nums</span><span class="o">.</span><span class="n">min</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">end</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">nums</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">el</span><span class="o">|</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">el</span> <span class="p">}</span> <span class="o">/</span> <span class="n">nums</span><span class="o">.</span><span class="n">size</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="n">total</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">num</span><span class="o">|</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="n">num</span>
+</span></span><span class="line"><span class="cl">        <span class="k">when</span> <span class="mi">90</span><span class="o">.</span><span class="mi">0</span><span class="o">..</span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;A&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">when</span> <span class="mi">80</span><span class="o">.</span><span class="mi">0</span><span class="o">..</span><span class="mi">89</span><span class="o">.</span><span class="mi">9</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;B&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">when</span> <span class="mi">70</span><span class="o">.</span><span class="mi">0</span><span class="o">..</span><span class="mi">79</span><span class="o">.</span><span class="mi">9</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;C&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">when</span> <span class="mi">50</span><span class="o">.</span><span class="mi">0</span><span class="o">..</span><span class="mi">69</span><span class="o">.</span><span class="mi">9</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;D&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;F&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-11">2021-10-11</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12977">소수 만들기</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="o">[]</span>
-    <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">nums</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
-        <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">..</span><span class="n">nums</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">j</span><span class="o">|</span>
-            <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">..</span><span class="n">nums</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="o">|</span>
-                <span class="n">results</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="p">)</span>
-            <span class="k">end</span>
-        <span class="k">end</span>
-    <span class="k">end</span>
-    
-    <span class="n">value</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">result</span><span class="o">|</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">num</span><span class="o">|</span> <span class="n">result</span> <span class="o">%</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span>
-        <span class="n">s</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="k">end</span>
-    
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">size</span>
-    <span class="k">return</span> <span class="n">answer</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">results</span> <span class="o">=</span> <span class="o">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">nums</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">..</span><span class="n">nums</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">j</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">..</span><span class="n">nums</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">                <span class="n">results</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">end</span>
+</span></span><span class="line"><span class="cl">        <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">value</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">result</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">num</span><span class="o">|</span> <span class="n">result</span> <span class="o">%</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">size</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-12">2021-10-12</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42748">K번째 수</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">commands</span><span class="p">)</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">commands</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">command</span><span class="o">|</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span>
-        <span class="n">array</span><span class="o">[</span><span class="n">c</span><span class="o">[</span><span class="mi">0</span><span class="o">]..</span><span class="n">c</span><span class="o">[</span><span class="mi">1</span><span class="o">]].</span><span class="n">sort</span><span class="p">()</span><span class="o">[</span><span class="n">c</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span>
-    <span class="k">end</span>
-    <span class="k">return</span> <span class="n">answer</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">commands</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="n">commands</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">command</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">array</span><span class="o">[</span><span class="n">c</span><span class="o">[</span><span class="mi">0</span><span class="o">]..</span><span class="n">c</span><span class="o">[</span><span class="mi">1</span><span class="o">]].</span><span class="n">sort</span><span class="p">()</span><span class="o">[</span><span class="n">c</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-13">2021-10-13</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42840">모의고사</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">answers</span><span class="p">)</span>
-    <span class="n">users</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">]</span>
-    <span class="n">user_answers</span> <span class="o">=</span> <span class="o">[</span>
-        <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">,</span>
-        <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">,</span>
-        <span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
-    <span class="o">]</span><span class="p">;</span>
-    
-    <span class="n">answers</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">answer</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
-        <span class="n">users</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">index</span> <span class="o">%</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">size</span><span class="o">]</span> 
-        <span class="n">users</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="n">index</span> <span class="o">%</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">size</span><span class="o">]</span> 
-        <span class="n">users</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="n">index</span> <span class="o">%</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">2</span><span class="o">].</span><span class="n">size</span><span class="o">]</span> 
-    <span class="k">end</span>
-    
-    <span class="n">max</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">max</span>
-    <span class="k">return</span> <span class="o">[]</span> <span class="k">if</span> <span class="n">max</span> <span class="o">==</span> <span class="mi">0</span>
-    
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">each_with_index</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="o">|</span> <span class="o">[</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="p">}</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">first</span> <span class="o">==</span> <span class="n">max</span> <span class="p">}</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:last</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">answer</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">answers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">users</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">user_answers</span> <span class="o">=</span> <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="o">]</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">answers</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">answer</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">        <span class="n">users</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">index</span> <span class="o">%</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">size</span><span class="o">]</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">users</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="n">index</span> <span class="o">%</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">size</span><span class="o">]</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">users</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="n">index</span> <span class="o">%</span> <span class="n">user_answers</span><span class="o">[</span><span class="mi">2</span><span class="o">].</span><span class="n">size</span><span class="o">]</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">max</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">max</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">[]</span> <span class="k">if</span> <span class="n">max</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">each_with_index</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="o">|</span> <span class="o">[</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="p">}</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">first</span> <span class="o">==</span> <span class="n">max</span> <span class="p">}</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:last</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-14">2021-10-14</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42862">체육복</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">lost</span><span class="p">,</span> <span class="n">reserve</span><span class="p">)</span>
-    <span class="n">sort_lost</span> <span class="o">=</span> <span class="p">(</span><span class="n">lost</span> <span class="o">-</span> <span class="n">reserve</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span>
-    <span class="n">sort_reserve</span> <span class="o">=</span> <span class="p">(</span><span class="n">reserve</span> <span class="o">-</span> <span class="n">lost</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span>
-    
-    <span class="n">save_count</span> <span class="o">=</span> <span class="n">sort_lost</span><span class="o">.</span><span class="n">size</span>
-    <span class="n">sort_lost</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">lost_number</span><span class="o">|</span>
-        <span class="n">match</span> <span class="o">=</span> <span class="n">sort_reserve</span><span class="o">.</span><span class="n">find</span> <span class="p">{</span> <span class="o">|</span><span class="n">r</span><span class="o">|</span> <span class="n">r</span> <span class="o">==</span> <span class="n">lost_number</span> <span class="o">||</span> <span class="n">r</span> <span class="o">==</span> <span class="n">lost_number</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">r</span> <span class="o">==</span> <span class="n">lost_number</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
-        <span class="n">match_index</span> <span class="o">=</span> <span class="n">sort_reserve</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">match_index</span>
-            <span class="n">save_count</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="n">sort_reserve</span> <span class="o">=</span> <span class="n">sort_reserve</span><span class="o">.</span><span class="n">reject!</span><span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">==</span> <span class="n">match</span> <span class="p">}</span>
-        <span class="k">end</span>
-    <span class="k">end</span>
-
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">save_count</span>
-    <span class="k">return</span> <span class="n">answer</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">lost</span><span class="p">,</span> <span class="n">reserve</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sort_lost</span> <span class="o">=</span> <span class="p">(</span><span class="n">lost</span> <span class="o">-</span> <span class="n">reserve</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sort_reserve</span> <span class="o">=</span> <span class="p">(</span><span class="n">reserve</span> <span class="o">-</span> <span class="n">lost</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">save_count</span> <span class="o">=</span> <span class="n">sort_lost</span><span class="o">.</span><span class="n">size</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sort_lost</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">lost_number</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">        <span class="n">match</span> <span class="o">=</span> <span class="n">sort_reserve</span><span class="o">.</span><span class="n">find</span> <span class="p">{</span> <span class="o">|</span><span class="n">r</span><span class="o">|</span> <span class="n">r</span> <span class="o">==</span> <span class="n">lost_number</span> <span class="o">||</span> <span class="n">r</span> <span class="o">==</span> <span class="n">lost_number</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">r</span> <span class="o">==</span> <span class="n">lost_number</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">match_index</span> <span class="o">=</span> <span class="n">sort_reserve</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">match_index</span>
+</span></span><span class="line"><span class="cl">            <span class="n">save_count</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sort_reserve</span> <span class="o">=</span> <span class="n">sort_reserve</span><span class="o">.</span><span class="n">reject!</span><span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">==</span> <span class="n">match</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">save_count</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-15">2021-10-15</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/77884">약수의 개수와 덧셈</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span><span class="o">..</span><span class="n">right</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">num</span><span class="o">|</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="n">num</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">num</span> <span class="o">%</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span><span class="o">.</span><span class="n">size</span>
-        <span class="n">count</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">num</span> <span class="p">:</span> <span class="n">num</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="k">end</span><span class="o">.</span><span class="n">sum</span>
-    <span class="k">return</span> <span class="n">answer</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span><span class="o">..</span><span class="n">right</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">num</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">        <span class="n">count</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="n">num</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">num</span> <span class="o">%</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span><span class="o">.</span><span class="n">size</span>
+</span></span><span class="line"><span class="cl">        <span class="n">count</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">num</span> <span class="p">:</span> <span class="n">num</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span><span class="o">.</span><span class="n">sum</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-16">2021-10-16</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12982">예산</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">budget</span><span class="p">)</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">sort</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">cost</span><span class="o">|</span>
-        <span class="k">if</span> <span class="n">budget</span> <span class="o">-</span> <span class="n">cost</span> <span class="o">&gt;=</span> <span class="mi">0</span> 
-            <span class="n">budget</span> <span class="o">-=</span> <span class="n">cost</span>
-            <span class="kp">true</span>
-        <span class="k">else</span>
-            <span class="kp">false</span>
-        <span class="k">end</span>
-    <span class="k">end</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="p">}</span><span class="o">.</span><span class="n">size</span>
-    <span class="k">return</span> <span class="n">answer</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">budget</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">sort</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">cost</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">budget</span> <span class="o">-</span> <span class="n">cost</span> <span class="o">&gt;=</span> <span class="mi">0</span> 
+</span></span><span class="line"><span class="cl">            <span class="n">budget</span> <span class="o">-=</span> <span class="n">cost</span>
+</span></span><span class="line"><span class="cl">            <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="kp">false</span>
+</span></span><span class="line"><span class="cl">        <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="p">}</span><span class="o">.</span><span class="n">size</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-17">2021-10-17</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12901">2016년</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;date&#39;</span>
-<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="k">return</span> <span class="no">Date</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&#34;%^a&#34;</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="nb">require</span> <span class="s1">&#39;date&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="no">Date</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&#34;%^a&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div></article>
               </div>
             </div>
           </div>

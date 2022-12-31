@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Mon, 10 Jan 2022 11:54:23 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Mon, 10 Jan 2022 11:54:23 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -234,43 +234,43 @@
 <p>먼저 스프링 부트 프로젝트를 생성합니다.</p>
 <p>그 후 root 디텍토리에 react 프로젝트를 생성합니다.</p>
 <p>저는 Yarn 과 TypeScript 를 사용하고 있습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">yarn create react-app app --template typescript
-</code></pre></div><p>이후 /app 폴더에 들어가 정상적으로 동작하는지 확인합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> app/
-yarn start
-</code></pre></div><p>그러면 3000 포트로 열리는 것을 확인 할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yarn create react-app app --template typescript
+</span></span></code></pre></div><p>이후 /app 폴더에 들어가 정상적으로 동작하는지 확인합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> app/
+</span></span><span class="line"><span class="cl">yarn start
+</span></span></code></pre></div><p>그러면 3000 포트로 열리는 것을 확인 할 수 있습니다.</p>
 <p>이제 jar 파일 빌드 시 react 파일이 같이 빌드되어 포함 되도록 /build.gradle 을 수정합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="n">plugins</span> <span class="o">{</span>
-    <span class="o">...</span>
-    <span class="n">id</span> <span class="s2">&#34;com.github.node-gradle.node&#34;</span> <span class="n">version</span> <span class="s2">&#34;3.1.1&#34;</span>
-<span class="o">}</span>
-
-<span class="o">...</span>
-
-
-<span class="c1">// 가장 마지막에 추가해주세요
-</span><span class="c1"></span><span class="n">task</span> <span class="nf">yarnInstall</span><span class="o">(</span><span class="nl">type:</span> <span class="n">YarnTask</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">workingDir</span> <span class="o">=</span> <span class="n">file</span><span class="o">(</span><span class="s2">&#34;${project.projectDir}/app&#34;</span><span class="o">)</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;install&#34;</span><span class="o">]</span>
-<span class="o">}</span>
-
-<span class="n">task</span> <span class="nf">yarnBuild</span><span class="o">(</span><span class="nl">type:</span> <span class="n">YarnTask</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">workingDir</span> <span class="o">=</span> <span class="n">file</span><span class="o">(</span><span class="s2">&#34;${project.projectDir}/app&#34;</span><span class="o">)</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;build&#39;</span><span class="o">]</span>
-<span class="o">}</span>
-
-<span class="n">task</span> <span class="nf">copyWebApp</span><span class="o">(</span><span class="nl">type:</span> <span class="n">Copy</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">from</span> <span class="s1">&#39;app/build&#39;</span>
-    <span class="n">into</span> <span class="s2">&#34;build/resources/main/static&#34;</span>
-<span class="o">}</span>
-
-<span class="n">yarnBuild</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">yarnInstall</span>
-<span class="n">copyWebApp</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">yarnBuild</span>
-<span class="n">compileJava</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">copyWebApp</span>
-</code></pre></div><p>이후 gradle 빌드 중 bootJar 을 실행하면 빌드가 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s2">&#34;com.github.node-gradle.node&#34;</span> <span class="n">version</span> <span class="s2">&#34;3.1.1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 가장 마지막에 추가해주세요
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">task</span> <span class="nf">yarnInstall</span><span class="o">(</span><span class="nl">type:</span> <span class="n">YarnTask</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">workingDir</span> <span class="o">=</span> <span class="n">file</span><span class="o">(</span><span class="s2">&#34;${project.projectDir}/app&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">args</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;install&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">task</span> <span class="nf">yarnBuild</span><span class="o">(</span><span class="nl">type:</span> <span class="n">YarnTask</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">workingDir</span> <span class="o">=</span> <span class="n">file</span><span class="o">(</span><span class="s2">&#34;${project.projectDir}/app&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">args</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;build&#39;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">task</span> <span class="nf">copyWebApp</span><span class="o">(</span><span class="nl">type:</span> <span class="n">Copy</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">from</span> <span class="s1">&#39;app/build&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">into</span> <span class="s2">&#34;build/resources/main/static&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">yarnBuild</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">yarnInstall</span>
+</span></span><span class="line"><span class="cl"><span class="n">copyWebApp</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">yarnBuild</span>
+</span></span><span class="line"><span class="cl"><span class="n">compileJava</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">copyWebApp</span>
+</span></span></code></pre></div><p>이후 gradle 빌드 중 bootJar 을 실행하면 빌드가 됩니다.</p>
 <p>이후 실행을 해보도록 하겠습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">java -jar build/libs/AmountPlanner-0.0.1-SNAPSHOT.jar
-</code></pre></div><p><img src="/post/2021_12/2021_12_31/1.png" alt="1"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">java -jar build/libs/AmountPlanner-0.0.1-SNAPSHOT.jar
+</span></span></code></pre></div><p><img src="/post/2021_12/2021_12_31/1.png" alt="1"></p>
 </article>
               </div>
             </div>

@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -236,114 +236,114 @@
 <p>rolify 는 유저의 권한을 모델화 해서 관리해주는 라이브러리고 cancancan 은 권한에 맞게 접근을 제어하는 라이브러리 입니다.</p>
 <h2 id="설치">설치</h2>
 <p>Gemfile 에 두 라이브러리를 추가합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">&#39;rolify&#39;</span>
-<span class="n">gem</span> <span class="s1">&#39;cancancan&#39;</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">gem</span> <span class="s1">&#39;rolify&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">gem</span> <span class="s1">&#39;cancancan&#39;</span>
+</span></span></code></pre></div><ul>
 <li>명령으로 필요한 파일을 생성합니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">rails</span> <span class="n">g</span> <span class="n">rolify</span> <span class="no">Role</span> <span class="no">User</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">rails</span> <span class="n">g</span> <span class="n">rolify</span> <span class="no">Role</span> <span class="no">User</span>
+</span></span></code></pre></div><ul>
 <li>config/initializers/rolify.rb 와 db/migrate/{date}_rolify_create_roles.rb 파일이 생성됩니다.</li>
 </ul>
 <p>전자는 수정 해줄 필요가 없지만 후자는 약간의 수정을 해줍니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">RolifyCreateRoles</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="o">[</span><span class="mi">6</span><span class="o">.</span><span class="mi">1</span><span class="o">]</span>
-  <span class="k">def</span> <span class="nf">change</span>
-    <span class="n">create_table</span><span class="p">(</span><span class="ss">:roles</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
-      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">null</span><span class="p">:</span> <span class="kp">false</span>
-      <span class="n">t</span><span class="o">.</span><span class="n">references</span> <span class="ss">:resource</span><span class="p">,</span> <span class="ss">:polymorphic</span> <span class="o">=&gt;</span> <span class="kp">true</span>
-
-      <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
-    <span class="k">end</span>
-
-    <span class="n">create_table</span><span class="p">(</span><span class="ss">:users_roles</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
-      <span class="n">t</span><span class="o">.</span><span class="n">references</span> <span class="ss">:user</span>
-      <span class="n">t</span><span class="o">.</span><span class="n">references</span> <span class="ss">:role</span>
-    <span class="k">end</span>
-
-    <span class="n">add_index</span> <span class="ss">:roles</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">unique</span><span class="p">:</span> <span class="kp">true</span>
-    <span class="n">add_index</span> <span class="ss">:roles</span><span class="p">,</span> <span class="o">[</span><span class="ss">:resource_type</span><span class="p">,</span> <span class="ss">:resource_id</span><span class="o">]</span>
-    <span class="n">add_index</span> <span class="ss">:users_roles</span><span class="p">,</span> <span class="o">[</span><span class="ss">:user_id</span><span class="p">,</span> <span class="ss">:role_id</span><span class="o">]</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">RolifyCreateRoles</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="o">[</span><span class="mi">6</span><span class="o">.</span><span class="mi">1</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">change</span>
+</span></span><span class="line"><span class="cl">    <span class="n">create_table</span><span class="p">(</span><span class="ss">:roles</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">null</span><span class="p">:</span> <span class="kp">false</span>
+</span></span><span class="line"><span class="cl">      <span class="n">t</span><span class="o">.</span><span class="n">references</span> <span class="ss">:resource</span><span class="p">,</span> <span class="ss">:polymorphic</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">create_table</span><span class="p">(</span><span class="ss">:users_roles</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">      <span class="n">t</span><span class="o">.</span><span class="n">references</span> <span class="ss">:user</span>
+</span></span><span class="line"><span class="cl">      <span class="n">t</span><span class="o">.</span><span class="n">references</span> <span class="ss">:role</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">add_index</span> <span class="ss">:roles</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">unique</span><span class="p">:</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">    <span class="n">add_index</span> <span class="ss">:roles</span><span class="p">,</span> <span class="o">[</span><span class="ss">:resource_type</span><span class="p">,</span> <span class="ss">:resource_id</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">add_index</span> <span class="ss">:users_roles</span><span class="p">,</span> <span class="o">[</span><span class="ss">:user_id</span><span class="p">,</span> <span class="ss">:role_id</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><ul>
 <li>app/models/role.rb 파일도 생성 됩니다. 여기도 기존 코드에서 수정해줍니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Role</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="n">has_and_belongs_to_many</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:join_table</span> <span class="o">=&gt;</span> <span class="ss">:users_roles</span>
-  <span class="n">belongs_to</span> <span class="ss">:resource</span><span class="p">,</span> <span class="ss">:polymorphic</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">:optional</span> <span class="o">=&gt;</span> <span class="kp">true</span>
-
-  <span class="n">validates</span> <span class="ss">:resource_type</span><span class="p">,</span> <span class="ss">:inclusion</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:in</span> <span class="o">=&gt;</span> <span class="no">Rolify</span><span class="o">.</span><span class="n">resource_types</span> <span class="p">},</span> <span class="ss">:allow_nil</span> <span class="o">=&gt;</span> <span class="kp">true</span>
-
-  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">uniqueness</span><span class="p">:</span> <span class="kp">true</span>
-
-  <span class="n">scopify</span>
-<span class="k">end</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Role</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+</span></span><span class="line"><span class="cl">  <span class="n">has_and_belongs_to_many</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:join_table</span> <span class="o">=&gt;</span> <span class="ss">:users_roles</span>
+</span></span><span class="line"><span class="cl">  <span class="n">belongs_to</span> <span class="ss">:resource</span><span class="p">,</span> <span class="ss">:polymorphic</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">:optional</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">validates</span> <span class="ss">:resource_type</span><span class="p">,</span> <span class="ss">:inclusion</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:in</span> <span class="o">=&gt;</span> <span class="no">Rolify</span><span class="o">.</span><span class="n">resource_types</span> <span class="p">},</span> <span class="ss">:allow_nil</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">uniqueness</span><span class="p">:</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">scopify</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><ul>
 <li>권한을 등록할 app/models/user.rb 파일도 수정해줍니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="c1"># Include default devise modules. Others available are:</span>
-  <span class="kp">include</span> <span class="no">Devise</span><span class="o">::</span><span class="no">JWT</span><span class="o">::</span><span class="no">RevocationStrategies</span><span class="o">::</span><span class="no">JTIMatcher</span>
-  <span class="c1"># :confirmable, :lockable, :timeoutable, :trackable and</span>
-  <span class="n">devise</span> <span class="ss">:database_authenticatable</span><span class="p">,</span> <span class="ss">:registerable</span><span class="p">,</span>
-         <span class="ss">:recoverable</span><span class="p">,</span> <span class="ss">:rememberable</span><span class="p">,</span> <span class="ss">:validatable</span><span class="p">,</span> <span class="ss">:omniauthable</span><span class="p">,</span>
-         <span class="ss">:jwt_authenticatable</span><span class="p">,</span> <span class="ss">jwt_revocation_strategy</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span>
-         <span class="ss">omniauth_providers</span><span class="p">:</span> <span class="o">%</span><span class="n">i</span><span class="o">[</span><span class="n">facebook</span> <span class="n">naver</span> <span class="n">kakao</span><span class="o">]</span>
-
-  <span class="n">rolify</span> <span class="c1"># 추가하는 코드</span>
-<span class="k">end</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Include default devise modules. Others available are:</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">include</span> <span class="no">Devise</span><span class="o">::</span><span class="no">JWT</span><span class="o">::</span><span class="no">RevocationStrategies</span><span class="o">::</span><span class="no">JTIMatcher</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># :confirmable, :lockable, :timeoutable, :trackable and</span>
+</span></span><span class="line"><span class="cl">  <span class="n">devise</span> <span class="ss">:database_authenticatable</span><span class="p">,</span> <span class="ss">:registerable</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="ss">:recoverable</span><span class="p">,</span> <span class="ss">:rememberable</span><span class="p">,</span> <span class="ss">:validatable</span><span class="p">,</span> <span class="ss">:omniauthable</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="ss">:jwt_authenticatable</span><span class="p">,</span> <span class="ss">jwt_revocation_strategy</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="ss">omniauth_providers</span><span class="p">:</span> <span class="o">%</span><span class="n">i</span><span class="o">[</span><span class="n">facebook</span> <span class="n">naver</span> <span class="n">kakao</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">rolify</span> <span class="c1"># 추가하는 코드</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><ul>
 <li>참고 : 유저 모델 생성시 기본 권한을 추가하고 싶을 때</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="c1"># Include default devise modules. Others available are:</span>
-  <span class="kp">include</span> <span class="no">Devise</span><span class="o">::</span><span class="no">JWT</span><span class="o">::</span><span class="no">RevocationStrategies</span><span class="o">::</span><span class="no">JTIMatcher</span>
-  <span class="c1"># :confirmable, :lockable, :timeoutable, :trackable and</span>
-  <span class="n">devise</span> <span class="ss">:database_authenticatable</span><span class="p">,</span> <span class="ss">:registerable</span><span class="p">,</span>
-         <span class="ss">:recoverable</span><span class="p">,</span> <span class="ss">:rememberable</span><span class="p">,</span> <span class="ss">:validatable</span><span class="p">,</span> <span class="ss">:omniauthable</span><span class="p">,</span>
-         <span class="ss">:jwt_authenticatable</span><span class="p">,</span> <span class="ss">jwt_revocation_strategy</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span>
-         <span class="ss">omniauth_providers</span><span class="p">:</span> <span class="o">%</span><span class="n">i</span><span class="o">[</span><span class="n">facebook</span> <span class="n">naver</span> <span class="n">kakao</span><span class="o">]</span>
-
-  <span class="n">rolify</span>
-
-  <span class="n">after_create</span> <span class="ss">:assign_default_role</span>
-
-  <span class="n">has_many</span> <span class="ss">:blogs</span><span class="p">,</span> <span class="ss">foreign_key</span><span class="p">:</span> <span class="ss">:writer_id</span>
-
-  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
-  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">uniqueness</span><span class="p">:</span> <span class="kp">true</span>
-
-  <span class="k">def</span> <span class="nf">assign_default_role</span>
-    <span class="nb">self</span><span class="o">.</span><span class="n">add_role</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span> <span class="k">if</span> <span class="nb">self</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">blank?</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><p>after_create 메서드를 통해 최소 생성시 user 권한을 추가하도록 구현합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Include default devise modules. Others available are:</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">include</span> <span class="no">Devise</span><span class="o">::</span><span class="no">JWT</span><span class="o">::</span><span class="no">RevocationStrategies</span><span class="o">::</span><span class="no">JTIMatcher</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># :confirmable, :lockable, :timeoutable, :trackable and</span>
+</span></span><span class="line"><span class="cl">  <span class="n">devise</span> <span class="ss">:database_authenticatable</span><span class="p">,</span> <span class="ss">:registerable</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="ss">:recoverable</span><span class="p">,</span> <span class="ss">:rememberable</span><span class="p">,</span> <span class="ss">:validatable</span><span class="p">,</span> <span class="ss">:omniauthable</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="ss">:jwt_authenticatable</span><span class="p">,</span> <span class="ss">jwt_revocation_strategy</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="ss">omniauth_providers</span><span class="p">:</span> <span class="o">%</span><span class="n">i</span><span class="o">[</span><span class="n">facebook</span> <span class="n">naver</span> <span class="n">kakao</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">rolify</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">after_create</span> <span class="ss">:assign_default_role</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">has_many</span> <span class="ss">:blogs</span><span class="p">,</span> <span class="ss">foreign_key</span><span class="p">:</span> <span class="ss">:writer_id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">uniqueness</span><span class="p">:</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">assign_default_role</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">add_role</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span> <span class="k">if</span> <span class="nb">self</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">blank?</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>after_create 메서드를 통해 최소 생성시 user 권한을 추가하도록 구현합니다.</p>
 <ul>
 <li>cancancan 설정을 시작합니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails g cancan:ability
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails g cancan:ability
+</span></span></code></pre></div><ul>
 <li>app/models/ability.rb 파일이 생성됩니다.</li>
 <li>권한에 맞게 접근을 제어 하는 코드를 추가합니다. 좀 더 많은 제어 방법은 <a href="https://github.com/CanCanCommunity/cancancan#define-abilities">링크</a>를 참고하시면 됩니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># frozen_string_literal: true</span>
-
-<span class="k">class</span> <span class="nc">Ability</span>
-  <span class="kp">include</span> <span class="no">CanCan</span><span class="o">::</span><span class="no">Ability</span>
-
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
-    <span class="n">user</span> <span class="o">||=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span> <span class="c1"># guest user (not logged in)</span>
-    <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">has_any_role?</span> <span class="ss">:admin</span>
-      <span class="n">can</span> <span class="ss">:manage</span><span class="p">,</span> <span class="ss">:all</span>
-      <span class="n">can</span> <span class="ss">:read</span><span class="p">,</span> <span class="ss">:all</span>
-    <span class="k">elsif</span> <span class="n">user</span><span class="o">.</span><span class="n">has_any_role?</span> <span class="ss">:user</span>
-      <span class="n">can</span> <span class="ss">:read</span><span class="p">,</span> <span class="ss">:all</span>
-    <span class="k">else</span>
-      <span class="n">can</span> <span class="ss">:read</span><span class="p">,</span> <span class="ss">:all</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><p>저는 admin 권한 일때 모든 접근을 가능하도록 했고 user 와 권한이 없는 경우에는 read 권한만을 부여했습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1"># frozen_string_literal: true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Ability</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">include</span> <span class="no">CanCan</span><span class="o">::</span><span class="no">Ability</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">user</span> <span class="o">||=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span> <span class="c1"># guest user (not logged in)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">has_any_role?</span> <span class="ss">:admin</span>
+</span></span><span class="line"><span class="cl">      <span class="n">can</span> <span class="ss">:manage</span><span class="p">,</span> <span class="ss">:all</span>
+</span></span><span class="line"><span class="cl">      <span class="n">can</span> <span class="ss">:read</span><span class="p">,</span> <span class="ss">:all</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elsif</span> <span class="n">user</span><span class="o">.</span><span class="n">has_any_role?</span> <span class="ss">:user</span>
+</span></span><span class="line"><span class="cl">      <span class="n">can</span> <span class="ss">:read</span><span class="p">,</span> <span class="ss">:all</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">      <span class="n">can</span> <span class="ss">:read</span><span class="p">,</span> <span class="ss">:all</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>저는 admin 권한 일때 모든 접근을 가능하도록 했고 user 와 권한이 없는 경우에는 read 권한만을 부여했습니다.</p>
 <p>생각보다 간단합니다.</p>
 </article>
               </div>

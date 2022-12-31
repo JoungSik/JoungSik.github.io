@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -249,15 +249,15 @@
 <h3 id="설치">설치</h3>
 <p>사용하고 있는 OS가 Mac 이기 때문에 Mac 기준으로 진행합니다. 먼저 <a href="https://brew.sh/">Homebrew</a> 가 설치되어 있음을 가정합니다. (설치가 안되신 분은
 설치해주시거나 <a href="https://www.macports.org/">MacPorts</a> 로 설치해주세요.)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">brew install hugo
-<span class="c1"># or</span>
-port install hugo
-</code></pre></div><p>재대로 설치 되었는지 확인을 해줍니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">hugo version
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install hugo
+</span></span><span class="line"><span class="cl"><span class="c1"># or</span>
+</span></span><span class="line"><span class="cl">port install hugo
+</span></span></code></pre></div><p>재대로 설치 되었는지 확인을 해줍니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">hugo version
+</span></span></code></pre></div><hr>
 <p>설치가 되었다면 이제 사이트를 생성해줍니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">hugo new site <span class="o">[</span>사이트<span class="o">]</span>
-</code></pre></div><p>그러면 아래처럼 생성이 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">hugo new site <span class="o">[</span>사이트<span class="o">]</span>
+</span></span></code></pre></div><p>그러면 아래처럼 생성이 됩니다.</p>
 <p><img src="/post/2021_10/2021_10_05/new_site.png" alt="site image"></p>
 <p>다음으로 선택했던 테마를 적용하는 부분입니다만 제가 참고했던 링크에서는 git
 의 <a href="https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-%EC%84%9C%EB%B8%8C%EB%AA%A8%EB%93%88">submodule</a> 을 사용하라고 합니다.
@@ -275,56 +275,56 @@ https://discourse.gohugo.io/t/adding-a-theme-as-a-submodule-or-clone/8789
 git init
 git submodule add git@github.com:JoungSik/github-style.git themes/github-style
 </code></pre><p>이렇게 설치를 하고 config.toml 파일을 변경해줍니다. 테마에서는 이런 example 을 주고 있습니다. 실제로 실행을 해보시면서 체크해 보시는걸 추천합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s">&#34;https://meik2333.com/&#34;</span>
-<span class="nx">languageCode</span> <span class="p">=</span> <span class="s">&#34;zh-cn&#34;</span>
-<span class="nx">title</span> <span class="p">=</span> <span class="s">&#34;MeiK&#39;s blog&#34;</span>
-<span class="nx">theme</span> <span class="p">=</span> <span class="s">&#34;github-style&#34;</span>
-<span class="nx">googleAnalytics</span> <span class="p">=</span> <span class="s">&#34;UA-123456-789&#34;</span>
-<span class="nx">pygmentsCodeFences</span> <span class="p">=</span> <span class="kc">true</span>
-<span class="nx">pygmentsUseClasses</span> <span class="p">=</span> <span class="kc">true</span>
-
-<span class="p">[</span><span class="nx">params</span><span class="p">]</span>
-  <span class="nx">author</span> <span class="p">=</span> <span class="s">&#34;MeiK&#34;</span>
-  <span class="nx">description</span> <span class="p">=</span> <span class="s">&#34;In solitude, where we are least alone.&#34;</span>
-  <span class="nx">github</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
-  <span class="nx">facebook</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
-  <span class="nx">twitter</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
-  <span class="nx">linkedin</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
-  <span class="nx">instagram</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
-  <span class="nx">tumblr</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
-  <span class="nx">email</span> <span class="p">=</span> <span class="s">&#34;meik2333@gmail.com&#34;</span>
-  <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;https://meik2333.com&#34;</span>
-  <span class="nx">keywords</span> <span class="p">=</span> <span class="s">&#34;blog, google analytics&#34;</span>
-  <span class="nx">rss</span> <span class="p">=</span> <span class="kc">true</span>
-  <span class="nx">lastmod</span> <span class="p">=</span> <span class="kc">true</span>
-  <span class="nx">userStatusEmoji</span> <span class="p">=</span> <span class="s">&#34;😀&#34;</span>
-  <span class="nx">favicon</span> <span class="p">=</span> <span class="s">&#34;/images/github.png&#34;</span>
-  <span class="nx">location</span> <span class="p">=</span> <span class="s">&#34;China&#34;</span>
-
-  <span class="p">[[</span><span class="nx">params</span><span class="p">.</span><span class="nx">links</span><span class="p">]]</span>
-    <span class="nx">title</span> <span class="p">=</span> <span class="s">&#34;Link&#34;</span>
-    <span class="nx">href</span> <span class="p">=</span> <span class="s">&#34;https://github.com/meik2333&#34;</span>
-  <span class="p">[[</span><span class="nx">params</span><span class="p">.</span><span class="nx">links</span><span class="p">]]</span>
-    <span class="nx">title</span> <span class="p">=</span> <span class="s">&#34;Link2&#34;</span>
-    <span class="nx">href</span> <span class="p">=</span> <span class="s">&#34;https://meik2333.com&#34;</span>
-    <span class="nx">icon</span> <span class="p">=</span> <span class="s">&#34;https://meik2333.com/images/avatar.png&#34;</span>
-
-<span class="p">[</span><span class="nx">frontmatter</span><span class="p">]</span>
-  <span class="nx">lastmod</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;lastmod&#34;</span><span class="p">,</span> <span class="s">&#34;:fileModTime&#34;</span><span class="p">,</span> <span class="s">&#34;:default&#34;</span><span class="p">]</span>
-</code></pre></div><p>hugo 의 실행을 로컬에서 확인 하려면 아래 명령어로 확인합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">hugo server -D
-</code></pre></div><p>이렇게 설치가 끝났습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s">&#34;https://meik2333.com/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">languageCode</span> <span class="p">=</span> <span class="s">&#34;zh-cn&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">title</span> <span class="p">=</span> <span class="s">&#34;MeiK&#39;s blog&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s">&#34;github-style&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">googleAnalytics</span> <span class="p">=</span> <span class="s">&#34;UA-123456-789&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pygmentsCodeFences</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pygmentsUseClasses</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">author</span> <span class="p">=</span> <span class="s">&#34;MeiK&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">description</span> <span class="p">=</span> <span class="s">&#34;In solitude, where we are least alone.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">github</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">facebook</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">twitter</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">linkedin</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">instagram</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tumblr</span> <span class="p">=</span> <span class="s">&#34;MeiK2333&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">email</span> <span class="p">=</span> <span class="s">&#34;meik2333@gmail.com&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;https://meik2333.com&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">keywords</span> <span class="p">=</span> <span class="s">&#34;blog, google analytics&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">rss</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">lastmod</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">userStatusEmoji</span> <span class="p">=</span> <span class="s">&#34;😀&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">favicon</span> <span class="p">=</span> <span class="s">&#34;/images/github.png&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">location</span> <span class="p">=</span> <span class="s">&#34;China&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">[[</span><span class="nx">params</span><span class="p">.</span><span class="nx">links</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span> <span class="p">=</span> <span class="s">&#34;Link&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">href</span> <span class="p">=</span> <span class="s">&#34;https://github.com/meik2333&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[[</span><span class="nx">params</span><span class="p">.</span><span class="nx">links</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span> <span class="p">=</span> <span class="s">&#34;Link2&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">href</span> <span class="p">=</span> <span class="s">&#34;https://meik2333.com&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">icon</span> <span class="p">=</span> <span class="s">&#34;https://meik2333.com/images/avatar.png&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">frontmatter</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">lastmod</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;lastmod&#34;</span><span class="p">,</span> <span class="s">&#34;:fileModTime&#34;</span><span class="p">,</span> <span class="s">&#34;:default&#34;</span><span class="p">]</span>
+</span></span></code></pre></div><p>hugo 의 실행을 로컬에서 확인 하려면 아래 명령어로 확인합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">hugo server -D
+</span></span></code></pre></div><p>이렇게 설치가 끝났습니다.</p>
 <h3 id="글-작성">글 작성</h3>
 <p>글은 아래 명령으로 추가 합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">hugo new post/sample.md 
-</code></pre></div><p>그러면 /content 안에 파일이 생성 되는걸 확인 할 수 있고 파일에 글을 작성하면 됩니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">---
-title: &#34;Sample&#34;
-date: 2021-10-05T22:17:19+09:00 draft: true
----
-
-hello world!
-</code></pre></div><h3 id="배포">배포</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">hugo new post/sample.md 
+</span></span></code></pre></div><p>그러면 /content 안에 파일이 생성 되는걸 확인 할 수 있고 파일에 글을 작성하면 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: &#34;Sample&#34;
+</span></span><span class="line"><span class="cl">date: 2021-10-05T22:17:19+09:00 draft: true
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">hello world!
+</span></span></code></pre></div><h3 id="배포">배포</h3>
 <p>배포를 위해서는 2개의 repository 가 필요합니다. 저는 githuh 에 배포 하려고 생각하고 있어 github 에 repository 를 만들어주었습니다.</p>
 <ol>
 <li><a href="https://github.com/JoungSik/blog">Hugo 의 컨텐츠와 소스 파일들을 전부 가지고 있는 저장소</a></li>
@@ -332,14 +332,14 @@ hello world!
 </ol>
 <p>이제 git remote 등록을 해줍니다.</p>
 <p>전체 컨텐츠를 등록하는 저장소를 등록합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> sample
-git remote add origin git@github.com:JoungSik/blog.git
-</code></pre></div><p>그 후 랜더링 될 Hugo 폴더를 submodule 로 등록합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">git submodule add -b master git@github.com:JoungSik/JoungSik.github.io.git public
-</code></pre></div><p>이제 hugo 로 랜더링 된 파일들이 저장되는 public 폴더는 다른 저장소를 보고 있게 되었습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> sample
+</span></span><span class="line"><span class="cl">git remote add origin git@github.com:JoungSik/blog.git
+</span></span></code></pre></div><p>그 후 랜더링 될 Hugo 폴더를 submodule 로 등록합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git submodule add -b master git@github.com:JoungSik/JoungSik.github.io.git public
+</span></span></code></pre></div><p>이제 hugo 로 랜더링 된 파일들이 저장되는 public 폴더는 다른 저장소를 보고 있게 되었습니다.</p>
 <p>이제 랜더링을 해줍니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">hugo -t github-style
-</code></pre></div><p>순서는 상관 없지만 저는 먼저 public 폴더로 이동 한 뒤 commit 을 진행하고 마지막에 전체 저장소의 푸쉬를 진행합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">hugo -t github-style
+</span></span></code></pre></div><p>순서는 상관 없지만 저는 먼저 public 폴더로 이동 한 뒤 commit 을 진행하고 마지막에 전체 저장소의 푸쉬를 진행합니다.</p>
 <p>그러면 다음과 같이 배포가 완료 됩니다.</p>
 <p><img src="/post/2021_10/2021_10_05/deploy.png" alt="deploy image"></p>
 <h3 id="참고-링크">참고 링크</h3>

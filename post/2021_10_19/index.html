@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -197,7 +197,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      716 Words
+                      599 Words
                     
 
                   </div>
@@ -235,9 +235,9 @@
 <h2 id="적용">적용</h2>
 <p><a href="https://guides.rubyonrails.org/i18n.html">Rails Guide</a> 를 참고했습니다.</p>
 <p>config/application.rb 에 내용을 추가합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">load_path</span> <span class="o">+=</span> <span class="no">Dir</span><span class="o">[</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;locales&#39;</span><span class="p">,</span> <span class="s1">&#39;*.{rb,yml}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="o">]</span>
-<span class="n">config</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">default_locale</span> <span class="o">=</span> <span class="ss">:ko</span>
-</code></pre></div><p>지원하는 언어 약칭은 <a href="https://github.com/svenfuchs/rails-i18n#available-locales">여기서</a> 확인하면 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">config</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">load_path</span> <span class="o">+=</span> <span class="no">Dir</span><span class="o">[</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;locales&#39;</span><span class="p">,</span> <span class="s1">&#39;*.{rb,yml}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">config</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">default_locale</span> <span class="o">=</span> <span class="ss">:ko</span>
+</span></span></code></pre></div><p>지원하는 언어 약칭은 <a href="https://github.com/svenfuchs/rails-i18n#available-locales">여기서</a> 확인하면 됩니다.</p>
 <ol>
 <li>config/locales 폴더 안의 미리 지정된 언어셋을 봅니다.</li>
 </ol>
@@ -247,45 +247,45 @@
 </ol>
 <p>작성 예시로 en.yml 을 참고해서 ko.yml 을 생성해보겠습니다.</p>
 <p>en.yml</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">en</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">hello</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Hello world&#34;</span><span class="w">
-</span></code></pre></div><p>ko.yml</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">ko</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">hello</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;안녕 세계!&#34;</span><span class="w">
-</span></code></pre></div><p>이런 느낌으로 i18n 을 작성하게 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">en</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hello</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Hello world&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>ko.yml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">ko</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hello</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;안녕 세계!&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>이런 느낌으로 i18n 을 작성하게 됩니다.</p>
 <hr>
 <p>이제 에러 메세지 형식을 고정해보겠습니다.</p>
 <p>아래는 user의 이메일에 대한 중복값을 처리하는 테스트 코드 입니다.</p>
 <p>텍스트로 되어 있는 검증 코드를 바꿔주도록 하겠습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">it</span> <span class="s1">&#39;Email has already been taken&#39;</span> <span class="k">do</span>
-  <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">create</span><span class="p">({</span> <span class="ss">email</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="nb">name</span><span class="p">:</span> <span class="s2">&#34;example2&#34;</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">password</span> <span class="p">})</span>
-  <span class="n">user</span><span class="o">.</span><span class="n">validate</span>
-  <span class="n">expect</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">full_messages</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="kp">include</span><span class="p">(</span><span class="s2">&#34;Email has already been taken&#34;</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">it</span> <span class="s1">&#39;Email has already been taken&#39;</span> <span class="k">do</span>
-  <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">create</span><span class="p">({</span> <span class="ss">email</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="nb">name</span><span class="p">:</span> <span class="s2">&#34;example2&#34;</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">password</span> <span class="p">})</span>
-  <span class="n">user</span><span class="o">.</span><span class="n">validate</span>
-  <span class="n">expect</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">messages</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="kp">include</span> <span class="no">I18n</span><span class="o">.</span><span class="n">t</span><span class="p">(</span><span class="s1">&#39;activerecord.errors.messages.taken&#39;</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div><p>지금은 당연히 값이 없어 에러가 뜹니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">it</span> <span class="s1">&#39;Email has already been taken&#39;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">create</span><span class="p">({</span> <span class="ss">email</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="nb">name</span><span class="p">:</span> <span class="s2">&#34;example2&#34;</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">password</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="n">user</span><span class="o">.</span><span class="n">validate</span>
+</span></span><span class="line"><span class="cl">  <span class="n">expect</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">full_messages</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="kp">include</span><span class="p">(</span><span class="s2">&#34;Email has already been taken&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">it</span> <span class="s1">&#39;Email has already been taken&#39;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">create</span><span class="p">({</span> <span class="ss">email</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="nb">name</span><span class="p">:</span> <span class="s2">&#34;example2&#34;</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">password</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="n">user</span><span class="o">.</span><span class="n">validate</span>
+</span></span><span class="line"><span class="cl">  <span class="n">expect</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">messages</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="kp">include</span> <span class="no">I18n</span><span class="o">.</span><span class="n">t</span><span class="p">(</span><span class="s1">&#39;activerecord.errors.messages.taken&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>지금은 당연히 값이 없어 에러가 뜹니다.</p>
 <p><img src="/post/2021_10/2021_10_19/2.png" alt="2"></p>
 <p>ko.yml 을 열어 내용을 추가합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">ko</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">hello</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;안녕 세계!&#34;</span><span class="w">
-</span><span class="w">  </span><span class="nt">activerecord</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">errors</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;%{message}&#39;</span><span class="w">
-</span><span class="w">      </span><span class="nt">messages</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">taken</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;항목이 이미 존재하고 있습니다.&#39;</span><span class="w">
-</span><span class="w">        </span><span class="nt">blank</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;입력 항목이 비어있습니다.&#39;</span><span class="w">
-</span><span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;필수 입력 항목이 비어있습니다.&#39;</span><span class="w">
-</span><span class="w">    </span><span class="nt">models</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="nt">attributes</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">user</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;이메일&#39;</span><span class="w">
-</span><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;비밀번호&#39;</span><span class="w">
-</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;이름&#39;</span><span class="w">
-</span></code></pre></div><p>이렇게 적용 후 en.yml 에도 동일하게 적용해주면 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">ko</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hello</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;안녕 세계!&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">activerecord</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">errors</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;%{message}&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">messages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">taken</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;항목이 이미 존재하고 있습니다.&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">blank</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;입력 항목이 비어있습니다.&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;필수 입력 항목이 비어있습니다.&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">models</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">attributes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">user</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;이메일&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;비밀번호&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;이름&#39;</span><span class="w">
+</span></span></span></code></pre></div><p>이렇게 적용 후 en.yml 에도 동일하게 적용해주면 됩니다.</p>
 <p>그러면 다음과 같은 메세지가 뜨게됩니다.</p>
 <blockquote>
 <p>항목이 이미 존재하고 있습니다.</p>

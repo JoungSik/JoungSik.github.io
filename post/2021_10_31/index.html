@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -239,55 +239,55 @@
 <hr>
 <h2 id="2021-10-26">2021-10-26</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12922?language=ruby">수박수박수박수박수박수?</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>    
-    <span class="n">answer</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;박&#39;</span> <span class="p">:</span> <span class="s1">&#39;수&#39;</span> <span class="p">}</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">answer</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>    
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;박&#39;</span> <span class="p">:</span> <span class="s1">&#39;수&#39;</span> <span class="p">}</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-27">2021-10-27</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12925?language=ruby">문자열을 정수로 바꾸기</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">to_i</span>
-    <span class="k">return</span> <span class="n">answer</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">to_i</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-28">2021-10-28</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12910">나누어 떨어지는 숫자배열</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">divisor</span><span class="p">)</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">%</span> <span class="n">divisor</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span>
-    <span class="k">return</span> <span class="n">answer</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="o">[-</span><span class="mi">1</span><span class="o">]</span> <span class="p">:</span> <span class="n">answer</span><span class="o">.</span><span class="n">sort</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">divisor</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">%</span> <span class="n">divisor</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="o">[-</span><span class="mi">1</span><span class="o">]</span> <span class="p">:</span> <span class="n">answer</span><span class="o">.</span><span class="n">sort</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-29">2021-10-29</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12928?language=ruby">약수의 합</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">n</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span><span class="o">.</span><span class="n">sum</span>
-    <span class="k">return</span> <span class="n">answer</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">n</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span><span class="o">.</span><span class="n">sum</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-30">2021-10-30</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12926">시저 암호</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">bytes</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
-        <span class="k">case</span> <span class="n">x</span>
-        <span class="k">when</span> <span class="mi">32</span> 
-            <span class="n">x</span><span class="o">.</span><span class="n">chr</span>
-        <span class="k">when</span> <span class="mi">65</span><span class="o">..</span><span class="mi">90</span>
-            <span class="p">((</span><span class="mi">90</span> <span class="o">&lt;</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span> <span class="o">+</span> <span class="n">n</span> <span class="p">?</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span> <span class="o">-</span> <span class="mi">26</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span><span class="p">)</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">chr</span>
-        <span class="k">when</span> <span class="mi">97</span><span class="o">..</span><span class="mi">122</span>
-            <span class="p">((</span><span class="mi">122</span> <span class="o">&lt;</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span> <span class="o">+</span> <span class="n">n</span> <span class="p">?</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span> <span class="o">-</span> <span class="mi">26</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span><span class="p">)</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">chr</span>            
-        <span class="k">end</span>
-    <span class="k">end</span><span class="o">.</span><span class="n">join</span>
-    <span class="k">return</span> <span class="n">answer</span>
-<span class="k">end</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">bytes</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">        <span class="k">when</span> <span class="mi">32</span> 
+</span></span><span class="line"><span class="cl">            <span class="n">x</span><span class="o">.</span><span class="n">chr</span>
+</span></span><span class="line"><span class="cl">        <span class="k">when</span> <span class="mi">65</span><span class="o">..</span><span class="mi">90</span>
+</span></span><span class="line"><span class="cl">            <span class="p">((</span><span class="mi">90</span> <span class="o">&lt;</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span> <span class="o">+</span> <span class="n">n</span> <span class="p">?</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span> <span class="o">-</span> <span class="mi">26</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span><span class="p">)</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">chr</span>
+</span></span><span class="line"><span class="cl">        <span class="k">when</span> <span class="mi">97</span><span class="o">..</span><span class="mi">122</span>
+</span></span><span class="line"><span class="cl">            <span class="p">((</span><span class="mi">122</span> <span class="o">&lt;</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span> <span class="o">+</span> <span class="n">n</span> <span class="p">?</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span> <span class="o">-</span> <span class="mi">26</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">ord</span><span class="p">)</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">chr</span>            
+</span></span><span class="line"><span class="cl">        <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span><span class="o">.</span><span class="n">join</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><hr>
 <h2 id="2021-10-31">2021-10-31</h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12933">정수 내림차순으로 배치하기</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">to_i</span> <span class="p">}</span><span class="o">.</span><span class="n">join</span><span class="o">.</span><span class="n">to_i</span>
-    <span class="k">return</span> <span class="n">answer</span>
-<span class="k">end</span>
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">to_i</span> <span class="p">}</span><span class="o">.</span><span class="n">join</span><span class="o">.</span><span class="n">to_i</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div></article>
               </div>
             </div>
           </div>

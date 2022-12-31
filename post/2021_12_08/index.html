@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sat, 11 Dec 2021 10:06:35 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sat, 11 Dec 2021 10:06:35 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -228,33 +228,33 @@
 <p><a href="https://github.com/jenv/jenv">jenv</a> 라고 합니다. 아마 rbenv 에서 네이밍을 따온게 아닐까 싶었습니다.</p>
 <h2 id="설치">설치</h2>
 <p>저는 homebrew 를 사용하고 있어 brew 로 설치했습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">brew install jenv
-</code></pre></div><p><img src="/post/2021_12/2021_12_08/1.png" alt="1"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install jenv
+</span></span></code></pre></div><p><img src="/post/2021_12/2021_12_08/1.png" alt="1"></p>
 <p>사용할 수 있도록 환경변수를 설정합니다.</p>
 <p>.zshrc</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.jenv/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
-<span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>jenv init -<span class="k">)</span><span class="s2">&#34;</span>
-</code></pre></div><p>설치가 완료되었습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">jenv doctor
-</code></pre></div><p><img src="/post/2021_12/2021_12_08/2.png" alt="2"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.jenv/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>jenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p>설치가 완료되었습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">jenv doctor
+</span></span></code></pre></div><p><img src="/post/2021_12/2021_12_08/2.png" alt="2"></p>
 <p>추가 설정을 합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">jenv enable-plugin <span class="nb">export</span>
-<span class="nb">exec</span> <span class="nv">$SHELL</span> -l
-</code></pre></div><p><img src="/post/2021_12/2021_12_08/3.png" alt="3"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">jenv enable-plugin <span class="nb">export</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> <span class="nv">$SHELL</span> -l
+</span></span></code></pre></div><p><img src="/post/2021_12/2021_12_08/3.png" alt="3"></p>
 <p>다시 확인을 해보면 이전과 달라진걸 볼 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">jenv doctor
-</code></pre></div><p><img src="/post/2021_12/2021_12_08/4.png" alt="4"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">jenv doctor
+</span></span></code></pre></div><p><img src="/post/2021_12/2021_12_08/4.png" alt="4"></p>
 <p>이미 설치된 자바 버전을 jenv 에 추가하도록 하겠습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">jenv add <span class="k">$(</span>/usr/libexec/java_home<span class="k">)</span>
-</code></pre></div><p><img src="/post/2021_12/2021_12_08/5.png" alt="5"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">jenv add <span class="k">$(</span>/usr/libexec/java_home<span class="k">)</span>
+</span></span></code></pre></div><p><img src="/post/2021_12/2021_12_08/5.png" alt="5"></p>
 <p>이제 자바를 설치 후 이전 자바 버전을 삭제하지 않고도 jenv 로 자바 버전을 변경해 사용할 수 있습니다.</p>
 <p>로컬에서 사용하도록 변경하는 방법은 아래와 같습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">jenv versions
-jenv <span class="nb">local</span> 1.8
-<span class="nb">exec</span> <span class="nv">$SHELL</span> -l
-cat .java-version
-<span class="nb">echo</span> <span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>
-</code></pre></div><p><img src="/post/2021_12/2021_12_08/6.png" alt="6"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">jenv versions
+</span></span><span class="line"><span class="cl">jenv <span class="nb">local</span> 1.8
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> <span class="nv">$SHELL</span> -l
+</span></span><span class="line"><span class="cl">cat .java-version
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>
+</span></span></code></pre></div><p><img src="/post/2021_12/2021_12_08/6.png" alt="6"></p>
 <p>jenv local 인 경우에는 해당 디렉토리 내에서만 적용되지만 jenv global 로 하면 전체로 적용됩니다.</p>
 </article>
               </div>

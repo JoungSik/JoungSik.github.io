@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -239,19 +239,19 @@
 <p>이 공동의 역할은 고전적 상속이 만들어내는 상위/하위 클래스 관계가 아닌 주어진 역할을 누군가를 위해 수행하면서 이 누군가와 관계를 맺게 됩니다.</p>
 <p>여기서 루비 모듈은 다른 객체지향 언어에서 지원하는 메서드의 묶음에 이름을 부여하고 관리하는 방법 중에 하나 입니다.</p>
 <p>객체가 모듈을 include 하면 객체는 이 모듈이 정의하고 있는 메서드를 자동화된 위임을 통해 모두 사용 할 수 있게 되는데 이 부분은 코드를 보겠습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">A</span>
-    <span class="k">def</span> <span class="nf">pr</span>
-        <span class="nb">puts</span> <span class="s2">&#34;a - pr&#34;</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="k">class</span> <span class="nc">Person</span>
-<span class="kp">include</span> <span class="n">A</span>
-<span class="k">end</span>
-
-<span class="nb">p</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span>
-<span class="nb">p</span><span class="o">.</span><span class="n">pr</span>
-</code></pre></div><p>저는 이 모듈과 설명하는 내용을 보면 Java 의 추상 클래스 같은 느낌이 아닐까 싶었습니다. 인터페이스는 아니라고 생각했던건 인터페이스는 추상화된 코드만 있어야 해서 제외하게 되었습니다. 완전히 추상 클래스는 또 아니지만 그나마 제일 비슷한게 아닐까 싶었습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">module</span> <span class="nn">A</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">pr</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">puts</span> <span class="s2">&#34;a - pr&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Person</span>
+</span></span><span class="line"><span class="cl"><span class="kp">include</span> <span class="n">A</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">p</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span>
+</span></span><span class="line"><span class="cl"><span class="nb">p</span><span class="o">.</span><span class="n">pr</span>
+</span></span></code></pre></div><p>저는 이 모듈과 설명하는 내용을 보면 Java 의 추상 클래스 같은 느낌이 아닐까 싶었습니다. 인터페이스는 아니라고 생각했던건 인터페이스는 추상화된 코드만 있어야 해서 제외하게 되었습니다. 완전히 추상 클래스는 또 아니지만 그나마 제일 비슷한게 아닐까 싶었습니다.</p>
 <p>그리고 모듈을 include 했을 때 이 모듈의 메서드들은 상속을 통해 얻은 메서드와 같은 메서드 탐색을 거치게 됩니다.</p>
 <p>마지막으로 인상 깊었던 내용을 추가로 정리하겠습니다.</p>
 <p>객체가 다른 곳에서 정의된 행동을 가져왔다면 다른 곳이 상위 클래스든 아니면 모듈이든 이 객체는 상위 타입은 자신의 하위 타입으로 치환될 수 있습니다.</p>

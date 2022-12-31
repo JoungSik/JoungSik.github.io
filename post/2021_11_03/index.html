@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -263,8 +263,8 @@
 <pre tabindex="0"><code>client_max_body_size 0;
 </code></pre><p>간단하게 생각을 해보면 01-nginx-proxy.config 에서 미리 지정된 conf 파일을 부르는 주소에 파일 하나를 더 생성해서 같이 부르면 되는 문제였습니다.</p>
 <pre tabindex="0"><code>files:
-  &quot;/etc/nginx/conf.d/01_nginx_proxy.conf&quot;:
-    mode: &quot;000744&quot;
+  &#34;/etc/nginx/conf.d/01_nginx_proxy.conf&#34;:
+    mode: &#34;000744&#34;
     owner: root
     group: root
     content: |
@@ -274,11 +274,11 @@
         client_max_body_size 100M;
         set $redirect_to_https 0;
 
-        if ($http_x_forwarded_proto != 'https') {
+        if ($http_x_forwarded_proto != &#39;https&#39;) {
           set $redirect_to_https 1;
         }
 
-        if ($request_uri = '/') {
+        if ($request_uri = &#39;/&#39;) {
           set $redirect_to_https 0;
         }
 

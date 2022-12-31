@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Fri, 04 Feb 2022 15:20:20 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Fri, 04 Feb 2022 15:20:20 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -232,12 +232,12 @@
 <p>다이나믹 프록시를 사용하게 된다면 가장 중요한 리플랙션이 뭔지를 알아보겠습니다. 리플랙션은 구체적인 클래스 정보는 알지 못해도 컴파일 된 자바 바이트 코드를 이용해 클래스에 대한 정보를 얻어내 클래스를 사용하는 기법을 말합니다.</p>
 <p>다이나믹 프록시를 구현할 때는 InvocationHandler 를 구현하면 됩니다.</p>
 <p>그리고 클라이언트에서 타겟을 받을 때는 Proxy 클래스의 newProxyInstance() 를 통해 받으면 됩니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">Object</span> <span class="n">object</span> <span class="o">=</span> <span class="o">(</span><span class="n">Object</span><span class="o">)</span><span class="n">Proxy</span><span class="o">.</span><span class="na">newProxyInstance</span><span class="o">(</span>
-	<span class="n">getClass</span><span class="o">().</span><span class="na">getClassLoader</span><span class="o">(),</span>
-  <span class="k">new</span> <span class="n">Class</span><span class="o">[]</span> <span class="o">{</span><span class="n">Object</span><span class="o">.</span><span class="na">class</span><span class="o">},</span> 
-  <span class="k">new</span> <span class="n">SampleHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">SampleTarget</span><span class="o">())</span>
-<span class="o">);</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Object</span> <span class="n">object</span> <span class="o">=</span> <span class="o">(</span><span class="n">Object</span><span class="o">)</span><span class="n">Proxy</span><span class="o">.</span><span class="na">newProxyInstance</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">	<span class="n">getClass</span><span class="o">().</span><span class="na">getClassLoader</span><span class="o">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="k">new</span> <span class="n">Class</span><span class="o">[]</span> <span class="o">{</span><span class="n">Object</span><span class="o">.</span><span class="na">class</span><span class="o">},</span> 
+</span></span><span class="line"><span class="cl">  <span class="k">new</span> <span class="n">SampleHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">SampleTarget</span><span class="o">())</span>
+</span></span><span class="line"><span class="cl"><span class="o">);</span>
+</span></span></code></pre></div><hr>
 <p>다이나믹 프록시는 newProxyInstance 를 통해서만 생성이 가능하기 때문에 이를 스프링 빈으로 만들 수가 없습니다. 하지만 팩토리 빈의 getObject() 기능을 이용한다면 가능하게 됩니다.</p>
 <p>이러한 프록시 팩토리 빈은 이전의 다이나믹 프록시의 문제점을 해결해 줄 수 있지만 이는 메소드 단위로 일어나는 부가기능 제공이기 때문에 하나의 클래스에는 적용하기가 쉬웠지만 여러 개의 클래스에 공통적인 부가기능을 부여 하는것은 거의 비슷한 프록시 팩토리 빈의 중복을 발생하게 합니다. 이는 곧 수많은 설정 파일과 Handler 오브젝트가 프록시 팩토리 빈의 갯수 만큼 만들어집니다.</p>
 <p>스프링에서는 ProxyFactoryBean 이라는 프록시 오브젝트를 생성해주는 기술을 추상화한 팩토리 빈을 제공합니다.</p>

@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -234,22 +234,22 @@
 <p>오늘은 Rails 에  Devise 로 jwt 인증을 구현하려고 합니다.</p>
 <p>jwt에 대해서 설명하는 글은 많으니 바로 진행합니다.</p>
 <h2 id="프로젝트-설정">프로젝트 설정</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails new devise-jwt-sample -T --api
-</code></pre></div><p>프로젝트가 생성되면 Gemfile 을 열어서 라이브러리를 추가해줍니다.</p>
-<pre tabindex="0"><code>gem 'devise'
-gem 'devise-jwt'
-gem 'rock-cors'
-</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">bundle install
-</code></pre></div><p>이후 config/initializers/cors.rb 파일을 열어 수정해줍니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">insert_before</span> <span class="mi">0</span><span class="p">,</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Cors</span> <span class="k">do</span>
-  <span class="n">allow</span> <span class="k">do</span>
-    <span class="n">origins</span> <span class="s1">&#39;*&#39;</span>
-    <span class="n">resource</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="ss">:any</span><span class="p">,</span> <span class="nb">methods</span><span class="p">:</span> <span class="o">[</span><span class="ss">:get</span><span class="p">,</span> <span class="ss">:post</span><span class="p">,</span> <span class="ss">:put</span><span class="p">,</span> <span class="ss">:patch</span><span class="p">,</span> <span class="ss">:delete</span><span class="p">,</span> <span class="ss">:options</span><span class="p">,</span> <span class="ss">:head</span><span class="o">]</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><h2 id="devise-모델-설정">devise 모델 설정</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails g devise:install
-</code></pre></div><p>그러면 이미지처럼 devise 에 대한 설명을 콘솔로 출력해줍니다. 이 내용을 보고 따라해도 괜찮습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails new devise-jwt-sample -T --api
+</span></span></code></pre></div><p>프로젝트가 생성되면 Gemfile 을 열어서 라이브러리를 추가해줍니다.</p>
+<pre tabindex="0"><code>gem &#39;devise&#39;
+gem &#39;devise-jwt&#39;
+gem &#39;rock-cors&#39;
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">bundle install
+</span></span></code></pre></div><p>이후 config/initializers/cors.rb 파일을 열어 수정해줍니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">insert_before</span> <span class="mi">0</span><span class="p">,</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Cors</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="n">allow</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="n">origins</span> <span class="s1">&#39;*&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resource</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="ss">:any</span><span class="p">,</span> <span class="nb">methods</span><span class="p">:</span> <span class="o">[</span><span class="ss">:get</span><span class="p">,</span> <span class="ss">:post</span><span class="p">,</span> <span class="ss">:put</span><span class="p">,</span> <span class="ss">:patch</span><span class="p">,</span> <span class="ss">:delete</span><span class="p">,</span> <span class="ss">:options</span><span class="p">,</span> <span class="ss">:head</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><h2 id="devise-모델-설정">devise 모델 설정</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails g devise:install
+</span></span></code></pre></div><p>그러면 이미지처럼 devise 에 대한 설명을 콘솔로 출력해줍니다. 이 내용을 보고 따라해도 괜찮습니다.</p>
 <p><img src="/post/2021_10/2021_10_07/devise_install.png" alt="devise_install"></p>
 <p>지금 중요한 부분은 devise 설정이기 때문에 나머지 설정을 진행해보죠!</p>
 <ol>
@@ -257,122 +257,122 @@ gem 'rock-cors'
 <li>DB 생성</li>
 <li>DB 마이그레이션</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails g devise user
-rails db:create
-rails db:migrate
-</code></pre></div><p>진행하면 아래 이미지처럼 DB 에 테이블이 생기는 모습을 볼 수 있습니다. 지금은 DB 를 따로 설정해서 생성한게 아니라서 sqlite 로 되어 있지만 rails new 명령을 실행하실때 DB 선택을 해주시면 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails g devise user
+</span></span><span class="line"><span class="cl">rails db:create
+</span></span><span class="line"><span class="cl">rails db:migrate
+</span></span></code></pre></div><p>진행하면 아래 이미지처럼 DB 에 테이블이 생기는 모습을 볼 수 있습니다. 지금은 DB 를 따로 설정해서 생성한게 아니라서 sqlite 로 되어 있지만 rails new 명령을 실행하실때 DB 선택을 해주시면 됩니다.</p>
 <p><img src="/post/2021_10/2021_10_07/database.png" alt="database"></p>
 <p>다른 사이트에서는 jwt 토큰을 관리하는 테이블을 따로 만들지만 이번엔 따로 만들지 않고 진행하겠습니다.</p>
 <p>app/model/user.rb 파일을 수정합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="c1"># Include default devise modules. Others available are:</span>
-  <span class="kp">include</span> <span class="no">Devise</span><span class="o">::</span><span class="no">JWT</span><span class="o">::</span><span class="no">RevocationStrategies</span><span class="o">::</span><span class="no">JTIMatcher</span>
-  <span class="c1"># :confirmable, :lockable, :timeoutable, :trackable and :omniauthable</span>
-  <span class="n">devise</span> <span class="ss">:database_authenticatable</span><span class="p">,</span> <span class="ss">:registerable</span><span class="p">,</span>
-         <span class="ss">:recoverable</span><span class="p">,</span> <span class="ss">:rememberable</span><span class="p">,</span> <span class="ss">:validatable</span><span class="p">,</span>
-         <span class="ss">:jwt_authenticatable</span><span class="p">,</span> <span class="ss">jwt_revocation_strategy</span><span class="p">:</span> <span class="nb">self</span>
-<span class="k">end</span>
-</code></pre></div><p>다음으로 jwt 토큰을 저장할 수 있도록 user 테이블에 칼럼을 생성해줍니다</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Include default devise modules. Others available are:</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">include</span> <span class="no">Devise</span><span class="o">::</span><span class="no">JWT</span><span class="o">::</span><span class="no">RevocationStrategies</span><span class="o">::</span><span class="no">JTIMatcher</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># :confirmable, :lockable, :timeoutable, :trackable and :omniauthable</span>
+</span></span><span class="line"><span class="cl">  <span class="n">devise</span> <span class="ss">:database_authenticatable</span><span class="p">,</span> <span class="ss">:registerable</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="ss">:recoverable</span><span class="p">,</span> <span class="ss">:rememberable</span><span class="p">,</span> <span class="ss">:validatable</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="ss">:jwt_authenticatable</span><span class="p">,</span> <span class="ss">jwt_revocation_strategy</span><span class="p">:</span> <span class="nb">self</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>다음으로 jwt 토큰을 저장할 수 있도록 user 테이블에 칼럼을 생성해줍니다</p>
 <pre tabindex="0"><code>rails g migration addUserJti
 </code></pre><p>그러면 db/migrate 안에 date_add_user_jti.rb 파일이 생성되니 내용을 추가 합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">AddUserJti</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="o">[</span><span class="mi">6</span><span class="o">.</span><span class="mi">1</span><span class="o">]</span>
-  <span class="k">def</span> <span class="nf">change</span>
-    <span class="n">add_column</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:jti</span><span class="p">,</span> <span class="ss">:string</span>
-    <span class="n">add_index</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:jti</span><span class="p">,</span> <span class="ss">unique</span><span class="p">:</span> <span class="kp">true</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><p>다시 마이그레이션을 해줍니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails db:migrate
-</code></pre></div><p>jti 가 생성 된걸 확인 할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AddUserJti</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="o">[</span><span class="mi">6</span><span class="o">.</span><span class="mi">1</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">change</span>
+</span></span><span class="line"><span class="cl">    <span class="n">add_column</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:jti</span><span class="p">,</span> <span class="ss">:string</span>
+</span></span><span class="line"><span class="cl">    <span class="n">add_index</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:jti</span><span class="p">,</span> <span class="ss">unique</span><span class="p">:</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>다시 마이그레이션을 해줍니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails db:migrate
+</span></span></code></pre></div><p>jti 가 생성 된걸 확인 할 수 있습니다.</p>
 <p><img src="/post/2021_10/2021_10_07/add_jti.png" alt="add_jti"></p>
 <h2 id="controllers-설정">Controllers 설정</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails g devise:controllers users
-</code></pre></div><p>이제 app/controllers/users 안에 생성된 devise controllers 를 볼 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails g devise:controllers users
+</span></span></code></pre></div><p>이제 app/controllers/users 안에 생성된 devise controllers 를 볼 수 있습니다.</p>
 <p>하나씩 수정합니다.</p>
 <p>회원가입을 담당하는 app/controllers/users/registrations_controller.rb</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Users</span><span class="o">::</span><span class="no">RegistrationsController</span> <span class="o">&lt;</span> <span class="no">Devise</span><span class="o">::</span><span class="no">RegistrationsController</span>
-  <span class="n">wrap_parameters</span> <span class="ss">:user</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="o">[</span><span class="ss">:url_encoded_form</span><span class="p">,</span> <span class="ss">:multipart_form</span><span class="p">,</span> <span class="ss">:json</span><span class="o">]</span>
-  <span class="n">respond_to</span> <span class="ss">:json</span>
-
-  <span class="kp">private</span>
-
-  <span class="k">def</span> <span class="nf">respond_with</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span> <span class="n">_opts</span> <span class="o">=</span> <span class="p">{})</span>
-    <span class="n">register_success</span> <span class="o">&amp;&amp;</span> <span class="k">return</span> <span class="k">if</span> <span class="n">resource</span><span class="o">.</span><span class="n">persisted?</span>
-
-    <span class="n">register_failed</span> <span class="n">resource</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">register_success</span>
-    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">message</span><span class="p">:</span> <span class="s2">&#34;회원가입에 성공했습니다.&#34;</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:created</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">register_failed</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
-    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">message</span><span class="p">:</span> <span class="n">resource</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">full_messages</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&#34;, &#34;</span><span class="p">)</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:bad_request</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><p>로그인을 담당하는 app/controllers/users/sessions_controller.rb</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Users</span><span class="o">::</span><span class="no">SessionsController</span> <span class="o">&lt;</span> <span class="no">Devise</span><span class="o">::</span><span class="no">SessionsController</span>
-  <span class="n">wrap_parameters</span> <span class="ss">:user</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="o">[</span><span class="ss">:url_encoded_form</span><span class="p">,</span> <span class="ss">:multipart_form</span><span class="p">,</span> <span class="ss">:json</span><span class="o">]</span>
-  <span class="n">respond_to</span> <span class="ss">:json</span>
-
-  <span class="kp">private</span>
-
-  <span class="k">def</span> <span class="nf">respond_with</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span> <span class="n">_opts</span> <span class="o">=</span> <span class="p">{})</span>
-    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="n">resource</span><span class="o">.</span><span class="n">as_json</span><span class="p">(</span><span class="ss">except</span><span class="p">:</span> <span class="o">[</span><span class="ss">:jti</span><span class="o">]</span><span class="p">),</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:ok</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">respond_to_on_destroy</span>
-    <span class="n">log_out_success</span> <span class="o">&amp;&amp;</span> <span class="k">return</span> <span class="k">if</span> <span class="n">current_user</span>
-
-    <span class="n">log_out_failure</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">log_out_success</span>
-    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">message</span><span class="p">:</span> <span class="s2">&#34;로그아웃 되었습니다.&#34;</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:ok</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">log_out_failure</span>
-    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">message</span><span class="p">:</span> <span class="s2">&#34;로그아웃에 실패했습니다.&#34;</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:unauthorized</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><p>마지막으로 routes 를 설정합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Users</span><span class="o">::</span><span class="no">RegistrationsController</span> <span class="o">&lt;</span> <span class="no">Devise</span><span class="o">::</span><span class="no">RegistrationsController</span>
+</span></span><span class="line"><span class="cl">  <span class="n">wrap_parameters</span> <span class="ss">:user</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="o">[</span><span class="ss">:url_encoded_form</span><span class="p">,</span> <span class="ss">:multipart_form</span><span class="p">,</span> <span class="ss">:json</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">respond_to</span> <span class="ss">:json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kp">private</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">respond_with</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span> <span class="n">_opts</span> <span class="o">=</span> <span class="p">{})</span>
+</span></span><span class="line"><span class="cl">    <span class="n">register_success</span> <span class="o">&amp;&amp;</span> <span class="k">return</span> <span class="k">if</span> <span class="n">resource</span><span class="o">.</span><span class="n">persisted?</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">register_failed</span> <span class="n">resource</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">register_success</span>
+</span></span><span class="line"><span class="cl">    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">message</span><span class="p">:</span> <span class="s2">&#34;회원가입에 성공했습니다.&#34;</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:created</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">register_failed</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">message</span><span class="p">:</span> <span class="n">resource</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">full_messages</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&#34;, &#34;</span><span class="p">)</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:bad_request</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>로그인을 담당하는 app/controllers/users/sessions_controller.rb</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Users</span><span class="o">::</span><span class="no">SessionsController</span> <span class="o">&lt;</span> <span class="no">Devise</span><span class="o">::</span><span class="no">SessionsController</span>
+</span></span><span class="line"><span class="cl">  <span class="n">wrap_parameters</span> <span class="ss">:user</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="o">[</span><span class="ss">:url_encoded_form</span><span class="p">,</span> <span class="ss">:multipart_form</span><span class="p">,</span> <span class="ss">:json</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">respond_to</span> <span class="ss">:json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kp">private</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">respond_with</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span> <span class="n">_opts</span> <span class="o">=</span> <span class="p">{})</span>
+</span></span><span class="line"><span class="cl">    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="n">resource</span><span class="o">.</span><span class="n">as_json</span><span class="p">(</span><span class="ss">except</span><span class="p">:</span> <span class="o">[</span><span class="ss">:jti</span><span class="o">]</span><span class="p">),</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:ok</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">respond_to_on_destroy</span>
+</span></span><span class="line"><span class="cl">    <span class="n">log_out_success</span> <span class="o">&amp;&amp;</span> <span class="k">return</span> <span class="k">if</span> <span class="n">current_user</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">log_out_failure</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">log_out_success</span>
+</span></span><span class="line"><span class="cl">    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">message</span><span class="p">:</span> <span class="s2">&#34;로그아웃 되었습니다.&#34;</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:ok</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">log_out_failure</span>
+</span></span><span class="line"><span class="cl">    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">message</span><span class="p">:</span> <span class="s2">&#34;로그아웃에 실패했습니다.&#34;</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:unauthorized</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>마지막으로 routes 를 설정합니다.</p>
 <p>config/routes.rb</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
-  <span class="n">devise_for</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;/&#34;</span><span class="p">,</span>
-             <span class="ss">path_names</span><span class="p">:</span> <span class="p">{</span> <span class="ss">sign_in</span><span class="p">:</span> <span class="ss">:login</span><span class="p">,</span> <span class="ss">sign_out</span><span class="p">:</span> <span class="ss">:logout</span><span class="p">,</span> <span class="ss">registration</span><span class="p">:</span> <span class="ss">:users</span> <span class="p">},</span>
-             <span class="ss">controllers</span><span class="p">:</span> <span class="p">{</span>
-               <span class="ss">sessions</span><span class="p">:</span> <span class="s1">&#39;users/sessions&#39;</span><span class="p">,</span>
-               <span class="ss">registrations</span><span class="p">:</span> <span class="s1">&#39;users/registrations&#39;</span>
-             <span class="p">}</span>
-<span class="k">end</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails routes
-</code></pre></div><p><img src="/post/2021_10/2021_10_07/routes.png" alt="routes"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="n">devise_for</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">             <span class="ss">path_names</span><span class="p">:</span> <span class="p">{</span> <span class="ss">sign_in</span><span class="p">:</span> <span class="ss">:login</span><span class="p">,</span> <span class="ss">sign_out</span><span class="p">:</span> <span class="ss">:logout</span><span class="p">,</span> <span class="ss">registration</span><span class="p">:</span> <span class="ss">:users</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">             <span class="ss">controllers</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="ss">sessions</span><span class="p">:</span> <span class="s1">&#39;users/sessions&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="ss">registrations</span><span class="p">:</span> <span class="s1">&#39;users/registrations&#39;</span>
+</span></span><span class="line"><span class="cl">             <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails routes
+</span></span></code></pre></div><p><img src="/post/2021_10/2021_10_07/routes.png" alt="routes"></p>
 <h2 id="devise-추가-설정">devise 추가 설정</h2>
 <p>config/initializers/devise.rb 에 추가 설정을 합니다.</p>
 <p>좀 더 다양한 설정이 있지만 저는 이정도만 진행 했습니다. 더 많은 설정은 <a href="https://github.com/waiting-for-dev/devise-jwt">devise-jwt</a> 에서 확인하시면 됩니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Devise</span><span class="o">.</span><span class="n">setup</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">jwt</span> <span class="k">do</span> <span class="o">|</span><span class="n">jwt</span><span class="o">|</span>
-    <span class="n">jwt</span><span class="o">.</span><span class="n">secret</span> <span class="o">=</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">credentials</span><span class="o">.</span><span class="n">secret_key_base</span>
-    <span class="n">jwt</span><span class="o">.</span><span class="n">dispatch_requests</span> <span class="o">=</span> <span class="o">[</span>
-      <span class="o">[</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="sr">%r{^/login$}</span><span class="o">]</span>
-    <span class="o">]</span>
-    <span class="n">jwt</span><span class="o">.</span><span class="n">revocation_requests</span> <span class="o">=</span> <span class="o">[</span>
-      <span class="o">[</span><span class="s1">&#39;DELETE&#39;</span><span class="p">,</span> <span class="sr">%r{^/logout$}</span><span class="o">]</span>
-    <span class="o">]</span>
-    <span class="n">jwt</span><span class="o">.</span><span class="n">expiration_time</span> <span class="o">=</span> <span class="mi">30</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">from_now</span><span class="o">.</span><span class="n">to_i</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><h2 id="확인">확인</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="no">Devise</span><span class="o">.</span><span class="n">setup</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">jwt</span> <span class="k">do</span> <span class="o">|</span><span class="n">jwt</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">    <span class="n">jwt</span><span class="o">.</span><span class="n">secret</span> <span class="o">=</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">credentials</span><span class="o">.</span><span class="n">secret_key_base</span>
+</span></span><span class="line"><span class="cl">    <span class="n">jwt</span><span class="o">.</span><span class="n">dispatch_requests</span> <span class="o">=</span> <span class="o">[</span>
+</span></span><span class="line"><span class="cl">      <span class="o">[</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="sr">%r{^/login$}</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">jwt</span><span class="o">.</span><span class="n">revocation_requests</span> <span class="o">=</span> <span class="o">[</span>
+</span></span><span class="line"><span class="cl">      <span class="o">[</span><span class="s1">&#39;DELETE&#39;</span><span class="p">,</span> <span class="sr">%r{^/logout$}</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">jwt</span><span class="o">.</span><span class="n">expiration_time</span> <span class="o">=</span> <span class="mi">30</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">from_now</span><span class="o">.</span><span class="n">to_i</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><h2 id="확인">확인</h2>
 <p>이제 정상 동작 하는지 확인을 해볼까요?</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails s -b 0.0.0.0
-</code></pre></div><p>서버를 켜줍니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">curl -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;{ &#34;email&#34;: &#34;test@example.com&#34;, &#34;password&#34;: &#34;qwer1234&#34; }&#39;</span> http://localhost:3000/users
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;message&#34;</span><span class="p">:</span><span class="s2">&#34;회원가입에 성공했습니다.&#34;</span><span class="p">}</span>
-</code></pre></div><p>형태의 응답이 오는걸 확인 할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails s -b 0.0.0.0
+</span></span></code></pre></div><p>서버를 켜줍니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;{ &#34;email&#34;: &#34;test@example.com&#34;, &#34;password&#34;: &#34;qwer1234&#34; }&#39;</span> http://localhost:3000/users
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;message&#34;</span><span class="p">:</span><span class="s2">&#34;회원가입에 성공했습니다.&#34;</span><span class="p">}</span>
+</span></span></code></pre></div><p>형태의 응답이 오는걸 확인 할 수 있습니다.</p>
 <p><img src="/post/2021_10/2021_10_07/register.png" alt="register"></p>
 <p>다음은 로그인 입니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">curl -X POST -i -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;{ &#34;email&#34;: &#34;test@example.com&#34;, &#34;password&#34;: &#34;qwer1234&#34; }&#39;</span> http://localhost:3000/login
-</code></pre></div><p><img src="/post/2021_10/2021_10_07/login.png" alt="login"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -X POST -i -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;{ &#34;email&#34;: &#34;test@example.com&#34;, &#34;password&#34;: &#34;qwer1234&#34; }&#39;</span> http://localhost:3000/login
+</span></span></code></pre></div><p><img src="/post/2021_10/2021_10_07/login.png" alt="login"></p>
 <p>헤더에 있는 Authorization 를 jwt 인증이 필요한 request 의 헤더에 넣으면 jwt 인증이 확인 됩니다.</p>
 </article>
               </div>

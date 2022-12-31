@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -234,177 +234,177 @@
 <p>그런데 이번에 React-Query 를 사용하게 되면서 API 결과는 React-Query 를 쓰게되었고 내부에서 사용하는 전역 상태 값을 관리하기에 Redux 는 생각이상으로 보일러플레이트 코드가 많아 전부터 사용하고 싶었던 Context API를 사용해보기 위한 코드를 작성하면서 메모를 하기 위해 글을 작성하게 되었습니다.</p>
 <h2 id="사용">사용</h2>
 <p>별도의 설치는 따로 없습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">yarn create react-app sample --template typescript
-</code></pre></div><p>context api 내용이 적혀 있는 파일을 먼저 생성합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yarn create react-app sample --template typescript
+</span></span></code></pre></div><p>context api 내용이 적혀 있는 파일을 먼저 생성합니다.</p>
 <p>sample.tsx</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useReducer</span><span class="p">,</span> <span class="nx">useContext</span><span class="p">,</span> <span class="nx">createContext</span><span class="p">,</span> <span class="nx">Dispatch</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-
-<span class="c1">// 필요한 타입들을 미리 선언
-</span><span class="c1"></span>
-<span class="kr">type</span> <span class="nx">Color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span> <span class="o">|</span> <span class="s1">&#39;orange&#39;</span> <span class="o">|</span> <span class="s1">&#39;yellow&#39;</span><span class="p">;</span>
-
-<span class="c1">// 상태를 위한 타입
-</span><span class="c1"></span><span class="kr">type</span> <span class="nx">State</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">count</span>: <span class="kt">number</span><span class="p">;</span>
-  <span class="nx">text</span>: <span class="kt">string</span><span class="p">;</span>
-  <span class="nx">color</span>: <span class="kt">Color</span><span class="p">;</span>
-  <span class="nx">isGood</span>: <span class="kt">boolean</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="c1">// 모든 액션들을 위한 타입
-</span><span class="c1"></span><span class="kr">type</span> <span class="nx">Action</span> <span class="o">=</span>
-  <span class="o">|</span> <span class="p">{</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COUNT&#39;</span><span class="p">;</span> <span class="nx">count</span>: <span class="kt">number</span> <span class="p">}</span>
-  <span class="o">|</span> <span class="p">{</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_TEXT&#39;</span><span class="p">;</span> <span class="nx">text</span>: <span class="kt">string</span> <span class="p">}</span>
-  <span class="o">|</span> <span class="p">{</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COLOR&#39;</span><span class="p">;</span> <span class="nx">color</span>: <span class="kt">Color</span> <span class="p">}</span>
-  <span class="o">|</span> <span class="p">{</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;TOGGLE_GOOD&#39;</span> <span class="p">};</span>
-
-<span class="c1">// 디스패치를 위한 타입 (Dispatch 를 리액트에서 불러올 수 있음), 액션들의 타입을 Dispatch 의 Generics로 설정
-</span><span class="c1"></span><span class="kr">type</span> <span class="nx">SampleDispatch</span> <span class="o">=</span> <span class="nx">Dispatch</span><span class="p">&lt;</span><span class="nt">Action</span><span class="p">&gt;;</span>
-
-<span class="c1">// Context 만들기
-</span><span class="c1"></span><span class="kr">const</span> <span class="nx">SampleStateContext</span> <span class="o">=</span> <span class="nx">createContext</span><span class="p">&lt;</span><span class="nt">State</span> <span class="err">|</span> <span class="na">null</span><span class="p">&gt;(</span><span class="kc">null</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">SampleDispatchContext</span> <span class="o">=</span> <span class="nx">createContext</span><span class="p">&lt;</span><span class="nt">SampleDispatch</span> <span class="err">|</span> <span class="na">null</span><span class="p">&gt;(</span><span class="kc">null</span><span class="p">);</span>
-
-<span class="c1">// 리듀서
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">reducer</span><span class="p">(</span><span class="nx">state</span>: <span class="kt">State</span><span class="p">,</span> <span class="nx">action</span>: <span class="kt">Action</span><span class="p">)</span><span class="o">:</span> <span class="nx">State</span> <span class="p">{</span>
-  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="kr">type</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="s1">&#39;SET_COUNT&#39;</span><span class="o">:</span>
-      <span class="k">return</span> <span class="p">{</span>
-        <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
-        <span class="nx">count</span>: <span class="kt">action.count</span> <span class="c1">// count가 자동완성되며, number 타입인걸 알 수 있습니다.
-</span><span class="c1"></span>      <span class="p">};</span>
-    <span class="k">case</span> <span class="s1">&#39;SET_TEXT&#39;</span><span class="o">:</span>
-      <span class="k">return</span> <span class="p">{</span>
-        <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
-        <span class="nx">text</span>: <span class="kt">action.text</span> <span class="c1">// text가 자동완성되며, string 타입인걸 알 수 있습니다.
-</span><span class="c1"></span>      <span class="p">};</span>
-    <span class="k">case</span> <span class="s1">&#39;SET_COLOR&#39;</span><span class="o">:</span>
-      <span class="k">return</span> <span class="p">{</span>
-        <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
-        <span class="nx">color</span>: <span class="kt">action.color</span> <span class="c1">// color 가 자동완성되며 color 가 Color 타입인걸 알 수 있습니다.
-</span><span class="c1"></span>      <span class="p">};</span>
-    <span class="k">case</span> <span class="s1">&#39;TOGGLE_GOOD&#39;</span><span class="o">:</span>
-      <span class="k">return</span> <span class="p">{</span>
-        <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
-        <span class="nx">isGood</span><span class="o">:</span> <span class="o">!</span><span class="nx">state</span><span class="p">.</span><span class="nx">isGood</span>
-      <span class="p">};</span>
-    <span class="k">default</span><span class="o">:</span>
-      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Unhandled action&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// SampleProvider 에서 useReduer를 사용하고
-</span><span class="c1">// SampleStateContext.Provider 와 SampleDispatchContext.Provider 로 children 을 감싸서 반환합니다.
-</span><span class="c1"></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">SampleProvider</span><span class="p">({</span> <span class="nx">children</span> <span class="p">}</span><span class="o">:</span> <span class="p">{</span> <span class="nx">children</span>: <span class="kt">React.ReactNode</span> <span class="p">})</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="p">[</span><span class="nx">state</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useReducer</span><span class="p">(</span><span class="nx">reducer</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">count</span>: <span class="kt">0</span><span class="p">,</span>
-    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
-    <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
-    <span class="nx">isGood</span>: <span class="kt">true</span>
-  <span class="p">});</span>
-
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="p">&lt;</span><span class="nt">SampleStateContext.Provider</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">state</span><span class="p">}&gt;</span>
-      <span class="p">&lt;</span><span class="nt">SampleDispatchContext.Provider</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">dispatch</span><span class="p">}&gt;</span>
-        <span class="p">{</span><span class="nx">children</span><span class="p">}</span>
-      <span class="p">&lt;/</span><span class="nt">SampleDispatchContext.Provider</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">SampleStateContext.Provider</span><span class="p">&gt;</span>
-  <span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">// state 와 dispatch 를 쉽게 사용하기 위한 커스텀 Hooks
-</span><span class="c1"></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">useSampleState() {</span>
-  <span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">SampleStateContext</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">state</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Cannot find SampleProvider&#39;</span><span class="p">);</span> <span class="c1">// 유효하지 않을땐 에러를 발생
-</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kr">export</span> <span class="kd">function</span> <span class="nx">useSampleDispatch() {</span>
-  <span class="kr">const</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">SampleDispatchContext</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dispatch</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Cannot find SampleProvider&#39;</span><span class="p">);</span> <span class="c1">// 유효하지 않을땐 에러를 발생
-</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">dispatch</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>context api 코드를 불러와 전체 코드에 적용시킵니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useReducer</span><span class="p">,</span> <span class="nx">useContext</span><span class="p">,</span> <span class="nx">createContext</span><span class="p">,</span> <span class="nx">Dispatch</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 필요한 타입들을 미리 선언
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span> <span class="o">|</span> <span class="s1">&#39;orange&#39;</span> <span class="o">|</span> <span class="s1">&#39;yellow&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 상태를 위한 타입
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">type</span> <span class="nx">State</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">count</span>: <span class="kt">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">text</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">color</span>: <span class="kt">Color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">isGood</span>: <span class="kt">boolean</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 모든 액션들을 위한 타입
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">type</span> <span class="nx">Action</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="p">{</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COUNT&#39;</span><span class="p">;</span> <span class="nx">count</span>: <span class="kt">number</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="p">{</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_TEXT&#39;</span><span class="p">;</span> <span class="nx">text</span>: <span class="kt">string</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="p">{</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COLOR&#39;</span><span class="p">;</span> <span class="nx">color</span>: <span class="kt">Color</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="p">{</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;TOGGLE_GOOD&#39;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 디스패치를 위한 타입 (Dispatch 를 리액트에서 불러올 수 있음), 액션들의 타입을 Dispatch 의 Generics로 설정
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">type</span> <span class="nx">SampleDispatch</span> <span class="o">=</span> <span class="nx">Dispatch</span><span class="p">&lt;</span><span class="nt">Action</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Context 만들기
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">SampleStateContext</span> <span class="o">=</span> <span class="nx">createContext</span><span class="p">&lt;</span><span class="nt">State</span> <span class="err">|</span> <span class="na">null</span><span class="p">&gt;(</span><span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">SampleDispatchContext</span> <span class="o">=</span> <span class="nx">createContext</span><span class="p">&lt;</span><span class="nt">SampleDispatch</span> <span class="err">|</span> <span class="na">null</span><span class="p">&gt;(</span><span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 리듀서
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">reducer</span><span class="p">(</span><span class="nx">state</span>: <span class="kt">State</span><span class="p">,</span> <span class="nx">action</span>: <span class="kt">Action</span><span class="p">)</span><span class="o">:</span> <span class="nx">State</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="kr">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s1">&#39;SET_COUNT&#39;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">count</span>: <span class="kt">action.count</span> <span class="c1">// count가 자동완성되며, number 타입인걸 알 수 있습니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s1">&#39;SET_TEXT&#39;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">text</span>: <span class="kt">action.text</span> <span class="c1">// text가 자동완성되며, string 타입인걸 알 수 있습니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s1">&#39;SET_COLOR&#39;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">color</span>: <span class="kt">action.color</span> <span class="c1">// color 가 자동완성되며 color 가 Color 타입인걸 알 수 있습니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s1">&#39;TOGGLE_GOOD&#39;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">isGood</span><span class="o">:</span> <span class="o">!</span><span class="nx">state</span><span class="p">.</span><span class="nx">isGood</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Unhandled action&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// SampleProvider 에서 useReduer를 사용하고
+</span></span></span><span class="line"><span class="cl"><span class="c1">// SampleStateContext.Provider 와 SampleDispatchContext.Provider 로 children 을 감싸서 반환합니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">SampleProvider</span><span class="p">({</span> <span class="nx">children</span> <span class="p">}</span><span class="o">:</span> <span class="p">{</span> <span class="nx">children</span>: <span class="kt">React.ReactNode</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">state</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useReducer</span><span class="p">(</span><span class="nx">reducer</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">count</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isGood</span>: <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">SampleStateContext.Provider</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">state</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">SampleDispatchContext.Provider</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">dispatch</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nx">children</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">SampleDispatchContext.Provider</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">SampleStateContext.Provider</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// state 와 dispatch 를 쉽게 사용하기 위한 커스텀 Hooks
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">useSampleState() {</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">SampleStateContext</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">state</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Cannot find SampleProvider&#39;</span><span class="p">);</span> <span class="c1">// 유효하지 않을땐 에러를 발생
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">useSampleDispatch() {</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">SampleDispatchContext</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dispatch</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Cannot find SampleProvider&#39;</span><span class="p">);</span> <span class="c1">// 유효하지 않을땐 에러를 발생
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="nx">dispatch</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>context api 코드를 불러와 전체 코드에 적용시킵니다.</p>
 <p>App/tsx</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="kr">import</span> <span class="nx">React</span> <span class="kr">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">SampleProvider</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./sample&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">Home</span> <span class="kr">from</span> <span class="s1">&#39;./home&#39;</span><span class="p">;</span>
-
-<span class="kd">function</span> <span class="nx">App() {</span>
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="p">&lt;</span><span class="nt">SampleProvider</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">Home</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">SampleProvider</span><span class="p">&gt;</span>
-  <span class="p">)</span>
-<span class="p">};</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
-</code></pre></div><p>실제 사용하는 코드가 적혀 있는 home.tsx 파일을 생성합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="kr">import</span> <span class="nx">React</span> <span class="kr">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">useSampleState</span><span class="p">,</span> <span class="nx">useSampleDispatch</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./sample&#39;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">Home</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">useSampleState</span><span class="p">();</span>
-  <span class="kr">const</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">useSampleDispatch</span><span class="p">();</span>
-
-  <span class="kr">const</span> <span class="nx">setCount</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COUNT&#39;</span><span class="p">,</span> <span class="nx">count</span>: <span class="kt">5</span> <span class="p">});</span>
-  <span class="kr">const</span> <span class="nx">setText</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_TEXT&#39;</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;bye&#39;</span> <span class="p">});</span>
-  <span class="kr">const</span> <span class="nx">setColor</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COLOR&#39;</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;orange&#39;</span> <span class="p">});</span>
-  <span class="kr">const</span> <span class="nx">toggleGood</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;TOGGLE_GOOD&#39;</span> <span class="p">});</span>
-
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span><span class="nx">count</span><span class="o">:</span> <span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> <span class="p">{</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}</span>
-      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span><span class="nx">text</span><span class="o">:</span> <span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> <span class="p">{</span><span class="nx">state</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span>
-      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span><span class="nx">color</span><span class="o">:</span> <span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> <span class="p">{</span><span class="nx">state</span><span class="p">.</span><span class="nx">color</span><span class="p">}</span>
-      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span><span class="nx">isGood</span><span class="o">:</span> <span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> <span class="p">{</span><span class="nx">state</span><span class="p">.</span><span class="nx">isGood</span> <span class="o">?</span> <span class="s1">&#39;true&#39;</span> <span class="o">:</span> <span class="s1">&#39;false&#39;</span><span class="p">}</span>
-      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">setCount</span><span class="p">}&gt;</span><span class="nx">SET_COUNT</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">setText</span><span class="p">}&gt;</span><span class="nx">SET_TEXT</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">setColor</span><span class="p">}&gt;</span><span class="nx">SET_COLOR</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">toggleGood</span><span class="p">}&gt;</span><span class="nx">TOGGLE_GOOD</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">)</span>
-<span class="p">};</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">Home</span><span class="p">;</span>
-</code></pre></div><p>위 코드를 SpinBox 컴포넌트로 응용해보겠습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span> <span class="kr">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">SampleProvider</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./sample&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Home</span> <span class="kr">from</span> <span class="s1">&#39;./home&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">App() {</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">SampleProvider</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">Home</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">SampleProvider</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</span></span></code></pre></div><p>실제 사용하는 코드가 적혀 있는 home.tsx 파일을 생성합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span> <span class="kr">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useSampleState</span><span class="p">,</span> <span class="nx">useSampleDispatch</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./sample&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">Home</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">useSampleState</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">useSampleDispatch</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">setCount</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COUNT&#39;</span><span class="p">,</span> <span class="nx">count</span>: <span class="kt">5</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">setText</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_TEXT&#39;</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;bye&#39;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">setColor</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COLOR&#39;</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;orange&#39;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">toggleGood</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;TOGGLE_GOOD&#39;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span><span class="nx">count</span><span class="o">:</span> <span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> <span class="p">{</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span><span class="nx">text</span><span class="o">:</span> <span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> <span class="p">{</span><span class="nx">state</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span><span class="nx">color</span><span class="o">:</span> <span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> <span class="p">{</span><span class="nx">state</span><span class="p">.</span><span class="nx">color</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span><span class="nx">isGood</span><span class="o">:</span> <span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> <span class="p">{</span><span class="nx">state</span><span class="p">.</span><span class="nx">isGood</span> <span class="o">?</span> <span class="s1">&#39;true&#39;</span> <span class="o">:</span> <span class="s1">&#39;false&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">setCount</span><span class="p">}&gt;</span><span class="nx">SET_COUNT</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">setText</span><span class="p">}&gt;</span><span class="nx">SET_TEXT</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">setColor</span><span class="p">}&gt;</span><span class="nx">SET_COLOR</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">toggleGood</span><span class="p">}&gt;</span><span class="nx">TOGGLE_GOOD</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">Home</span><span class="p">;</span>
+</span></span></code></pre></div><p>위 코드를 SpinBox 컴포넌트로 응용해보겠습니다.</p>
 <h2 id="응용">응용</h2>
 <p>sample.tsx 는 사용하지 않는 타입을 삭제하고 initialState 을 추가했습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">count</span>: <span class="kt">0</span>
-<span class="p">};</span>
-</code></pre></div><p>home.tsx</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="kr">import</span> <span class="nx">React</span> <span class="kr">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">useSampleState</span><span class="p">,</span> <span class="nx">useSampleDispatch</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./sample&#39;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">Home</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">useSampleState</span><span class="p">();</span>
-  <span class="kr">const</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">useSampleDispatch</span><span class="p">();</span>
-
-  <span class="kr">const</span> <span class="nx">onIncrease</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COUNT&#39;</span><span class="p">,</span> <span class="nx">count</span>: <span class="kt">state.count</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">});</span>
-  <span class="kr">const</span> <span class="nx">onDecrease</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COUNT&#39;</span><span class="p">,</span> <span class="nx">count</span>: <span class="kt">state.count</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">});</span>
-
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onDecrease</span><span class="p">}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onIncrease</span><span class="p">}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">)</span>
-<span class="p">};</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">Home</span><span class="p">;</span>
-</code></pre></div><p>디버깅 도구로 <a href="https://github.com/deeppatel234/react-context-devtool">React Context DevTool</a> 을 사용합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">count</span>: <span class="kt">0</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>home.tsx</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span> <span class="kr">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useSampleState</span><span class="p">,</span> <span class="nx">useSampleDispatch</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./sample&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">Home</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">useSampleState</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">useSampleDispatch</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">onIncrease</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COUNT&#39;</span><span class="p">,</span> <span class="nx">count</span>: <span class="kt">state.count</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">onDecrease</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;SET_COUNT&#39;</span><span class="p">,</span> <span class="nx">count</span>: <span class="kt">state.count</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onDecrease</span><span class="p">}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onIncrease</span><span class="p">}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">Home</span><span class="p">;</span>
+</span></span></code></pre></div><p>디버깅 도구로 <a href="https://github.com/deeppatel234/react-context-devtool">React Context DevTool</a> 을 사용합니다.</p>
 <p><img src="/post/2021_11/2021_11_23/1.png" alt="1"></p>
 <p>이전에 쓰던 Redux 처럼 사용할수록 점점 뭔가 더 붙어서 편하게 사용하려고 할 것 같지만 지금은 이정도로 만족하고 있습니다.</p>
 <h2 id="참고">참고</h2>

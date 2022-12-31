@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Fri, 04 Feb 2022 15:20:20 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Fri, 04 Feb 2022 15:20:20 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -230,14 +230,14 @@
 <p>추가로 알아두면 좋은 것 중엔 포인트컷 표현식이라는 게 있습니다.</p>
 <p>이는 자바 RegEx 라는 정규식처럼 클래스와 메서드 선정 알고리즘을 표현할 수 있는 방식입니다. 이는 사실 AspectJ 라는 유명 프레임워크에서 제공하는 것을 일부 가져와 확정해서 사용하는 것입니다.</p>
 <p>표현법은 아래와 같습니다.</p>
-<pre tabindex="0"><code>execution([접근 제한자 패턴] 타입패턴 [타입패턴.]이름패턴 (타입패턴 | &quot;...&quot;, ...))
+<pre tabindex="0"><code>execution([접근 제한자 패턴] 타입패턴 [타입패턴.]이름패턴 (타입패턴 | &#34;...&#34;, ...))
 </code></pre><p>실제 적용예를 보겠습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Target</span> <span class="kd">implements</span> <span class="n">TargetInterface</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span> <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="s">&#34;execution(public int com.joung.sample.Target.add(int, int))&#34;</span>
-</code></pre></div><p>포인트컷 표현식을 사용하면 로직이 짧은 문자열 안에 담기게 되는데 이는 런타임 전까진 검증과 기능확인이 되지 않는 단점이 있기 때문에 많은 시간을 투자해서 학습과 테스트를 충분히 할 수 있도록 하는게 중요합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Target</span> <span class="kd">implements</span> <span class="n">TargetInterface</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s">&#34;execution(public int com.joung.sample.Target.add(int, int))&#34;</span>
+</span></span></code></pre></div><p>포인트컷 표현식을 사용하면 로직이 짧은 문자열 안에 담기게 되는데 이는 런타임 전까진 검증과 기능확인이 되지 않는 단점이 있기 때문에 많은 시간을 투자해서 학습과 테스트를 충분히 할 수 있도록 하는게 중요합니다.</p>
 <hr>
 <p>AOP 를 설명하기 전, 책에서 비지니스 로직을 담았던 UserService 에 트랜잭션이라는 부가기능을 부여하기 위해 작업했던 내용들을 되돌아 보려고 합니다.</p>
 <p>제일 먼저 트랜잭션 경계설정을 비지니스 코드에 섞으면서 생겼던 문제가 특정 트랜잭션 기술에 종속되는 문제점, 로컬 트랜잭션 방식 코드를 글로벌/분산 트랜잭션 방식으로 바꿀 때 모든 트랜잭션 코드들을 수정해야 한다는 문제점이 생겼습니다. 이를 해결 하기 위해 트랜잭션 적용 이라는 추상적인 작업 내용을 유지하면서 구체적인 구현 방법을 자유롭게 바꿀 수 있도록 <strong>서비스 추상화 기법</strong> 을 적용해 런타임 시 필요한 트랜잭션 기술을 주입 받아 어떤 기술이든 사용할 수 있도록 구현했습니다.</p>

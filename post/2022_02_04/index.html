@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Fri, 04 Feb 2022 15:26:39 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Fri, 04 Feb 2022 15:26:39 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -223,15 +223,15 @@
                 <article class="markdown-body entry-content container-lg"><h1 id="github-fork-한-프로젝트의-원본-프로젝트-머지하기">Github, fork 한 프로젝트의 원본 프로젝트 머지하기</h1>
 <p>오늘은 종종 다른 프로젝트를 Fork 한 뒤에 fork 한 프로젝트와 원본 프로젝트의 코드 싱크를 맞춰주는 작업을 해보려고 합니다.</p>
 <p>먼저 fork 한 프로젝트로 이동해 upstream 으로 remote 저장소를 추가해줍니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">git remote add upstream 원본주소
-</code></pre></div><p>아래 명령어로 remote 저장소를 확인 할 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">git remote -v
-</code></pre></div><p>upstream 이 정상적으로 추가 되었는지 확인합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git remote add upstream 원본주소
+</span></span></code></pre></div><p>아래 명령어로 remote 저장소를 확인 할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git remote -v
+</span></span></code></pre></div><p>upstream 이 정상적으로 추가 되었는지 확인합니다.</p>
 <p>merge 를 통해 원격저장소의 코드를 가져와 머지합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">git merge upstream/main
-</code></pre></div><p>머지가 완료 되었다면 해당 머지 내역을 내 저장소에 푸쉬합니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">git push origin main
-</code></pre></div><p>굉장히 간단한 내용인데 자주 까먹고 검색을 하는게 싫어 내용을 남겨둡니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git merge upstream/main
+</span></span></code></pre></div><p>머지가 완료 되었다면 해당 머지 내역을 내 저장소에 푸쉬합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git push origin main
+</span></span></code></pre></div><p>굉장히 간단한 내용인데 자주 까먹고 검색을 하는게 싫어 내용을 남겨둡니다.</p>
 </article>
               </div>
             </div>

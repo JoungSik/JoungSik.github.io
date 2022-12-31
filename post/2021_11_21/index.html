@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -231,98 +231,97 @@
 <li>이벤트에 함수를 바인당할 때 어떠한 추가 처리도 하지 않습니다.</li>
 </ul>
 <h2 id="구현">구현</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">yarn create react-app sample
-</code></pre></div><p>예제가 될 spin_box.js 입니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">SpinBox</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">value</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">)</span>
-<span class="p">};</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBox</span><span class="p">;</span>
-</code></pre></div><p>Props Object 부분을 정의합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yarn create react-app sample
+</span></span></code></pre></div><p>예제가 될 spin_box.js 입니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">SpinBox</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">value</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBox</span><span class="p">;</span>
+</span></span></code></pre></div><p>Props Object 부분을 정의합니다.</p>
 <p>props object 는 JSX 에 사용할 상태정보나 이벤트 핸들러가 됩니다.</p>
 <p>spin_box.js</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">SpinBoxView</span> <span class="nx">from</span> <span class="s2">&#34;./spinbox_view&#34;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">SpinBox</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-
-  <span class="kr">const</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">value</span><span class="p">,</span>
-    <span class="nx">onDecrease</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="nx">onIncrease</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
-  <span class="p">}</span>
-
-  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">SpinBoxView</span> <span class="p">{</span><span class="na">...props</span><span class="p">}</span> <span class="p">/&gt;</span>
-<span class="p">};</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBox</span><span class="p">;</span>
-</code></pre></div><p>JSX 영역을 VAC 로 만듭니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">SpinBoxView</span> <span class="nx">from</span> <span class="s2">&#34;./spinbox_view&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">SpinBox</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">value</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">onDecrease</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">onIncrease</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">SpinBoxView</span> <span class="p">{</span><span class="na">...props</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBox</span><span class="p">;</span>
+</span></span></code></pre></div><p>JSX 영역을 VAC 로 만듭니다.</p>
 <p>spin_box_view.js</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">SpinBoxView</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">onIncrease</span><span class="p">,</span> <span class="nx">onDecrease</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">(</span>
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onDecrease</span><span class="p">}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">value</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onIncrease</span><span class="p">}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">);</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBoxView</span><span class="p">;</span>
-
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">SpinBoxView</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">onIncrease</span><span class="p">,</span> <span class="nx">onDecrease</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onDecrease</span><span class="p">}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">value</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onIncrease</span><span class="p">}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBoxView</span><span class="p">;</span>
+</span></span></code></pre></div><hr>
 <p>다음은 disable 상태를 처리할 경우의 예제 입니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">SpinBox</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">value</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">}</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">value</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">value</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">}</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">)</span>
-<span class="p">};</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBox</span><span class="p">;</span>
-</code></pre></div><p>이 경우에는 props object 의 네이밍을 랜더링에 직관적인 형태로 사용하는게 좋습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">SpinBoxView</span> <span class="nx">from</span> <span class="s2">&#34;./spinbox_view&#34;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">SpinBox</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-
-  <span class="kr">const</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">value</span><span class="p">,</span>
-    <span class="nx">disabledDecrease</span><span class="o">:</span> <span class="nx">value</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nx">disabledIncrease</span><span class="o">:</span> <span class="nx">value</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="nx">onDecrease</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="nx">onIncrease</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
-  <span class="p">}</span>
-
-  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">SpinBoxView</span> <span class="p">{</span><span class="na">...props</span><span class="p">}</span> <span class="p">/&gt;</span>
-<span class="p">};</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBox</span><span class="p">;</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">SpinBoxView</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">disabledDecrease</span><span class="p">,</span> <span class="nx">disabledIncrease</span><span class="p">,</span> <span class="nx">onIncrease</span><span class="p">,</span> <span class="nx">onDecrease</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">(</span>
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">disabledDecrease</span><span class="p">}</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onDecrease</span><span class="p">}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">value</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">disabledIncrease</span><span class="p">}</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onIncrease</span><span class="p">}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">);</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBoxView</span><span class="p">;</span>
-</code></pre></div><p>패턴이 있긴 하지만 패턴도 상황에 따라서 쓰이는게 적합하기도 하고 아닐때도 있어 잘 선택하고 사용하면서 필요에 따라서는 패턴의 목적을 무시하지 않는 범위에서 약간의 수정이 있어도 괜찮다고 생각합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">SpinBox</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">value</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">}</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">value</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">value</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">}</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBox</span><span class="p">;</span>
+</span></span></code></pre></div><p>이 경우에는 props object 의 네이밍을 랜더링에 직관적인 형태로 사용하는게 좋습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">SpinBoxView</span> <span class="nx">from</span> <span class="s2">&#34;./spinbox_view&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">SpinBox</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">value</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">disabledDecrease</span><span class="o">:</span> <span class="nx">value</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">disabledIncrease</span><span class="o">:</span> <span class="nx">value</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">onDecrease</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">onIncrease</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">SpinBoxView</span> <span class="p">{</span><span class="na">...props</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBox</span><span class="p">;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">SpinBoxView</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">disabledDecrease</span><span class="p">,</span> <span class="nx">disabledIncrease</span><span class="p">,</span> <span class="nx">onIncrease</span><span class="p">,</span> <span class="nx">onDecrease</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">disabledDecrease</span><span class="p">}</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onDecrease</span><span class="p">}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">value</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">disabledIncrease</span><span class="p">}</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onIncrease</span><span class="p">}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">SpinBoxView</span><span class="p">;</span>
+</span></span></code></pre></div><p>패턴이 있긴 하지만 패턴도 상황에 따라서 쓰이는게 적합하기도 하고 아닐때도 있어 잘 선택하고 사용하면서 필요에 따라서는 패턴의 목적을 무시하지 않는 범위에서 약간의 수정이 있어도 괜찮다고 생각합니다.</p>
 <h2 id="참고">참고</h2>
 <p><a href="https://tv.naver.com/v/23162062">https://tv.naver.com/v/23162062</a></p>
 <p><a href="https://wit.nts-corp.com/2021/08/11/6461">https://wit.nts-corp.com/2021/08/11/6461</a></p>

@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Wed, 23 Mar 2022 04:01:03 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Wed, 23 Mar 2022 04:01:03 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -244,18 +244,18 @@
 <p>그런데 작업을 진행 할 수록 기존에 나눠두었던 봇 클라이언트를 따로 둘 필요 없이 서버에 같이 포함해서 빌드하면 좋겠다는 생각이 들었고 제가 자주 사용하는 레일즈에 맞춰 루비에 맞는 봇 클라이언트 라이브러리를 찾다가 찾게 되어 이참에 라이브러리와 봇 생성에 대한 방법을 정리해보려고 합니다.</p>
 <p>찾은 디스코드 루비 라이브러리는 <a href="https://github.com/shardlab/discordrb">discordrb</a> 라고 합니다.</p>
 <p>설치 방법은 README.md 에 적힌 내용을 참고해서 설치하면 됩니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">&#39;discordrb&#39;</span> <span class="c1"># 혹은 gem install discordrb</span>
-</code></pre></div><p>사용 방법도 굉장히 간단한 편으로 <a href="https://github.com/shardlab/discordrb/tree/main/examples">examples</a> 에 있는 ping pong 예제를 가져오겠습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;discordrb&#39;</span>
-
-<span class="n">bot</span> <span class="o">=</span> <span class="no">Discordrb</span><span class="o">::</span><span class="no">Bot</span><span class="o">.</span><span class="n">new</span> <span class="ss">token</span><span class="p">:</span> <span class="s1">&#39;B0T.T0KEN&#39;</span>
-
-<span class="n">bot</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="ss">content</span><span class="p">:</span> <span class="s1">&#39;Ping!&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">event</span><span class="o">|</span>
-  <span class="n">event</span><span class="o">.</span><span class="n">respond</span> <span class="s1">&#39;Pong!&#39;</span>
-<span class="k">end</span>
-
-<span class="n">bot</span><span class="o">.</span><span class="n">run</span>
-</code></pre></div><p>코드를 보면 토큰을 입력 받아야하는 부분이 있는데 이 부분은 Discord 홈페이지에서 발급 받아야 합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">gem</span> <span class="s1">&#39;discordrb&#39;</span> <span class="c1"># 혹은 gem install discordrb</span>
+</span></span></code></pre></div><p>사용 방법도 굉장히 간단한 편으로 <a href="https://github.com/shardlab/discordrb/tree/main/examples">examples</a> 에 있는 ping pong 예제를 가져오겠습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="nb">require</span> <span class="s1">&#39;discordrb&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">bot</span> <span class="o">=</span> <span class="no">Discordrb</span><span class="o">::</span><span class="no">Bot</span><span class="o">.</span><span class="n">new</span> <span class="ss">token</span><span class="p">:</span> <span class="s1">&#39;B0T.T0KEN&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">bot</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="ss">content</span><span class="p">:</span> <span class="s1">&#39;Ping!&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">event</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">  <span class="n">event</span><span class="o">.</span><span class="n">respond</span> <span class="s1">&#39;Pong!&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">bot</span><span class="o">.</span><span class="n">run</span>
+</span></span></code></pre></div><p>코드를 보면 토큰을 입력 받아야하는 부분이 있는데 이 부분은 Discord 홈페이지에서 발급 받아야 합니다.</p>
 <hr>
 <p>개발자 등록을 어떻게 했는지 기억은 안나지만 <a href="https://discord.com/developers/applications">링크</a>에 접속합니다.</p>
 <p>상단의 New Application 버튼을 클릭해 앱을 생성합니다.</p>

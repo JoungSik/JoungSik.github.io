@@ -6,7 +6,19 @@
     <description>Recent content on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 15 May 2022 20:55:11 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Dec 2022 02:00:56 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022년 회고</title>
+      <link>https://joungsik.github.io/post/2022_12_31/</link>
+      <pubDate>Sat, 31 Dec 2022 02:00:56 +0900</pubDate>
+      
+      <guid>https://joungsik.github.io/post/2022_12_31/</guid>
+      <description>2022년 회고</description>
+      
+      <category>2022년회고</category>
+      
+    </item>
+    
     <item>
       <title>GitHub Actions 로 올린 Private registry 의 도커 이미지를 elastic beanstalk 으로 배포하는 방법</title>
       <link>https://joungsik.github.io/post/2022_05_15/</link>
@@ -869,10 +881,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://joungsik.github.io/readme/</guid>
-      <description>History    Company Date     BrainCommerce 2022.03 ~   MadxCompany 2019.05 ~ 2021.12   INNORIX 2018.03 ~ 2019.01   The Ventures Lab 2014.01 ~ 2016.10    Blog 
-Social    
- Languages 
-Frameworks Tools </description>
+      <description>History Company Date BrainCommerce 2022.03 ~ MadxCompany 2019.05 ~ 2021.12 INNORIX 2018.03 ~ 2019.01 The Ventures Lab 2014.01 ~ 2016.10 Blog Social Languages Frameworks Tools </description>
       
     </item>
     

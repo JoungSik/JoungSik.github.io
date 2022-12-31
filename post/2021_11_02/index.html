@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -197,7 +197,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      663 Words
+                      685 Words
                     
 
                   </div>
@@ -239,37 +239,36 @@
 <p><img src="/post/2021_11/2021_11_02/2.png" alt="2"></p>
 <p>이미지의 빨간 박스 말고 파란 박스를 보시면 이 파일이 암호화된 키 값들을 저장하고 있는 파일입니다.</p>
 <p>저장된 파일을 열어보기 위한 커맨드는 다음과 같습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">EDITOR</span><span class="o">=</span>vim rails credentials:edit
-</code></pre></div><p>EDITOR 다음 부분은 사용하고 계신 에디터를 넣어주시면 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">EDITOR</span><span class="o">=</span>vim rails credentials:edit
+</span></span></code></pre></div><p>EDITOR 다음 부분은 사용하고 계신 에디터를 넣어주시면 됩니다.</p>
 <p>그러면 파일이 열리고 암호화 되기전의 값을 볼 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">aws</span><span class="p">:</span><span class="w">
-</span><span class="w">	</span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="m">123</span><span class="w">
-</span><span class="w">	</span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="m">345</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">database_url</span><span class="p">:</span><span class="w"> </span><span class="l">postgresql://joungsik:wjdtlr21@localhost:5432/LinkCloud?timeout=5000&amp;connect_timeout=5&amp;pool=10</span><span class="w">
-</span></code></pre></div><p>aws 처럼 네임스페이스로 감싸진 부분과 감싸지지 않은 부분을 호출 하는 명령은 조금 다릅니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">aws</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="m">123</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="m">345</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">database_url</span><span class="p">:</span><span class="w"> </span><span class="l">postgresql://joungsik:wjdtlr21@localhost:5432/LinkCloud?timeout=5000&amp;connect_timeout=5&amp;pool=10</span><span class="w">
+</span></span></span></code></pre></div><p>aws 처럼 네임스페이스로 감싸진 부분과 감싸지지 않은 부분을 호출 하는 명령은 조금 다릅니다.</p>
 <p>다음은 database.yml 의 데이터 베이스를 설정하는 코드 입니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">development</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= Rails.application.credentials.database_url %&gt;</span><span class="w">
-</span><span class="w"></span><span class="nt">test</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">postgresql://joungsik:wjdtlr21@localhost:5432/LinkCloud_test?timeout=5000&amp;connect_timeout=5&amp;pool=10</span><span class="w">
-</span><span class="w"></span><span class="nt">production</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= Rails.application.credentials.database_url %&gt;</span><span class="w">
-</span><span class="w">
-</span></code></pre></div><p>이렇게 작성하면 암호화된 키 값에 접근 할 수 있게 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">development</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= Rails.application.credentials.database_url %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">test</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">postgresql://joungsik:wjdtlr21@localhost:5432/LinkCloud_test?timeout=5000&amp;connect_timeout=5&amp;pool=10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">production</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= Rails.application.credentials.database_url %&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>이렇게 작성하면 암호화된 키 값에 접근 할 수 있게 됩니다.</p>
 <p>이번엔 네임스페이스로 감싸진 키 값에 접근 하는 코드를 보겠습니다.</p>
 <p>레일즈에서 지원하는 storage 설정 파일입니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">amazon</span><span class="p">:</span><span class="w">
-</span><span class="w">	</span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">S3</span><span class="w">
-</span><span class="w">	</span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= Rails.application.credentials.dig(:aws, :access_key_id) %&gt;</span><span class="w">
-</span><span class="w">	</span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= Rails.application.credentials.dig(:aws, :secret_access_key) %&gt;</span><span class="w">
-</span><span class="w">	</span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l">us-east-1</span><span class="w">
-</span><span class="w">	</span><span class="nt">bucket</span><span class="p">:</span><span class="w"> </span><span class="l">your_own_bucket</span><span class="w">
-</span></code></pre></div><p>dig 를 통해 네임스페이스에 접근하게 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">amazon</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">S3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= Rails.application.credentials.dig(:aws, :access_key_id) %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= Rails.application.credentials.dig(:aws, :secret_access_key) %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l">us-east-1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">bucket</span><span class="p">:</span><span class="w"> </span><span class="l">your_own_bucket</span><span class="w">
+</span></span></span></code></pre></div><p>dig 를 통해 네임스페이스에 접근하게 됩니다.</p>
 <p>마지막으로 개발 환경에서도 키 값을 암호화 할 수 있습니다.</p>
 <p>왜 개발환경에서 필요한가를 이야기하면 위의 개발 환경에서의 데이터베이스 설정에서는 다른 database_url 을 production 환경과 다르게 주는 상황이 생길 수 있기 때문입니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">EDITOR</span><span class="o">=</span>vim rails credentials:edit --environment development
-</code></pre></div><p>뒤에 옵션을 추가하면 새롭게 config/credentials 폴더 안에 새로운 키 파일과 암호화 파일이 생기게 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">EDITOR</span><span class="o">=</span>vim rails credentials:edit --environment development
+</span></span></code></pre></div><p>뒤에 옵션을 추가하면 새롭게 config/credentials 폴더 안에 새로운 키 파일과 암호화 파일이 생기게 됩니다.</p>
 <p><img src="/post/2021_11/2021_11_02/3.png" alt="3"></p>
 <p>주의할 점은 production 은 config 안의 master.key 와 credentials.yml.enc 를 참고한다는 부분입니다.</p>
 </article>

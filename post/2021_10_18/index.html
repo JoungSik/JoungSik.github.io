@@ -165,9 +165,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 28 Nov 2021 20:57:59 &#43;0900"
+                  Modified <relative-time datetime="Sat, 31 Dec 2022 01:31:35 &#43;0900"
                     class="no-wrap">
-                    Sun, 28 Nov 2021 20:57:59 &#43;0900</relative-time>
+                    Sat, 31 Dec 2022 01:31:35 &#43;0900</relative-time>
                   
                 </div>
               </div>
@@ -250,32 +250,32 @@
 <p>설치 방법 역시 간단한편 입니다.</p>
 <p><img src="/post/2021_10/2021_10_18/3.png" alt="3"></p>
 <p>Gemfile</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">&#34;sentry-ruby&#34;</span>
-<span class="n">gem</span> <span class="s2">&#34;sentry-rails&#34;</span>
-</code></pre></div><p>config/initializers/sentry.rb 파일을 생성해주고 내용을 채웁니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">gem</span> <span class="s2">&#34;sentry-ruby&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">gem</span> <span class="s2">&#34;sentry-rails&#34;</span>
+</span></span></code></pre></div><p>config/initializers/sentry.rb 파일을 생성해주고 내용을 채웁니다.</p>
 <p>하지만 dsn 같은 경우에는 키 값이 되니 감춰두도록 하겠습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Sentry</span><span class="o">.</span><span class="n">init</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">dsn</span> <span class="o">=</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">credentials</span><span class="o">.</span><span class="n">sentry_dsn</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">breadcrumbs_logger</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:active_support_logger</span><span class="p">,</span> <span class="ss">:http_logger</span><span class="o">]</span>
-
-  <span class="c1"># Set tracesSampleRate to 1.0 to capture 100%</span>
-  <span class="c1"># of transactions for performance monitoring.</span>
-  <span class="c1"># We recommend adjusting this value in production</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">traces_sample_rate</span> <span class="o">=</span> <span class="mi">0</span><span class="o">.</span><span class="mi">5</span>
-  <span class="c1"># or</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">traces_sampler</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">context</span><span class="o">|</span>
-    <span class="kp">true</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><p>이후 최소 한번의 이벤트는 발생시켜야 하기 때문에 Home Controller 를 생성하겠습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">rails g controller home index
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">HomeController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-  <span class="k">def</span> <span class="nf">index</span>
-    <span class="no">Sentry</span><span class="o">.</span><span class="n">capture_message</span><span class="p">(</span><span class="s2">&#34;test message&#34;</span><span class="p">)</span>
-    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:ok</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:ok</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><p><img src="/post/2021_10/2021_10_18/4.png" alt="4"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="no">Sentry</span><span class="o">.</span><span class="n">init</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">dsn</span> <span class="o">=</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">credentials</span><span class="o">.</span><span class="n">sentry_dsn</span>
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">breadcrumbs_logger</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:active_support_logger</span><span class="p">,</span> <span class="ss">:http_logger</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Set tracesSampleRate to 1.0 to capture 100%</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># of transactions for performance monitoring.</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># We recommend adjusting this value in production</span>
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">traces_sample_rate</span> <span class="o">=</span> <span class="mi">0</span><span class="o">.</span><span class="mi">5</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># or</span>
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">traces_sampler</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">context</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">    <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>이후 최소 한번의 이벤트는 발생시켜야 하기 때문에 Home Controller 를 생성하겠습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails g controller home index
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">HomeController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">index</span>
+</span></span><span class="line"><span class="cl">    <span class="no">Sentry</span><span class="o">.</span><span class="n">capture_message</span><span class="p">(</span><span class="s2">&#34;test message&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:ok</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:ok</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p><img src="/post/2021_10/2021_10_18/4.png" alt="4"></p>
 <p>그러면 다음처럼 에러에 대한 정보가 나오게 됩니다.</p>
 <p><img src="/post/2021_10/2021_10_18/5.png" alt="5"></p>
 </article>
