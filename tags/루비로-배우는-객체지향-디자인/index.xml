@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>oop on JoungSik</title>
-    <link>https://joungsik.github.io/tags/oop/</link>
-    <description>Recent content in oop on JoungSik</description>
+    <title>루비로 배우는 객체지향 디자인 on JoungSik</title>
+    <link>https://joungsik.github.io/tags/%EB%A3%A8%EB%B9%84%EB%A1%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+    <description>Recent content in 루비로 배우는 객체지향 디자인 on JoungSik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 05 Jan 2023 23:10:54 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Jan 2023 23:10:54 +0900</lastBuildDate><atom:link href="https://joungsik.github.io/tags/%EB%A3%A8%EB%B9%84%EB%A1%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EB%94%94%EC%9E%90%EC%9D%B8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>루비로 배우는 객체지향 디자인</title>
       <link>https://joungsik.github.io/post/2023/01/%EB%A3%A8%EB%B9%84%EB%A1%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
@@ -14,15 +14,6 @@
       
       <guid>https://joungsik.github.io/post/2023/01/%EB%A3%A8%EB%B9%84%EB%A1%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
       <description>루비로 배우는 객체지향 디자인</description>
-    </item>
-    
-    <item>
-      <title>루비로 배우는 객체지향 디자인 9장</title>
-      <link>https://joungsik.github.io/post/2021_12_01/</link>
-      <pubDate>Wed, 01 Dec 2021 20:56:18 +0900</pubDate>
-      
-      <guid>https://joungsik.github.io/post/2021_12_01/</guid>
-      <description>루비로 배우는 객체지향 디자인 9장</description>
     </item>
     
     <item>
