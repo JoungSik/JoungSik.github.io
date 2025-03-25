@@ -4,7 +4,8 @@
     <title>Categories on JoungSik</title>
     <link>https://joungsik.github.io/categories/</link>
     <description>Recent content in Categories on JoungSik</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko-kr</language><atom:link href="https://joungsik.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <atom:link href="https://joungsik.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

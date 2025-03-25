@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko-kr">
 <head>
-	<meta name="generator" content="Hugo 0.109.0">
+	<meta name="generator" content="Hugo 0.145.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <script type="application/javascript" src='https://joungsik.github.io/js/theme-mode.js'></script>
@@ -13,16 +13,18 @@
     <link rel="stylesheet" href='https://joungsik.github.io/css/syntax.css' />
     <title>JoungSik</title>
     
-    <link rel="icon" type="image/x-icon" href='/images/github.png'>
+    <link rel="icon" type="image/x-icon" href='/images/github-mark-white.png'>
     
     <meta name="theme-color" content="#1e2327">
-    <meta name="naver-site-verification" content="897620aba8ba7aa292baac576c13b337c3c0b021" />
+
+    <link rel="stylesheet" href="https://joungsik.github.io/css/custom.css">
+    <script type="text/javascript" src="https://joungsik.github.io/js/custom.js"></script>
 
     
     <meta name="description"
   content="" />
 <meta name="keywords"
-  content='joungsik, hugo, ruby on rails, react, react-native' />
+  content='ruby, golang, ruby on rails, programming' />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://joungsik.github.io/" />
 
@@ -51,48 +53,31 @@
 
 
 
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="JoungSik" />
 
 
 
+<link href="/index.json" rel="alternate" type="application/json" title="JoungSik" />
 
 
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DL4SWDGV72"></script>
-<script>
-  if (navigator.doNotTrack !== '1') {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-DL4SWDGV72');
-  }
-</script>
 
 
 
 </head>
+
 
 <body>
   <div style="position: relative">
   <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
     <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
       <a class="Header-link" href="https://joungsik.github.io/">
-        <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
-          <path fill-rule="evenodd"
-            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-          </path>
-        </svg>
+        <img class="octicon" height="32" width="32" src="/images/github-mark-white.png">
       </a>
     </div>
     <div class="Header-item d-md-none">
       <button class="Header-link btn-link js-details-target" type="button"
         onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
         <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
-          <path fill-rule="evenodd"
-            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
           </path>
         </svg>
       </button>
@@ -102,28 +87,24 @@
       <div
         class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
         <div class="position-relative">
-          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+          
+          <form target="_blank" id="search-form" action="" accept-charset="UTF-8" method="get"
             autocomplete="off">
             <label
               class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
               <input type="text"
                 class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
                 name="q" value="" placeholder="Search" autocomplete="off">
-              <input type="hidden" name="q" value="site:https://joungsik.github.io/">
             </label>
           </form>
+          
         </div>
       </div>
     </div>
 
     <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
       <a class="Header-link " href="https://joungsik.github.io/">
-        <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
-          width="32">
-          <path fill-rule="evenodd"
-            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-          </path>
-        </svg>
+        <img class="octicon octicon-mark-github v-align-middle" height="32" width="32" src="/images/github-mark-white.png">
       </a>
     </div>
     <div class="Header-item" style="margin-right: 0;">
@@ -138,6 +119,10 @@
     </div>
   </header>
 </div>
+
+  <div id="search-result" class="container-lg px-3 new-discussion-timeline" style="display: none;">
+</div>
+
   
 <div class="application-main">
   <main>
@@ -162,7 +147,7 @@
               </svg>
               Overview
             </a>
-            <a class="UnderlineNav-item " href="https://joungsik.github.io//post/">
+            <a class="UnderlineNav-item " href="https://joungsik.github.io/post">
               <svg class="octicon octicon-repo UnderlineNav-octicon hide-sm" height="16" viewBox="0 0 16 16"
                 version="1.1" width="16">
                 <path fill-rule="evenodd"
@@ -170,7 +155,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">66</span>
+              <span class="Counter">0</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -318,6 +303,20 @@
             </a>
             
             
+            <div class="user-status-container position-relative hide-sm hide-md">
+              <div class="f5 user-status-circle-badge-container">
+                <div class="user-status-circle-badge d-inline-block lh-condensed-ultra p-2">
+                  <div class="d-flex flex-items-center flex-items-stretch">
+                    <div class="f6 lh-condensed user-status-header d-inline-flex user-status-emoji-only-header circle">
+                      <div class="user-status-emoji-container flex-shrink-0 mr-2 d-flex flex-items-center flex-justify-center ">
+                        <div><g-emoji class="g-emoji">🛠️</g-emoji></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
           </div>
 
           <div
@@ -402,7 +401,7 @@
           
 
           
-          <a style="margin: 0 10px 10px 0;" href="https://instagram.com/joungsik_kim">
+          <a style="margin: 0 10px 10px 0;" href="https://instagram.com/main_jskim">
             <img alt="@instagram" width="32" height="32" src="https://joungsik.github.io/images/instagram.png" class="avatar">
           </a>
           
@@ -413,6 +412,12 @@
 
           
 
+          
+
+          
+          <a style="margin: 0 10px 10px 0;" href="https://joungsik.github.io/index.xml">
+            <img alt="@rss" width="32" height="32" src="https://joungsik.github.io/images/rss.png" class="avatar">
+          </a>
           
          </div>
         </div>
@@ -435,7 +440,7 @@
       Overview
     </a>
     <a class='UnderlineNav-item  '
-      href="https://joungsik.github.io//post/">
+      href="https://joungsik.github.io/post">
       <svg class="octicon octicon-repo UnderlineNav-octicon hide-sm" height="16" viewBox="0 0 16 16" version="1.1"
         width="16">
         <path fill-rule="evenodd"
@@ -443,7 +448,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">66</span>
+      <span class="Counter ">0</span>
     </a>
   </nav>
 </div>
@@ -456,800 +461,24 @@
 
 
 
+
+
 <div>
   <div class="position-relative">
-    
-    <div class="Box mt-4">
-      <div class="Box-body p-4">
-        <div class="d-flex flex-justify-between">
-          <div class="text-mono text-small mb-3">
-            <svg class="octicon octicon-octoface" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-              <path fill-rule="evenodd"
-                d="M1.326 1.973a1.2 1.2 0 011.49-.832c.387.112.977.307 1.575.602.586.291 1.243.71 1.7 1.296.022.027.042.056.061.084A13.22 13.22 0 018 3c.67 0 1.289.037 1.861.108l.051-.07c.457-.586 1.114-1.004 1.7-1.295a9.654 9.654 0 011.576-.602 1.2 1.2 0 011.49.832c.14.493.356 1.347.479 2.29.079.604.123 1.28.07 1.936.541.977.773 2.11.773 3.301C16 13 14.5 15 8 15s-8-2-8-5.5c0-1.034.238-2.128.795-3.117-.08-.712-.034-1.46.052-2.12.122-.943.34-1.797.479-2.29zM8 13.065c6 0 6.5-2 6-4.27C13.363 5.905 11.25 5 8 5s-5.363.904-6 3.796c-.5 2.27 0 4.27 6 4.27z">
-              </path>
-              <path
-                d="M4 8a1 1 0 012 0v1a1 1 0 01-2 0V8zm2.078 2.492c-.083-.264.146-.492.422-.492h3c.276 0 .505.228.422.492C9.67 11.304 8.834 12 8 12c-.834 0-1.669-.696-1.922-1.508zM10 8a1 1 0 112 0v1a1 1 0 11-2 0V8z">
-              </path>
-            </svg>
-            README<span class="text-gray-light">.md</span>
-          </div>
-        </div>
-        <article class="markdown-body entry-content container-lg f5"><h2 id="history">History</h2>
-<table>
-<thead>
-<tr>
-<th>Company</th>
-<th>Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BrainCommerce</td>
-<td>2022.03 ~</td>
-</tr>
-<tr>
-<td>MadxCompany</td>
-<td>2019.05 ~ 2021.12</td>
-</tr>
-<tr>
-<td>INNORIX</td>
-<td>2018.03 ~ 2019.01</td>
-</tr>
-<tr>
-<td>The Ventures Lab</td>
-<td>2014.01 ~ 2016.10</td>
-</tr>
-</tbody>
-</table>
-<h3 id="blog">Blog</h3>
-<p><a href="https://joungsik.github.io/"><img src="https://img.shields.io/badge/GitHub-161A1F?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="github blog"></a></p>
-<h3 id="social">Social</h3>
-<p><a href="mailto:tjstlr2010@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&amp;logo=gmail&amp;logoColor=white" alt="gmail"></a>
-<a href="https://www.facebook.com/profile.php?id=100002406291053"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&amp;logo=facebook&amp;logoColor=white" alt="facebook"></a>
-<a href="https://www.instagram.com/joungsik_kim/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&amp;logo=instagram&amp;logoColor=white" alt="instagram"></a>
-<a href="https://www.linkedin.com/in/joungsik"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white" alt="linkedin"></a></p>
-<hr>
-<h3 id="languages">Languages</h3>
-<p><img src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="ruby">
-<img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&amp;logo=go&amp;logoColor=white" alt="go">
-<img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&amp;logo=javascript&amp;logoColor=F7DF1E" alt="javascript">
-<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&amp;logo=typescript&amp;logoColor=white" alt="typescript">
-<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&amp;logo=java&amp;logoColor=white" alt="java"></p>
-<p><a href="https://github.com/anuraghazra/github-readme-stats"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=JoungSik&amp;hide=html,css&amp;theme=dark&amp;layout=compact&amp;langs_count=8" alt="Top Langs"></a></p>
-<h3 id="frameworks">Frameworks</h3>
-<p><img src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&amp;logo=ruby-on-rails&amp;logoColor=white" alt="rails">
-<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&amp;logo=react&amp;logoColor=61DAFB" alt="react"></p>
-<h3 id="tools">Tools</h3>
-<p><img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&amp;logo=docker&amp;logoColor=white" alt="docker">
-<img src="https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&amp;logo=amazonaws&amp;logoColor=white" alt="aws"></p>
-</article>
-      </div>
-    </div>
     
     <div class="mt-4">
       <div class="js-pinned-items-reorder-container">
         <h2 class="f4 mb-2 text-normal">
-          Pinned
+          Popular posts
         </h2>
         <ol class="d-flex flex-wrap list-style-none gutter-condensed mb-4 js-pinned-items-reorder-list">
-          
-          <li class="col-12 col-md-6 col-lg-6 mb-3 d-flex flex-content-stretch">
-            <div
-              class="Box pinned-item-list-item d-flex p-3 width-full js-pinned-item-list-item public source reorderable sortable-button-item">
-              <div class="pinned-item-list-item-content">
-                <div class="d-flex width-full flex-items-center position-relative">
-                  <svg class="octicon octicon-repo mr-2 text-gray flex-shrink-0" viewBox="0 0 16 16" version="1.1"
-                    width="16" height="16">
-                    <path fill-rule="evenodd"
-                      d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
-                    </path>
-                  </svg>
-                  <a class="text-bold flex-auto min-width-0" href="https://joungsik.github.io/post/2022_05_15/">
-                    <span class="repo" title="GitHub Actions 로 올린 Private registry 의 도커 이미지를 elastic beanstalk 으로 배포하는 방법">GitHub Actions 로 올린 Private registry 의 도커 이미지를 elastic beanstalk 으로 배포하는 방법</span>
-                  </a>
-                </div>
-
-
-                <div name="summary" class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
-                  Github Actions 를 통한 Docker 이미지 생성 및 Packages 에 Private 로 업로드 후 AWS Elastic Beanstalk 으로 배포
-                </div>
-
-                <p class="mb-0 f6 text-gray">
-                  
-                  
-                  <a href="/tags/github" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    github
-                  </a>
-                  
-                  <a href="/tags/github-actions" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    github actions
-                  </a>
-                  
-                  <a href="/tags/elastic-beanstalk" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    elastic beanstalk
-                  </a>
-                  
-                  <a href="/tags/docker" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    docker
-                  </a>
-                  
-                  
-                </p>
-              </div>
-            </div>
-          </li>
-          
-          <li class="col-12 col-md-6 col-lg-6 mb-3 d-flex flex-content-stretch">
-            <div
-              class="Box pinned-item-list-item d-flex p-3 width-full js-pinned-item-list-item public source reorderable sortable-button-item">
-              <div class="pinned-item-list-item-content">
-                <div class="d-flex width-full flex-items-center position-relative">
-                  <svg class="octicon octicon-repo mr-2 text-gray flex-shrink-0" viewBox="0 0 16 16" version="1.1"
-                    width="16" height="16">
-                    <path fill-rule="evenodd"
-                      d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
-                    </path>
-                  </svg>
-                  <a class="text-bold flex-auto min-width-0" href="https://joungsik.github.io/post/2022_03_23/">
-                    <span class="repo" title="Ruby 로 디스코드 봇 만들기">Ruby 로 디스코드 봇 만들기</span>
-                  </a>
-                </div>
-
-
-                <div name="summary" class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
-                  루비로 만드는 디스코드 봇
-                </div>
-
-                <p class="mb-0 f6 text-gray">
-                  
-                  
-                  <a href="/tags/ruby" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    ruby
-                  </a>
-                  
-                  <a href="/tags/discord" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    discord
-                  </a>
-                  
-                  <a href="/tags/bot" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    bot
-                  </a>
-                  
-                  
-                </p>
-              </div>
-            </div>
-          </li>
-          
-          <li class="col-12 col-md-6 col-lg-6 mb-3 d-flex flex-content-stretch">
-            <div
-              class="Box pinned-item-list-item d-flex p-3 width-full js-pinned-item-list-item public source reorderable sortable-button-item">
-              <div class="pinned-item-list-item-content">
-                <div class="d-flex width-full flex-items-center position-relative">
-                  <svg class="octicon octicon-repo mr-2 text-gray flex-shrink-0" viewBox="0 0 16 16" version="1.1"
-                    width="16" height="16">
-                    <path fill-rule="evenodd"
-                      d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
-                    </path>
-                  </svg>
-                  <a class="text-bold flex-auto min-width-0" href="https://joungsik.github.io/post/2021_11_12/">
-                    <span class="repo" title="Rails 에서 TypeScript 사용하기">Rails 에서 TypeScript 사용하기</span>
-                  </a>
-                </div>
-
-
-                <div name="summary" class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
-                  Rails 에서 TypeScript 사용하기
-                </div>
-
-                <p class="mb-0 f6 text-gray">
-                  
-                  
-                  <a href="/tags/rails" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    rails
-                  </a>
-                  
-                  <a href="/tags/typescript" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    typescript
-                  </a>
-                  
-                  
-                </p>
-              </div>
-            </div>
-          </li>
-          
-          <li class="col-12 col-md-6 col-lg-6 mb-3 d-flex flex-content-stretch">
-            <div
-              class="Box pinned-item-list-item d-flex p-3 width-full js-pinned-item-list-item public source reorderable sortable-button-item">
-              <div class="pinned-item-list-item-content">
-                <div class="d-flex width-full flex-items-center position-relative">
-                  <svg class="octicon octicon-repo mr-2 text-gray flex-shrink-0" viewBox="0 0 16 16" version="1.1"
-                    width="16" height="16">
-                    <path fill-rule="evenodd"
-                      d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
-                    </path>
-                  </svg>
-                  <a class="text-bold flex-auto min-width-0" href="https://joungsik.github.io/post/2021_11_10/">
-                    <span class="repo" title="Rails &#43; React 사용하기">Rails &#43; React 사용하기</span>
-                  </a>
-                </div>
-
-
-                <div name="summary" class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
-                  Rails + React 사용하기
-                </div>
-
-                <p class="mb-0 f6 text-gray">
-                  
-                  
-                  <a href="/tags/rails" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    rails
-                  </a>
-                  
-                  <a href="/tags/react" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    react
-                  </a>
-                  
-                  
-                </p>
-              </div>
-            </div>
-          </li>
-          
-          <li class="col-12 col-md-6 col-lg-6 mb-3 d-flex flex-content-stretch">
-            <div
-              class="Box pinned-item-list-item d-flex p-3 width-full js-pinned-item-list-item public source reorderable sortable-button-item">
-              <div class="pinned-item-list-item-content">
-                <div class="d-flex width-full flex-items-center position-relative">
-                  <svg class="octicon octicon-repo mr-2 text-gray flex-shrink-0" viewBox="0 0 16 16" version="1.1"
-                    width="16" height="16">
-                    <path fill-rule="evenodd"
-                      d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
-                    </path>
-                  </svg>
-                  <a class="text-bold flex-auto min-width-0" href="https://joungsik.github.io/post/2021_11_03/">
-                    <span class="repo" title="AWS Elastic Beanstalk nginx 옵션 추가 하기">AWS Elastic Beanstalk nginx 옵션 추가 하기</span>
-                  </a>
-                </div>
-
-
-                <div name="summary" class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
-                  AWS Elastic Beanstalk nginx 옵션 추가 하기
-                </div>
-
-                <p class="mb-0 f6 text-gray">
-                  
-                  
-                  <a href="/tags/aws" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    aws
-                  </a>
-                  
-                  <a href="/tags/elastic-beanstalk" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    elastic beanstalk
-                  </a>
-                  
-                  
-                </p>
-              </div>
-            </div>
-          </li>
-          
-          <li class="col-12 col-md-6 col-lg-6 mb-3 d-flex flex-content-stretch">
-            <div
-              class="Box pinned-item-list-item d-flex p-3 width-full js-pinned-item-list-item public source reorderable sortable-button-item">
-              <div class="pinned-item-list-item-content">
-                <div class="d-flex width-full flex-items-center position-relative">
-                  <svg class="octicon octicon-repo mr-2 text-gray flex-shrink-0" viewBox="0 0 16 16" version="1.1"
-                    width="16" height="16">
-                    <path fill-rule="evenodd"
-                      d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
-                    </path>
-                  </svg>
-                  <a class="text-bold flex-auto min-width-0" href="https://joungsik.github.io/post/2021_11_02/">
-                    <span class="repo" title="Ruby On Rails Credentials">Ruby On Rails Credentials</span>
-                  </a>
-                </div>
-
-
-                <div name="summary" class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
-                  Ruby On Rails Credentials
-                </div>
-
-                <p class="mb-0 f6 text-gray">
-                  
-                  
-                  <a href="/tags/ruby" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    ruby
-                  </a>
-                  
-                  <a href="/tags/rails" class="pinned-item-meta muted-link ">
-                    <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                      <path fill-rule="evenodd"
-                        d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                      </path>
-                    </svg>
-                    rails
-                  </a>
-                  
-                  
-                </p>
-              </div>
-            </div>
-          </li>
           
         </ol>
       </div>
     </div>
 
     
-    <div class="mt-4 position-relative" id="contributions" data='[
-{
-  "title": "%eb%a3%a8%eb%b9%84%eb%a1%9c%20%eb%b0%b0%ec%9a%b0%eb%8a%94%20%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5%20%eb%94%94%ec%9e%90%ec%9d%b8",
-  "link": "https://joungsik.github.io/post/2023/01/%EB%A3%A8%EB%B9%84%EB%A1%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EB%94%94%EC%9E%90%EC%9D%B8/",
-  "publishDate": "2023-01-05%2023:10:54"
-},
-
-{
-  "title": "2022%eb%85%84%20%ed%9a%8c%ea%b3%a0",
-  "link": "https://joungsik.github.io/post/2022_12_31/",
-  "publishDate": "2022-12-31%2002:00:56"
-},
-
-{
-  "title": "GitHub%20Actions%20%eb%a1%9c%20%ec%98%ac%eb%a6%b0%20Private%20registry%20%ec%9d%98%20%eb%8f%84%ec%bb%a4%20%ec%9d%b4%eb%af%b8%ec%a7%80%eb%a5%bc%20elastic%20beanstalk%20%ec%9c%bc%eb%a1%9c%20%eb%b0%b0%ed%8f%ac%ed%95%98%eb%8a%94%20%eb%b0%a9%eb%b2%95",
-  "link": "https://joungsik.github.io/post/2022_05_15/",
-  "publishDate": "2022-05-15%2020:55:11"
-},
-
-{
-  "title": "Ruby%20%eb%a1%9c%20%eb%94%94%ec%8a%a4%ec%bd%94%eb%93%9c%20%eb%b4%87%20%eb%a7%8c%eb%93%a4%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2022_03_23/",
-  "publishDate": "2022-03-23%2000:40:19"
-},
-
-{
-  "title": "%ed%86%a0%eb%b9%84%ec%9d%98%20%ec%8a%a4%ed%94%84%eb%a7%81%20-%209%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2022_02_23/",
-  "publishDate": "2022-02-23%2023:40:55"
-},
-
-{
-  "title": "%ed%86%a0%eb%b9%84%ec%9d%98%20%ec%8a%a4%ed%94%84%eb%a7%81%20-%208%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2022_02_14/",
-  "publishDate": "2022-02-14%2012:57:28"
-},
-
-{
-  "title": "%ed%86%a0%eb%b9%84%ec%9d%98%20%ec%8a%a4%ed%94%84%eb%a7%81%20-%206%ec%9e%a5%20%284%29",
-  "link": "https://joungsik.github.io/post/2022_02_06/",
-  "publishDate": "2022-02-06%2023:28:13"
-},
-
-{
-  "title": "github,%20fork%20%ed%95%9c%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%ec%9d%98%20%ec%9b%90%eb%b3%b8%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%eb%a8%b8%ec%a7%80%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2022_02_04/",
-  "publishDate": "2022-02-04%2015:21:08"
-},
-
-{
-  "title": "%ed%86%a0%eb%b9%84%ec%9d%98%20%ec%8a%a4%ed%94%84%eb%a7%81%20-%206%ec%9e%a5%20%283%29",
-  "link": "https://joungsik.github.io/post/2022_02_03/",
-  "publishDate": "2022-02-03%2019:36:00"
-},
-
-{
-  "title": "%ed%86%a0%eb%b9%84%ec%9d%98%20%ec%8a%a4%ed%94%84%eb%a7%81%20-%206%ec%9e%a5%20%282%29",
-  "link": "https://joungsik.github.io/post/2022_01_27/",
-  "publishDate": "2022-01-27%2020:05:02"
-},
-
-{
-  "title": "%ed%86%a0%eb%b9%84%ec%9d%98%20%ec%8a%a4%ed%94%84%eb%a7%81%20-%206%ec%9e%a5%20%281%29",
-  "link": "https://joungsik.github.io/post/2022_01_10/",
-  "publishDate": "2022-01-10%2011:54:55"
-},
-
-{
-  "title": "%ed%86%a0%eb%b9%84%ec%9d%98%20%ec%8a%a4%ed%94%84%eb%a7%81%20-%205%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2022_01_04/",
-  "publishDate": "2022-01-04%2023:20:28"
-},
-
-{
-  "title": "Spring%20Boot%20%ec%97%90%ec%84%9c%20React%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_12_31/",
-  "publishDate": "2021-12-31%2011:53:16"
-},
-
-{
-  "title": "%ed%86%a0%eb%b9%84%ec%9d%98%20%ec%8a%a4%ed%94%84%eb%a7%81%20-%204%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_12_30/",
-  "publishDate": "2021-12-30%2001:03:16"
-},
-
-{
-  "title": "%ed%86%a0%eb%b9%84%ec%9d%98%20%ec%8a%a4%ed%94%84%eb%a7%81%20-%203%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_12_23/",
-  "publishDate": "2021-12-23%2003:30:15"
-},
-
-{
-  "title": "%ed%86%a0%eb%b9%84%ec%9d%98%20%ec%8a%a4%ed%94%84%eb%a7%81%20-%202%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_12_14/",
-  "publishDate": "2021-12-14%2023:02:34"
-},
-
-{
-  "title": "%ed%86%a0%eb%b9%84%ec%9d%98%20%ec%8a%a4%ed%94%84%eb%a7%81%20-%201%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_12_10/",
-  "publishDate": "2021-12-10%2015:02:11"
-},
-
-{
-  "title": "Jenv%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_12_08/",
-  "publishDate": "2021-12-08%2021:38:01"
-},
-
-{
-  "title": "%ec%98%a4%ed%94%84%eb%9d%bc%ec%9d%b8%20%ec%b1%85%ec%9e%a5%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%84%a4%ea%b3%84",
-  "link": "https://joungsik.github.io/post/2021_12_02/",
-  "publishDate": "2021-12-02%2020:09:52"
-},
-
-{
-  "title": "%eb%a3%a8%eb%b9%84%eb%a1%9c%20%eb%b0%b0%ec%9a%b0%eb%8a%94%20%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5%20%eb%94%94%ec%9e%90%ec%9d%b8%209%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_12_01/",
-  "publishDate": "2021-12-01%2020:56:18"
-},
-
-{
-  "title": "%eb%a3%a8%eb%b9%84%eb%a1%9c%20%eb%b0%b0%ec%9a%b0%eb%8a%94%20%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5%20%eb%94%94%ec%9e%90%ec%9d%b8%208%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_11_28/",
-  "publishDate": "2021-11-28%2020:46:04"
-},
-
-{
-  "title": "%eb%a3%a8%eb%b9%84%eb%a1%9c%20%eb%b0%b0%ec%9a%b0%eb%8a%94%20%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5%20%eb%94%94%ec%9e%90%ec%9d%b8%207%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_11_25/",
-  "publishDate": "2021-11-25%2023:59:59"
-},
-
-{
-  "title": "%eb%a3%a8%eb%b9%84%eb%a1%9c%20%eb%b0%b0%ec%9a%b0%eb%8a%94%20%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5%20%eb%94%94%ec%9e%90%ec%9d%b8%206%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_11_24/",
-  "publishDate": "2021-11-24%2023:59:59"
-},
-
-{
-  "title": "React%20Context%20API%20TypeScript%20%eb%a1%9c%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_11_23/",
-  "publishDate": "2021-11-23%2023:59:59"
-},
-
-{
-  "title": "Golang%20marshal,%20unmarshal%20override%20json",
-  "link": "https://joungsik.github.io/post/2021_11_22/",
-  "publishDate": "2021-11-22%2001:22:43"
-},
-
-{
-  "title": "React%20VAC%20Pattern",
-  "link": "https://joungsik.github.io/post/2021_11_21/",
-  "publishDate": "2021-11-21%2021:29:44"
-},
-
-{
-  "title": "%eb%a3%a8%eb%b9%84%eb%a1%9c%20%eb%b0%b0%ec%9a%b0%eb%8a%94%20%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5%20%eb%94%94%ec%9e%90%ec%9d%b8%205%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_11_20/",
-  "publishDate": "2021-11-20%2016:40:34"
-},
-
-{
-  "title": "React%20Router%20Dom%20%ec%97%ac%eb%9f%ac%20%ea%b0%9c%ec%9d%98%20Layout%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_11_19/",
-  "publishDate": "2021-11-19%2023:59:59"
-},
-
-{
-  "title": "%eb%a3%a8%eb%b9%84%eb%a1%9c%20%eb%b0%b0%ec%9a%b0%eb%8a%94%20%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5%20%eb%94%94%ec%9e%90%ec%9d%b8%204%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_11_18/",
-  "publishDate": "2021-11-18%2023:57:45"
-},
-
-{
-  "title": "Golang%20%ea%b5%ac%ec%a1%b0%ec%b2%b4,%20%eb%a9%94%ec%84%9c%eb%93%9c,%20%ec%9d%b8%ed%84%b0%ed%8e%98%ec%9d%b4%ec%8a%a4",
-  "link": "https://joungsik.github.io/post/2021_11_17/",
-  "publishDate": "2021-11-17%2019:32:57"
-},
-
-{
-  "title": "Golang%20%ea%b8%b0%eb%b3%b8%20%eb%ac%b8%eb%b2%95",
-  "link": "https://joungsik.github.io/post/2021_11_16/",
-  "publishDate": "2021-11-16%2023:59:59"
-},
-
-{
-  "title": "Hugo%20RSS%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_11_15/",
-  "publishDate": "2021-11-15%2023:59:59"
-},
-
-{
-  "title": "golang%20web%20crawler%20%eb%a7%8c%eb%93%a4%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_11_14/",
-  "publishDate": "2021-11-14%2022:41:28"
-},
-
-{
-  "title": "Rails%20%ec%97%90%ec%84%9c%20TypeScript%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_11_12/",
-  "publishDate": "2021-11-12%2000:25:56"
-},
-
-{
-  "title": "Go%20Apps%20Live%20reload%20%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_11_11/",
-  "publishDate": "2021-11-11%2000:15:52"
-},
-
-{
-  "title": "Rails%20&#43;%20React%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_11_10/",
-  "publishDate": "2021-11-10%2002:25:28"
-},
-
-{
-  "title": "Rails%20API%20mode%20%ec%97%90%ec%84%9c%20ActiveAdmin%20%ec%9d%84%20%ec%82%ac%ec%9a%a9%ed%95%b4%20Admin%20%ed%8e%98%ec%9d%b4%ec%a7%80%20%eb%a7%8c%eb%93%a4%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_11_09/",
-  "publishDate": "2021-11-09%2003:38:12"
-},
-
-{
-  "title": "Go%20%ec%84%a4%ec%b9%98%20%eb%b0%8f%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%84%a4%ec%a0%95",
-  "link": "https://joungsik.github.io/post/2021_11_08/",
-  "publishDate": "2021-11-08%2023:42:46"
-},
-
-{
-  "title": "%eb%b3%80%ea%b2%bd%ec%97%90%20%ec%9c%a0%ec%97%b0%ed%95%9c%20%ec%bb%b4%ed%8f%ac%eb%84%8c%ed%8a%b8%20%eb%a7%8c%eb%93%a4%ea%b8%b0%20%ec%9d%bd%ea%b3%a0%20%ec%83%9d%ea%b0%81%20%ec%a0%95%eb%a6%ac",
-  "link": "https://joungsik.github.io/post/2021_11_06/",
-  "publishDate": "2021-11-06%2015:06:12"
-},
-
-{
-  "title": "AWS%20Elastic%20Beanstalk%20nginx%20%ec%98%b5%ec%85%98%20%ec%b6%94%ea%b0%80%20%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_11_03/",
-  "publishDate": "2021-11-03%2023:59:59"
-},
-
-{
-  "title": "Ruby%20On%20Rails%20Credentials",
-  "link": "https://joungsik.github.io/post/2021_11_02/",
-  "publishDate": "2021-11-02%2023:59:59"
-},
-
-{
-  "title": "Faraday%20-%20Ruby%20HTTP%20Client%20library",
-  "link": "https://joungsik.github.io/post/2021_11_01/",
-  "publishDate": "2021-11-01%2023:59:59"
-},
-
-{
-  "title": "%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%a8%b8%ec%8a%a4%20%ec%95%8c%ea%b3%a0%eb%a6%ac%ec%a6%98%20%eb%ac%b8%ec%a0%9c%20Level%201%20%2810.25%20~%2010.31,%205%ec%a3%bc%ec%b0%a8%29",
-  "link": "https://joungsik.github.io/post/2021_10_31/",
-  "publishDate": "2021-10-31%2022:02:08"
-},
-
-{
-  "title": "Pull%20Requests%20%ec%97%90%ec%84%9c%20%ec%97%b0%ea%b2%b0%eb%90%9c%20issue%20%ed%95%9c%eb%b2%88%ec%97%90%20%eb%8b%ab%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_10_30/",
-  "publishDate": "2021-10-30%2021:36:43"
-},
-
-{
-  "title": "Ruby%20JSON.parse%20key%20symbolize",
-  "link": "https://joungsik.github.io/post/2021_10_29/",
-  "publishDate": "2021-10-29%2023:59:59"
-},
-
-{
-  "title": "google%20typescript%20guide%20%eb%a1%9c%20typescript%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%84%a4%ec%a0%95",
-  "link": "https://joungsik.github.io/post/2021_10_26/",
-  "publishDate": "2021-10-26%2021:49:06"
-},
-
-{
-  "title": "Hugo%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20SEO%20%ec%a0%81%ec%9a%a9%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_10_25/",
-  "publishDate": "2021-10-25%2022:03:50"
-},
-
-{
-  "title": "%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%a8%b8%ec%8a%a4%20%ec%95%8c%ea%b3%a0%eb%a6%ac%ec%a6%98%20%eb%ac%b8%ec%a0%9c%20Level%201%20%2810.18%20~%2010.24,%204%ec%a3%bc%ec%b0%a8%29",
-  "link": "https://joungsik.github.io/post/2021_10_24/",
-  "publishDate": "2021-10-24%2010:55:42"
-},
-
-{
-  "title": "%eb%a3%a8%eb%b9%84%eb%a1%9c%20%eb%b0%b0%ec%9a%b0%eb%8a%94%20%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5%20%eb%94%94%ec%9e%90%ec%9d%b8%203%ea%b0%95",
-  "link": "https://joungsik.github.io/post/2021_10_23/",
-  "publishDate": "2021-10-23%2012:18:58"
-},
-
-{
-  "title": "GitHub%20Packages%20%ec%97%90%20Docker%20Container%20%eb%b0%b0%ed%8f%ac%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_10_21/",
-  "publishDate": "2021-10-21%2023:59:59"
-},
-
-{
-  "title": "Rails%20i18n%20%ec%a0%81%ec%9a%a9,%20%ec%97%90%eb%9f%ac%20%eb%a9%94%ec%84%b8%ec%a7%80%20%ed%98%95%ec%8b%9d%20%ea%b3%a0%ec%a0%95%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_10_19/",
-  "publishDate": "2021-10-19%2023:59:59"
-},
-
-{
-  "title": "Sentry,%20Rails%20%ec%84%9c%eb%b2%84%20%ec%9d%b4%ec%8a%88%20%eb%aa%a8%eb%8b%88%ed%84%b0%eb%a7%81%20%ec%84%9c%eb%b9%84%ec%8a%a4%20%ec%84%a4%ec%a0%95",
-  "link": "https://joungsik.github.io/post/2021_10_18/",
-  "publishDate": "2021-10-18%2023:28:45"
-},
-
-{
-  "title": "%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%a8%b8%ec%8a%a4%20%ec%95%8c%ea%b3%a0%eb%a6%ac%ec%a6%98%20%eb%ac%b8%ec%a0%9c%20Level%201%20%2810.11%20~%2010.17,%203%ec%a3%bc%ec%b0%a8%29",
-  "link": "https://joungsik.github.io/post/2021_10_17/",
-  "publishDate": "2021-10-17%2007:44:15"
-},
-
-{
-  "title": "Ruby%20On%20Rails%20API%20mode%20%ec%97%90%ec%84%9c%20SNS%20%eb%a1%9c%ea%b7%b8%ec%9d%b8%20%ea%b5%ac%ed%98%84",
-  "link": "https://joungsik.github.io/post/2021_10_16/",
-  "publishDate": "2021-10-16%2009:40:25"
-},
-
-{
-  "title": "Rails%20Devise,%20Permission%20%ea%b4%80%eb%a6%ac%20%eb%9d%bc%ec%9d%b4%eb%b8%8c%eb%9f%ac%eb%a6%ac",
-  "link": "https://joungsik.github.io/post/2021_10_15/",
-  "publishDate": "2021-10-15%2005:43:31"
-},
-
-{
-  "title": "%eb%a3%a8%eb%b9%84%eb%a1%9c%20%eb%b0%b0%ec%9a%b0%eb%8a%94%20%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5%20%eb%94%94%ec%9e%90%ec%9d%b8%202%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_10_14/",
-  "publishDate": "2021-10-15%2005:27:36"
-},
-
-{
-  "title": "%eb%a3%a8%eb%b9%84%eb%a1%9c%20%eb%b0%b0%ec%9a%b0%eb%8a%94%20%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5%20%eb%94%94%ec%9e%90%ec%9d%b8%201%ec%9e%a5",
-  "link": "https://joungsik.github.io/post/2021_10_13/",
-  "publishDate": "2021-10-13%2023:49:41"
-},
-
-{
-  "title": "form%20%ec%b2%98%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%20%eb%9d%bc%ec%9d%b4%eb%b8%8c%eb%9f%ac%eb%a6%ac,%20TypeScript%20%eb%a1%9c%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_10_12/",
-  "publishDate": "2021-10-12%2021:23:34"
-},
-
-{
-  "title": "Vercel%20Env%20&#43;%20Github%20Docker%20Env%20%ec%84%a4%ec%a0%95",
-  "link": "https://joungsik.github.io/post/2021_10_11/",
-  "publishDate": "2021-10-11%2019:25:08"
-},
-
-{
-  "title": "React-Query",
-  "link": "https://joungsik.github.io/post/2021_10_10_2/",
-  "publishDate": "2021-10-10%2020:12:15"
-},
-
-{
-  "title": "%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%a8%b8%ec%8a%a4%20%ec%95%8c%ea%b3%a0%eb%a6%ac%ec%a6%98%20%eb%ac%b8%ec%a0%9c%20Level%201%20%2810.07%20~%2010.10%29",
-  "link": "https://joungsik.github.io/post/2021_10_10/",
-  "publishDate": "2021-10-10%2001:40:58"
-},
-
-{
-  "title": "Chakra-ui",
-  "link": "https://joungsik.github.io/post/2021_10_09/",
-  "publishDate": "2021-10-09%2023:28:26"
-},
-
-{
-  "title": "Typescript%20React,%20Vercel%20%eb%b0%b0%ed%8f%ac",
-  "link": "https://joungsik.github.io/post/2021_10_08/",
-  "publishDate": "2021-10-08%2023:47:41"
-},
-
-{
-  "title": "Ruby%20On%20Rails%20&#43;%20Devise%20%eb%a1%9c%20jwt%20%ec%9d%b8%ec%a6%9d%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0",
-  "link": "https://joungsik.github.io/post/2021_10_07/",
-  "publishDate": "2021-10-07%2021:58:13"
-},
-
-{
-  "title": "%ec%82%ac%ec%9d%b4%eb%93%9c%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20-%20%eb%a7%81%ed%81%ac%20%ea%b3%b5%ec%9c%a0%20%ec%84%9c%eb%b9%84%ec%8a%a4%20%ec%84%a4%ea%b3%84",
-  "link": "https://joungsik.github.io/post/2021_10_06/",
-  "publishDate": "2021-10-06%2023:15:35"
-},
-
-{
-  "title": "Hugo%20%ec%82%ac%ec%9a%a9%eb%b2%95",
-  "link": "https://joungsik.github.io/post/2021_10_05/",
-  "publishDate": "2021-10-05%2022:30:06"
-}
-]'>
+    <div class="mt-4 position-relative" id="contributions" data='[]'>
       <div class="js-yearly-contributions">
         <div class="position-relative">
           <h2 class="f4 text-normal mb-2" id="posts-count"></h2>
@@ -1317,21 +546,33 @@
 <script>
 window.onscroll = function (e) {
   const headerImg = document.querySelector('#headerImg');
+  const headerStuck = document.querySelector('#headerStuck');
   if (headerImg.getBoundingClientRect().bottom <= 0) {
-    document.querySelector('#headerStuck').classList.add('is-stuck');
+    headerStuck.classList.add('is-stuck');
+    if (window.innerWidth >= 1280) {
+      headerStuck.setAttribute('style', 'top: 12px;')
+    } else {
+      headerStuck.setAttribute('style', 'top: 0;')
+    }
   } else {
-    document.querySelector('#headerStuck').classList.remove('is-stuck');
+    headerStuck.classList.remove('is-stuck');
   }
 };
-var style = localStorage.getItem('data-color-mode');
-iconElement = document.getElementById('github-icon');
+
+var style = localStorage.getItem('data-color-mode')
+githubIconElement = document.getElementById('github-icon')
+twitterIconElement = document.getElementById('twitter-icon')
 if (style == 'light') {
-  iconElement.setAttribute('fill', '#24292e');
+  if (githubIconElement) githubIconElement.setAttribute('fill', '#24292e')
+  if (twitterIconElement) twitterIconElement.setAttribute('fill', 'black')
 }
 else {
-  iconElement.removeAttribute('fill');
-  iconElement.setAttribute('class', 'octicon');
-  iconElement.setAttribute('color', '#f0f6fc');
+  if (githubIconElement) {
+    githubIconElement.removeAttribute('fill')
+    githubIconElement.setAttribute('class', 'octicon')
+    githubIconElement.setAttribute('color', '#f0f6fc')
+  }
+  if (twitterIconElement)  twitterIconElement.setAttribute('fill', 'white') 
 }
 </script>
 
@@ -1354,6 +595,7 @@ else {
       
       <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
       
+      <li class="mr-3 mr-lg-0">GitHub and the Invertocat logo are trademarks of <a href="https://github.com/">GitHub, Inc.</a></li>
     </ul>
   </div>
   <div class="d-flex flex-justify-center pb-6">
@@ -1362,9 +604,17 @@ else {
 
 
 </div>
+
 </body>
 
 <script type="application/javascript" src="https://joungsik.github.io/js/github-style.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+<script type="application/javascript" src='https://joungsik.github.io/js/search.js'></script>
 
 
 
