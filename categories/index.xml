@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on JoungSik</title>
+    <title>Categories on Joungsik의 기술 블로그</title>
     <link>https://joungsik.github.io/categories/</link>
-    <description>Recent content in Categories on JoungSik</description>
+    <description>Recent content in Categories on Joungsik의 기술 블로그</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
     <atom:link href="https://joungsik.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
