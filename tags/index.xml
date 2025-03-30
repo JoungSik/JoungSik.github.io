@@ -6,6 +6,35 @@
     <description>Recent content in Tags on Joungsik의 기술 블로그</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
+    <lastBuildDate>Sun, 30 Mar 2025 12:35:37 +0000</lastBuildDate>
     <atom:link href="https://joungsik.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gmail</title>
+      <link>https://joungsik.github.io/tags/gmail/</link>
+      <pubDate>Sun, 24 Mar 2024 15:00:00 +0900</pubDate>
+      <guid>https://joungsik.github.io/tags/gmail/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google SMTP</title>
+      <link>https://joungsik.github.io/tags/google-smtp/</link>
+      <pubDate>Sun, 24 Mar 2024 15:00:00 +0900</pubDate>
+      <guid>https://joungsik.github.io/tags/google-smtp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SMTP 설정</title>
+      <link>https://joungsik.github.io/tags/smtp-%EC%84%A4%EC%A0%95/</link>
+      <pubDate>Sun, 24 Mar 2024 15:00:00 +0900</pubDate>
+      <guid>https://joungsik.github.io/tags/smtp-%EC%84%A4%EC%A0%95/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>이메일</title>
+      <link>https://joungsik.github.io/tags/%EC%9D%B4%EB%A9%94%EC%9D%BC/</link>
+      <pubDate>Sun, 24 Mar 2024 15:00:00 +0900</pubDate>
+      <guid>https://joungsik.github.io/tags/%EC%9D%B4%EB%A9%94%EC%9D%BC/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
