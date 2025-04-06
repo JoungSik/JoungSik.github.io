@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Joungsik의 기술 블로그</title>
-    <link>https://joungsik.github.io/post/</link>
-    <description>Recent content in Posts on Joungsik의 기술 블로그</description>
+    <title>GitHub Pages on Joungsik의 기술 블로그</title>
+    <link>https://joungsik.github.io/tags/github-pages/</link>
+    <description>Recent content in GitHub Pages on Joungsik의 기술 블로그</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Sun, 06 Apr 2025 12:18:54 +0000</lastBuildDate>
-    <atom:link href="https://joungsik.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://joungsik.github.io/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>비용 0원! Hugo와 GitHub Pages로 만드는 나만의 개발 블로그</title>
       <link>https://joungsik.github.io/post/%EB%B9%84%EC%9A%A9-0%EC%9B%90-hugo%EC%99%80-github-pages%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%82%98%EB%A7%8C%EC%9D%98-%EA%B0%9C%EB%B0%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8/</link>
       <pubDate>Thu, 03 Apr 2025 07:51:07 +0900</pubDate>
       <guid>https://joungsik.github.io/post/%EB%B9%84%EC%9A%A9-0%EC%9B%90-hugo%EC%99%80-github-pages%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%82%98%EB%A7%8C%EC%9D%98-%EA%B0%9C%EB%B0%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8/</guid>
       <description>Hugo와 GitHub Pages를 사용하여 비용 없이 개인 개발 블로그를 만드는 방법을 단계별로 설명합니다. GitHub 저장소 생성, Hugo 설치, 콘텐츠 작성, 테마 적용, 배포 과정을 다룹니다.</description>
-    </item>
-    <item>
-      <title>무료로 이메일 보내기: Google SMTP 서버 설정 방법</title>
-      <link>https://joungsik.github.io/post/%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-google-smtp-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95/</link>
-      <pubDate>Sun, 24 Mar 2024 15:00:00 +0900</pubDate>
-      <guid>https://joungsik.github.io/post/%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-google-smtp-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95/</guid>
-      <description>Google SMTP 서버를 활용하여 무료로 안전하게 이메일을 보내는 방법을 단계별로 알아봅니다.</description>
     </item>
   </channel>
 </rss>
