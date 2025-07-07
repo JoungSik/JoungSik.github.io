@@ -23,7 +23,7 @@
     <meta name="description"
   content="Google SMTP 서버를 활용하여 무료로 안전하게 이메일을 보내는 방법을 단계별로 알아봅니다." />
 <meta name="keywords"
-  content='이메일, Google SMTP' />
+  content='이메일, Google SMTP, Gmail, SMTP 설정' />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://joungsik.github.io/post/%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-google-smtp-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95/" />
 
@@ -154,9 +154,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Mon, 02 Jun 2025 00:07:11 &#43;0000"
+                  Modified <relative-time datetime="Mon, 07 Jul 2025 23:00:46 &#43;0000"
                     class="no-wrap">
-                    Mon, 02 Jun 2025 00:07:11 &#43;0000</relative-time>
+                    Mon, 07 Jul 2025 23:00:46 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -202,33 +202,6 @@
                       Google SMTP
                     </a>
                     
-                    <a class="muted-link mr-3" href="/tags/%EC%9D%B4%EB%A9%94%EC%9D%BC">
-                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                        <path fill-rule="evenodd"
-                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                        </path>
-                      </svg>
-                      이메일
-                    </a>
-                    
-                    <a class="muted-link mr-3" href="/tags/gmail">
-                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                        <path fill-rule="evenodd"
-                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                        </path>
-                      </svg>
-                      Gmail
-                    </a>
-                    
-                    <a class="muted-link mr-3" href="/tags/smtp-%EC%84%A4%EC%A0%95">
-                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                        <path fill-rule="evenodd"
-                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                        </path>
-                      </svg>
-                      SMTP 설정
-                    </a>
-                    
                     
                   </div>
                 </div>
@@ -258,15 +231,15 @@
 <p>Rails에서는 서버의 설정에 따라 <code>development</code>, <code>test</code>, <code>production</code>과 같은 환경을 관리할 수 있습니다.</p>
 <p>여기서는 실제 메일을 사용할 것이기 때문에 <strong>production</strong> 환경에서 작업합니다.</p>
 <p><code>config/environments/production.rb</code> 파일을 열고, 다음 코드를 입력합니다:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">config</span><span class="o">.</span><span class="n">action_mailer</span><span class="o">.</span><span class="n">smtp_settings</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="ss">user_name</span><span class="p">:</span> <span class="s2">&#34;google@gmail.com&#34;</span><span class="p">,</span> <span class="c1"># SMTP 설정 했던 이메일</span>
-</span></span><span class="line"><span class="cl">    <span class="ss">password</span><span class="p">:</span> <span class="s2">&#34;qwer 1234 tyui 5678&#34;</span><span class="p">,</span> <span class="c1"># 앱 비밀번호</span>
-</span></span><span class="line"><span class="cl">    <span class="ss">address</span><span class="p">:</span> <span class="s2">&#34;smtp.gmail.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="ss">domain</span><span class="p">:</span> <span class="s2">&#34;gmail.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="ss">port</span><span class="p">:</span> <span class="mi">587</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="ss">authentication</span><span class="p">:</span> <span class="ss">:plain</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="ss">enable_starttls_auto</span><span class="p">:</span> <span class="kp">true</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>config<span style="color:#f92672">.</span>action_mailer<span style="color:#f92672">.</span>smtp_settings <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">user_name</span>: <span style="color:#e6db74">&#34;google@gmail.com&#34;</span>, <span style="color:#75715e"># SMTP 설정 했던 이메일</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">password</span>: <span style="color:#e6db74">&#34;qwer 1234 tyui 5678&#34;</span>, <span style="color:#75715e"># 앱 비밀번호</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">address</span>: <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">domain</span>: <span style="color:#e6db74">&#34;gmail.com&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">port</span>: <span style="color:#ae81ff">587</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">authentication</span>: <span style="color:#e6db74">:plain</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">enable_starttls_auto</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>이제 코드를 입력한 후 메일을 발송하면, 설정한 메일로 이메일이 발송됩니다.</p>
 <blockquote>
 <p><strong>주의:</strong> 발송한 이메일이 종종 스팸함에 들어갈 수 있습니다.</p>
