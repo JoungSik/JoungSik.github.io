@@ -6,7 +6,7 @@
     <description>Recent content in Docker on Joungsik의 기술 블로그</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 08 Jul 2025 22:26:26 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Jul 2025 22:34:09 +0000</lastBuildDate>
     <atom:link href="https://joungsik.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kamal로 Redmine 배포하기:Docker 컨테이너화부터 자동화까지 1장</title>

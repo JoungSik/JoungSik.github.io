@@ -154,9 +154,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Tue, 08 Jul 2025 22:26:26 &#43;0000"
+                  Modified <relative-time datetime="Tue, 08 Jul 2025 22:34:09 &#43;0000"
                     class="no-wrap">
-                    Tue, 08 Jul 2025 22:26:26 &#43;0000</relative-time>
+                    Tue, 08 Jul 2025 22:34:09 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -186,7 +186,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      1026 Words
+                      1058 Words
                     
 
                   </div>
@@ -336,7 +336,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 3000</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;./bin/thrust&#34;</span>, <span style="color:#e6db74">&#34;./bin/rails&#34;</span>, <span style="color:#e6db74">&#34;server&#34;</span>]<span style="color:#960050;background-color:#1e0010">
 </span></span></span></code></pre></div><h2 id="redmine-docker-run">Redmine Docker Run</h2>
-<p>이렇게 빌드한 이미지를 실행 시켜보면서 이번 장을 마무리 하겠습니다.</p>
+<p>이렇게 빌드한 이미지를 실행시켜 보면서 이번 장을 마무리하겠습니다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -d -p 3000:3000 <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -e RAILS_MASTER_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>cat config/master.key<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -v /workspace/redmine_data:/data <span style="color:#ae81ff">\
@@ -344,15 +344,15 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -v /workspace/redmine_plugins:/rails/plugins <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -v /workspace/redmine_repositories:/gitrepo <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --name redmine redmine
-</span></span></code></pre></div><h2 id="github-actions-는-안쓰나요">Github Actions 는 안쓰나요?</h2>
+</span></span></code></pre></div><h2 id="github-actions는-안-쓰나요">GitHub Actions는 안 쓰나요?</h2>
 <p>사용합니다.</p>
-<p>다만, kamal deploy 과정에서 github packages 에 업로드 하기 때문에 이번 글에서는 생략합니다.</p>
+<p>다만, Kamal deploy 과정에서 GitHub Packages에 업로드하기 때문에 이번 글에서는 생략하겠습니다.</p>
 <h2 id="기타">기타</h2>
-<p>저는 다음의 목적으로 <a href="https://redmine.joungsik.com/projects">remine.joungsik.com</a> 에서 사용하고 있습니다.</p>
+<p>저는 다음의 목적으로 <a href="https://redmine.joungsik.com/projects">remine.joungsik.com</a>에서 사용하고 있습니다.</p>
 <ul>
-<li>GitHub Blog 글감 목록 &amp; 블로그 개선 작업</li>
+<li>GitHub Blog 글감 목록 및 블로그 개선 작업</li>
 <li>Redmine 관리에 필요한 작업 정리</li>
-<li>읽을거리로 모아두기</li>
+<li>읽을거리 모아두기</li>
 </ul>
 <p><img src="info.png" alt="정보"></p>
 </article>
