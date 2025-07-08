@@ -6,8 +6,29 @@
     <description>Recent content in Tags on Joungsik의 기술 블로그</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 08 Jul 2025 22:24:29 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Jul 2025 22:26:26 +0000</lastBuildDate>
     <atom:link href="https://joungsik.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker</title>
+      <link>https://joungsik.github.io/tags/docker/</link>
+      <pubDate>Tue, 08 Jul 2025 07:02:23 +0900</pubDate>
+      <guid>https://joungsik.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kamal</title>
+      <link>https://joungsik.github.io/tags/kamal/</link>
+      <pubDate>Tue, 08 Jul 2025 07:02:23 +0900</pubDate>
+      <guid>https://joungsik.github.io/tags/kamal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Redmine</title>
+      <link>https://joungsik.github.io/tags/redmine/</link>
+      <pubDate>Tue, 08 Jul 2025 07:02:23 +0900</pubDate>
+      <guid>https://joungsik.github.io/tags/redmine/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Github Actions</title>
       <link>https://joungsik.github.io/tags/github-actions/</link>
