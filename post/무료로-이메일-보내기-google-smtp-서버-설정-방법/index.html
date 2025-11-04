@@ -154,9 +154,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Fri, 22 Aug 2025 13:45:07 &#43;0000"
+                  Modified <relative-time datetime="Tue, 04 Nov 2025 10:50:00 &#43;0000"
                     class="no-wrap">
-                    Fri, 22 Aug 2025 13:45:07 &#43;0000</relative-time>
+                    Tue, 04 Nov 2025 10:50:00 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -231,19 +231,20 @@
 <p>Rails에서는 서버의 설정에 따라 <code>development</code>, <code>test</code>, <code>production</code>과 같은 환경을 관리할 수 있습니다.</p>
 <p>여기서는 실제 메일을 사용할 것이기 때문에 <strong>production</strong> 환경에서 작업합니다.</p>
 <p><code>config/environments/production.rb</code> 파일을 열고, 다음 코드를 입력합니다:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>config<span style="color:#f92672">.</span>action_mailer<span style="color:#f92672">.</span>smtp_settings <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">user_name</span>: <span style="color:#e6db74">&#34;google@gmail.com&#34;</span>, <span style="color:#75715e"># SMTP 설정 했던 이메일</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">password</span>: <span style="color:#e6db74">&#34;qwer 1234 tyui 5678&#34;</span>, <span style="color:#75715e"># 앱 비밀번호</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">address</span>: <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">domain</span>: <span style="color:#e6db74">&#34;gmail.com&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">port</span>: <span style="color:#ae81ff">587</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">authentication</span>: <span style="color:#e6db74">:plain</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">enable_starttls_auto</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">config</span><span class="o">.</span><span class="n">action_mailer</span><span class="o">.</span><span class="n">smtp_settings</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">user_name</span><span class="p">:</span> <span class="s2">&#34;google@gmail.com&#34;</span><span class="p">,</span> <span class="c1"># SMTP 설정 했던 이메일</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">password</span><span class="p">:</span> <span class="s2">&#34;qwer 1234 tyui 5678&#34;</span><span class="p">,</span> <span class="c1"># 앱 비밀번호</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">address</span><span class="p">:</span> <span class="s2">&#34;smtp.gmail.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">domain</span><span class="p">:</span> <span class="s2">&#34;gmail.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">port</span><span class="p">:</span> <span class="mi">587</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">authentication</span><span class="p">:</span> <span class="ss">:plain</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">enable_starttls_auto</span><span class="p">:</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>이제 코드를 입력한 후 메일을 발송하면, 설정한 메일로 이메일이 발송됩니다.</p>
 <blockquote>
 <p><strong>주의:</strong> 발송한 이메일이 종종 스팸함에 들어갈 수 있습니다.</p>
-<p>이런 문제 때문에 메일 발송 서비스를 이용하는 것이 가장 좋지만 서비스 개발 초기에는 바로 서비스를 런칭하기 위해서 이 방법은 유용합니다.</p></blockquote>
+<p>이런 문제 때문에 메일 발송 서비스를 이용하는 것이 가장 좋지만 서비스 개발 초기에는 바로 서비스를 런칭하기 위해서 이 방법은 유용합니다.</p>
+</blockquote>
 <p>발송 이력은 해당 구글 계정으로 <strong>Gmail</strong>에 접속해 <strong>보낸 메시지</strong>를 보면 확인할 수 있습니다.</p>
 <p><img src="sender_history_page.png" alt="sender_history_page"></p>
 <p>이제 Google SMTP 서버를 활용하여 이메일을 보내는 방법으로 빠르게 서비스를 런칭할 수 있게 되었습니다.</p>

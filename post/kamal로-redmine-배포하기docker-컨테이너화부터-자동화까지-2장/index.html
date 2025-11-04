@@ -154,9 +154,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Fri, 22 Aug 2025 13:45:07 &#43;0000"
+                  Modified <relative-time datetime="Tue, 04 Nov 2025 10:50:00 &#43;0000"
                     class="no-wrap">
-                    Fri, 22 Aug 2025 13:45:07 &#43;0000</relative-time>
+                    Tue, 04 Nov 2025 10:50:00 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -251,146 +251,146 @@ Kamal 네트워크처럼 service 이름을 고정하는 것도 방법이지만 �
 <p>제가 배포에 사용했던 config 정보 입니다.</p>
 <p>크게 2가지 버전으로 나뉩니다.</p>
 <p>첫번째는 Redmine 단독으로 서비스를 운영하며 kamal-proxy를 활용해 SSL 인증을 받는 가장 기본적인 형태</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">service</span>: <span style="color:#ae81ff">redmine</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">image</span>: <span style="color:#ae81ff">joungsik/redmine</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">servers</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hosts</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">&lt;%= ENV.fetch(&#34;SSH_HOST&#34;) %&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">registry</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">server</span>: <span style="color:#ae81ff">ghcr.io</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">username</span>: <span style="color:#ae81ff">&lt;%= ENV.fetch(&#34;REGISTRY_USER&#34;) %&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">password</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">KAMAL_REGISTRY_PASSWORD</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">env</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">secret</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">RAILS_MASTER_KEY</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">/home/joungsik/workspace/redmine_data:/data</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">/home/joungsik/workspace/redmine_storage:/storage</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">/home/joungsik/workspace/redmine_plugins:/rails/plugins</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">/home/joungsik/workspace/redmine_repositories:/gitrepo</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">proxy</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ssl</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">redmine.joungsik.com</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">builder</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">arch</span>: <span style="color:#ae81ff">amd64</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">ssh</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">user</span>: <span style="color:#ae81ff">&lt;%= ENV.fetch(&#34;SSH_USER&#34;) %&gt;</span>
-</span></span></code></pre></div><p>두번째는 nginx-proxy-manager 를 활용해 하나의 물리적 서버에서 여러개의 서비스를 운영하는 형태</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">service</span>: <span style="color:#ae81ff">redmine-app</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">image</span>: <span style="color:#ae81ff">joungsik/redmine</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">servers</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hosts</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">&lt;%= ENV.fetch(&#34;SSH_HOST&#34;) %&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">proxy</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">registry</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">server</span>: <span style="color:#ae81ff">ghcr.io</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">username</span>: <span style="color:#ae81ff">&lt;%= ENV.fetch(&#34;REGISTRY_USER&#34;) %&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">password</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">KAMAL_REGISTRY_PASSWORD</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">env</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">secret</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">RAILS_MASTER_KEY</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">/home/joungsik/redmine/data:/data</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">/home/joungsik/redmine/storage:/storage</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">/home/joungsik/redmine/plugins:/rails/plugins</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">/home/joungsik/redmine/repositories:/gitrepo</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">builder</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">arch</span>: <span style="color:#ae81ff">amd64</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">ssh</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">user</span>: <span style="color:#ae81ff">&lt;%= ENV.fetch(&#34;SSH_USER&#34;) %&gt;</span>
-</span></span></code></pre></div><p>차이점은 kamal-proxy를 사용하는가? nginx-proxy-manager를 사용하는가?에 대한 차이입니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">redmine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">joungsik/redmine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">servers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">&lt;%= ENV.fetch(&#34;SSH_HOST&#34;) %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">registry</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= ENV.fetch(&#34;REGISTRY_USER&#34;) %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">KAMAL_REGISTRY_PASSWORD</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">secret</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">RAILS_MASTER_KEY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">/home/joungsik/workspace/redmine_data:/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">/home/joungsik/workspace/redmine_storage:/storage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">/home/joungsik/workspace/redmine_plugins:/rails/plugins</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">/home/joungsik/workspace/redmine_repositories:/gitrepo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">proxy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ssl</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l">redmine.joungsik.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">builder</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">arch</span><span class="p">:</span><span class="w"> </span><span class="l">amd64</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">ssh</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= ENV.fetch(&#34;SSH_USER&#34;) %&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>두번째는 nginx-proxy-manager 를 활용해 하나의 물리적 서버에서 여러개의 서비스를 운영하는 형태</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">redmine-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">joungsik/redmine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">servers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">&lt;%= ENV.fetch(&#34;SSH_HOST&#34;) %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proxy</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">registry</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= ENV.fetch(&#34;REGISTRY_USER&#34;) %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">KAMAL_REGISTRY_PASSWORD</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">secret</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">RAILS_MASTER_KEY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">/home/joungsik/redmine/data:/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">/home/joungsik/redmine/storage:/storage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">/home/joungsik/redmine/plugins:/rails/plugins</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">/home/joungsik/redmine/repositories:/gitrepo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">builder</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">arch</span><span class="p">:</span><span class="w"> </span><span class="l">amd64</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">ssh</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= ENV.fetch(&#34;SSH_USER&#34;) %&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>차이점은 kamal-proxy를 사용하는가? nginx-proxy-manager를 사용하는가?에 대한 차이입니다.</p>
 <p>다음은 공통적으로 들어가는 env 값에 대해서 이야기 하려고 합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.env" data-lang=".env"><span style="display:flex;"><span><span style="color:#75715e"># 배포 하려는 서버의 IP 주소</span>
-</span></span><span style="display:flex;"><span>SSH_HOST<span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 배포 하려는 서버의 접속 User</span>
-</span></span><span style="display:flex;"><span>SSH_USER<span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># docker image 를 올리기 위한 저장소 User</span>
-</span></span><span style="display:flex;"><span>REGISTRY_USER<span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># docker image 를 올리기 위한 저장소 Password</span>
-</span></span><span style="display:flex;"><span>KAMAL_REGISTRY_PASSWORD<span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># config 에는 나오진 않지만 SSH 접속을 위한 SSH Private Key</span>
-</span></span><span style="display:flex;"><span>SSH_PRIVATE_KEY<span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-.env" data-lang=".env"><span class="line"><span class="cl"><span class="c1"># 배포 하려는 서버의 IP 주소</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SSH_HOST</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 배포 하려는 서버의 접속 User</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SSH_USER</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># docker image 를 올리기 위한 저장소 User</span>
+</span></span><span class="line"><span class="cl"><span class="nv">REGISTRY_USER</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># docker image 를 올리기 위한 저장소 Password</span>
+</span></span><span class="line"><span class="cl"><span class="nv">KAMAL_REGISTRY_PASSWORD</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># config 에는 나오진 않지만 SSH 접속을 위한 SSH Private Key</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SSH_PRIVATE_KEY</span><span class="o">=</span>
 </span></span></code></pre></div><p>여기서 저는 Docker 이미지 저장소로 AWS의 ECR을 사용하지 않고 GitHub의 Packages를 사용했습니다. Kamal이 AWS와 같은 클라우드 서비스를 탈피하고자 하는 목적이 있는 것 같아 최대한 사용하지 않으려 했습니다.</p>
 <p>따라서 GitHub Packages의 user, password 만드는 방법은 따로 검색 후 사용하시면 좋을 것 같습니다.</p>
 <h2 id="github-actions">GitHub Actions</h2>
 <p>위 config 정보를 기반으로 GitHub Actions를 활용한 deploy.yml 코드입니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy to Production</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">main ]</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">workflow_dispatch</span>:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">deploy</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">permissions</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">contents</span>: <span style="color:#ae81ff">read</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">packages</span>: <span style="color:#ae81ff">write</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Checkout code</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v4</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set up Ruby and Install Kamal</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">ruby/setup-ruby@v1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ruby-version</span>: <span style="color:#e6db74">&#39;3.4&#39;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">bundler-cache</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install Kamal</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">gem install kamal</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup SSH agent</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">webfactory/ssh-agent@v0.9.0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ssh-private-key</span>: <span style="color:#ae81ff">${{ secrets.SSH_PRIVATE_KEY }}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Add server to known hosts</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          mkdir -p ~/.ssh
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          ssh-keyscan -t rsa,dsa,ecdsa,ed25519 ${{ secrets.SSH_HOST }} &gt; ~/.ssh/known_hosts
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          chmod 600 ~/.ssh/known_hosts</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set up Docker for Kamal</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">docker/setup-buildx-action@v3</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Create .kamal/secrets file</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          mkdir -p .kamal
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          cat &gt; .kamal/secrets &lt;&lt; EOF
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          KAMAL_REGISTRY_PASSWORD=${{ secrets.GITHUB_TOKEN }}
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          EOF</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run Kamal Deploy</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">env</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">REGISTRY_USER</span>: <span style="color:#ae81ff">${{ github.actor }}</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">KAMAL_REGISTRY_PASSWORD</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">RAILS_MASTER_KEY</span>: <span style="color:#ae81ff">${{ secrets.RAILS_MASTER_KEY }}</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">SSH_HOST</span>: <span style="color:#ae81ff">${{ secrets.SSH_HOST }}</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">SSH_USER</span>: <span style="color:#ae81ff">${{ secrets.SSH_USER }}</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">KAMAL_VERSION</span>: <span style="color:#ae81ff">${{ github.run_number }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          kamal deploy</span>
-</span></span></code></pre></div><p>저는 다음과 같은 형태로 사용하고 있습니다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy to Production</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">main ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">permissions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l">read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">packages</span><span class="p">:</span><span class="w"> </span><span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Set up Ruby and Install Kamal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">ruby/setup-ruby@v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ruby-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.4&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">bundler-cache</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Kamal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">gem install kamal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup SSH agent</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">webfactory/ssh-agent@v0.9.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ssh-private-key</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.SSH_PRIVATE_KEY }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Add server to known hosts</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          mkdir -p ~/.ssh
+</span></span></span><span class="line"><span class="cl"><span class="sd">          ssh-keyscan -t rsa,dsa,ecdsa,ed25519 ${{ secrets.SSH_HOST }} &gt; ~/.ssh/known_hosts
+</span></span></span><span class="line"><span class="cl"><span class="sd">          chmod 600 ~/.ssh/known_hosts</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Set up Docker for Kamal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/setup-buildx-action@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Create .kamal/secrets file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          mkdir -p .kamal
+</span></span></span><span class="line"><span class="cl"><span class="sd">          cat &gt; .kamal/secrets &lt;&lt; EOF
+</span></span></span><span class="line"><span class="cl"><span class="sd">          KAMAL_REGISTRY_PASSWORD=${{ secrets.GITHUB_TOKEN }}
+</span></span></span><span class="line"><span class="cl"><span class="sd">          RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}
+</span></span></span><span class="line"><span class="cl"><span class="sd">          EOF</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Kamal Deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">REGISTRY_USER</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.actor }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">KAMAL_REGISTRY_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.GITHUB_TOKEN }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">RAILS_MASTER_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.RAILS_MASTER_KEY }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">SSH_HOST</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.SSH_HOST }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">SSH_USER</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.SSH_USER }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">KAMAL_VERSION</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.run_number }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          kamal deploy</span><span class="w">
+</span></span></span></code></pre></div><p>저는 다음과 같은 형태로 사용하고 있습니다.
 그러다보니 아래 5개의 secrets 값을 GitHub repo에 작성해서 사용하고 있습니다.</p>
 <ol>
 <li>SSH_HOST</li>

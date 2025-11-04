@@ -154,9 +154,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Fri, 22 Aug 2025 13:45:07 &#43;0000"
+                  Modified <relative-time datetime="Tue, 04 Nov 2025 10:50:00 &#43;0000"
                     class="no-wrap">
-                    Fri, 22 Aug 2025 13:45:07 &#43;0000</relative-time>
+                    Tue, 04 Nov 2025 10:50:00 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -228,59 +228,59 @@
 <p>먼저 블로그 프로젝트를 엽니다.</p>
 <p>GitHub Actions 워크플로우는 프로젝트 내 <code>.github/workflows</code> 디렉터리에 있는 YAML 파일로 정의됩니다.</p>
 <p>저는 <code>.github/workflows/deploy.yml</code> 파일을 생성하여 배포 설정을 관리하고 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy Hugo site to GitHub Pages</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>: <span style="color:#75715e"># master 브랜치에 push될 때만 실행</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">master</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">deploy</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Checkout blog repo</span> <span style="color:#75715e"># 현재 저장소의 코드 가져오기</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v3</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">submodules</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">fetch-depth</span>: <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup Hugo</span> <span style="color:#75715e"># Hugo 설치</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-hugo@v2</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">hugo-version</span>: <span style="color:#e6db74">&#39;latest&#39;</span> <span style="color:#75715e"># Hugo 최신 버전 사용 (안정적인 사용을 위해 특정 버전으로 지정하는 것을 권장)</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">extended</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install envsubst</span> <span style="color:#75715e"># 환경 변수 치환 도구 설치</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">sudo apt-get install gettext-base</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Generate hugo.toml from template</span> <span style="color:#75715e"># 템플릿 파일로부터 hugo.toml 생성</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          export GITALK_CLIENT_ID=&#34;${{ secrets.GITALK_CLIENT_ID }}&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          export GITALK_CLIENT_SECRET=&#34;${{ secrets.GITALK_CLIENT_SECRET }}&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          envsubst &lt; hugo.template.toml &gt; hugo.toml</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build with Hugo</span> <span style="color:#75715e"># Hugo로 빌드</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">hugo -t github-style</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Checkout destination repo</span> <span style="color:#75715e"># 배포 대상 저장소 checkout</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v3</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">repository</span>: <span style="color:#ae81ff">${{ github.actor }}/${{ github.actor }}.github.io</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">token</span>: <span style="color:#ae81ff">${{ secrets.TOKEN }}</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">path</span>: <span style="color:#ae81ff">.gh-pages</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Copy files</span> <span style="color:#75715e"># 빌드 결과 복사 및 커밋</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          rm -rf .gh-pages/*
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          cp -r public/* .gh-pages/
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          cd .gh-pages
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git config user.name &#34;${{ github.actor }}&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git config user.email &#34;Your Email&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git add .
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git diff-index --quiet HEAD || git commit -m &#34;${{ github.event.head_commit.message }}&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git push</span>
-</span></span></code></pre></div><p>이렇게 설정하고 배포에 필요한 TOKEN 값을 설정합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy Hugo site to GitHub Pages</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="c"># master 브랜치에 push될 때만 실행</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout blog repo</span><span class="w"> </span><span class="c"># 현재 저장소의 코드 가져오기</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w"> </span><span class="c"># Hugo 설치</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;latest&#39;</span><span class="w"> </span><span class="c"># Hugo 최신 버전 사용 (안정적인 사용을 위해 특정 버전으로 지정하는 것을 권장)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install envsubst</span><span class="w"> </span><span class="c"># 환경 변수 치환 도구 설치</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">sudo apt-get install gettext-base</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Generate hugo.toml from template</span><span class="w"> </span><span class="c"># 템플릿 파일로부터 hugo.toml 생성</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          export GITALK_CLIENT_ID=&#34;${{ secrets.GITALK_CLIENT_ID }}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          export GITALK_CLIENT_SECRET=&#34;${{ secrets.GITALK_CLIENT_SECRET }}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          envsubst &lt; hugo.template.toml &gt; hugo.toml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build with Hugo</span><span class="w"> </span><span class="c"># Hugo로 빌드</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo -t github-style</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout destination repo</span><span class="w"> </span><span class="c"># 배포 대상 저장소 checkout</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.actor }}/${{ github.actor }}.github.io</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.TOKEN }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">.gh-pages</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Copy files</span><span class="w"> </span><span class="c"># 빌드 결과 복사 및 커밋</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          rm -rf .gh-pages/*
+</span></span></span><span class="line"><span class="cl"><span class="sd">          cp -r public/* .gh-pages/
+</span></span></span><span class="line"><span class="cl"><span class="sd">          cd .gh-pages
+</span></span></span><span class="line"><span class="cl"><span class="sd">          git config user.name &#34;${{ github.actor }}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          git config user.email &#34;Your Email&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          git add .
+</span></span></span><span class="line"><span class="cl"><span class="sd">          git diff-index --quiet HEAD || git commit -m &#34;${{ github.event.head_commit.message }}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          git push</span><span class="w">
+</span></span></span></code></pre></div><p>이렇게 설정하고 배포에 필요한 TOKEN 값을 설정합니다.</p>
 <ol>
 <li>설정에서 개발설정에 들어갑니다.
 <img src="developor_setting.png" alt="developor_setting"></li>
