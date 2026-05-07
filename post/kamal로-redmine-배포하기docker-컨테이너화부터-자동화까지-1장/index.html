@@ -154,9 +154,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Tue, 04 Nov 2025 10:50:00 &#43;0000"
+                  Modified <relative-time datetime="Thu, 07 May 2026 18:43:43 &#43;0000"
                     class="no-wrap">
-                    Tue, 04 Nov 2025 10:50:00 &#43;0000</relative-time>
+                    Thu, 07 May 2026 18:43:43 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -264,86 +264,86 @@
 <p><a href="https://hub.docker.com/_/redmine">Docker Official Image</a> 도 있지만 저는 별도로 사용하기로 했습니다.</p>
 <p>코드는 Rails8 프로젝트 생성 시 자동으로 생성되는 Dockerfile 을 기반으로 작성되었습니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># syntax=docker/dockerfile:1</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># check=error=true</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># check=error=true</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># This Dockerfile is designed for production, not development. Use with Kamal or build&#39;n&#39;run by hand:</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># docker build -t redmine .</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># docker run -d -p 80:80 -e RAILS_MASTER_KEY=&lt;value from config/master.key&gt; --name redmine redmine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># This Dockerfile is designed for production, not development. Use with Kamal or build&#39;n&#39;run by hand:</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># docker build -t redmine .</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># docker run -d -p 80:80 -e RAILS_MASTER_KEY=&lt;value from config/master.key&gt; --name redmine redmine</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># For a containerized dev environment, see Dev Containers: https://guides.rubyonrails.org/getting_started_with_devcontainer.html</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># For a containerized dev environment, see Dev Containers: https://guides.rubyonrails.org/getting_started_with_devcontainer.html</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Make sure RUBY_VERSION matches the Ruby version in .ruby-version</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> <span class="nv">RUBY_VERSION</span><span class="o">=</span><span class="m">3</span>.4.1<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="w"> </span><span class="s">docker.io/library/ruby:$RUBY_VERSION-slim</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">base</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Make sure RUBY_VERSION matches the Ruby version in .ruby-version</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">ARG</span> <span class="nv">RUBY_VERSION</span><span class="o">=</span><span class="m">3</span>.4.1<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">docker.io/library/ruby:$RUBY_VERSION-slim</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">base</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Rails app lives here</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/rails</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Rails app lives here</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/rails</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install base packages</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update -qq <span class="o">&amp;&amp;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    apt-get install --no-install-recommends -y curl libjemalloc2 libvips sqlite3 git <span class="o">&amp;&amp;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    rm -rf /var/lib/apt/lists /var/cache/apt/archives<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Install base packages</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">RUN</span> apt-get update -qq <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    apt-get install --no-install-recommends -y curl libjemalloc2 libvips sqlite3 git <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    rm -rf /var/lib/apt/lists /var/cache/apt/archives<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Set production environment</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">RAILS_ENV</span><span class="o">=</span><span class="s2">&#34;production&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">BUNDLE_DEPLOYMENT</span><span class="o">=</span><span class="s2">&#34;1&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">BUNDLE_PATH</span><span class="o">=</span><span class="s2">&#34;/usr/local/bundle&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">BUNDLE_WITHOUT</span><span class="o">=</span><span class="s2">&#34;development&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Set production environment</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">ENV</span> <span class="nv">RAILS_ENV</span><span class="o">=</span><span class="s2">&#34;production&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">BUNDLE_DEPLOYMENT</span><span class="o">=</span><span class="s2">&#34;1&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">BUNDLE_PATH</span><span class="o">=</span><span class="s2">&#34;/usr/local/bundle&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">BUNDLE_WITHOUT</span><span class="o">=</span><span class="s2">&#34;development&#34;</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Throw-away build stage to reduce size of final image</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="w"> </span><span class="s">base</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Throw-away build stage to reduce size of final image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">base</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install packages needed to build gems</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update -qq <span class="o">&amp;&amp;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    apt-get install --no-install-recommends -y build-essential git pkg-config <span class="o">&amp;&amp;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    rm -rf /var/lib/apt/lists /var/cache/apt/archives<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Install packages needed to build gems</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">RUN</span> apt-get update -qq <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    apt-get install --no-install-recommends -y build-essential git pkg-config <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    rm -rf /var/lib/apt/lists /var/cache/apt/archives<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install application gems</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> Gemfile Gemfile.lock ./<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> config/database.yml ./config/<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> bundle install <span class="o">&amp;&amp;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    rm -rf ~/.bundle/ <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BUNDLE_PATH</span><span class="si">}</span><span class="s2">&#34;</span>/ruby/*/cache <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BUNDLE_PATH</span><span class="si">}</span><span class="s2">&#34;</span>/ruby/*/bundler/gems/*/.git <span class="o">&amp;&amp;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    bundle <span class="nb">exec</span> bootsnap precompile --gemfile<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Install application gems</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">COPY</span> Gemfile Gemfile.lock ./<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">COPY</span> config/database.yml ./config/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">RUN</span> bundle install <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    rm -rf ~/.bundle/ <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BUNDLE_PATH</span><span class="si">}</span><span class="s2">&#34;</span>/ruby/*/cache <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BUNDLE_PATH</span><span class="si">}</span><span class="s2">&#34;</span>/ruby/*/bundler/gems/*/.git <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    bundle <span class="nb">exec</span> bootsnap precompile --gemfile<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy application code</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Copy application code</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">COPY</span> . .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Precompile bootsnap code for faster boot times</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> bundle <span class="nb">exec</span> bootsnap precompile app/ lib/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Precompile bootsnap code for faster boot times</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">RUN</span> bundle <span class="nb">exec</span> bootsnap precompile app/ lib/<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Precompiling assets for production without requiring secret RAILS_MASTER_KEY</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nv">SECRET_KEY_BASE_DUMMY</span><span class="o">=</span><span class="m">1</span> ./bin/rake assets:precompile<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Precompiling assets for production without requiring secret RAILS_MASTER_KEY</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">RUN</span> <span class="nv">SECRET_KEY_BASE_DUMMY</span><span class="o">=</span><span class="m">1</span> ./bin/rake assets:precompile<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Final stage for app image</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="w"> </span><span class="s">base</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Final stage for app image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">base</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy built artifacts: gems, application</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>build <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BUNDLE_PATH</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BUNDLE_PATH</span><span class="si">}</span><span class="s2">&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>build /rails /rails<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Copy built artifacts: gems, application</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">COPY</span> --from<span class="o">=</span>build <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BUNDLE_PATH</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BUNDLE_PATH</span><span class="si">}</span><span class="s2">&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">COPY</span> --from<span class="o">=</span>build /rails /rails<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Run and own only the runtime files as a non-root user for security</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> groupadd --system --gid <span class="m">1000</span> rails <span class="o">&amp;&amp;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    useradd rails --uid <span class="m">1000</span> --gid <span class="m">1000</span> --create-home --shell /bin/bash <span class="o">&amp;&amp;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    mkdir -p storage files tmp/cache tmp/pids tmp/sockets tmp/imports tmp/thumbnails tmp/test data gitrepo <span class="o">&amp;&amp;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    chown -R rails:rails /rails <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BUNDLE_PATH</span><span class="si">}</span><span class="s2">&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="w"> </span><span class="s">1000:1000</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Run and own only the runtime files as a non-root user for security</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">RUN</span> groupadd --system --gid <span class="m">1000</span> rails <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    useradd rails --uid <span class="m">1000</span> --gid <span class="m">1000</span> --create-home --shell /bin/bash <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    mkdir -p storage files tmp/cache tmp/pids tmp/sockets tmp/imports tmp/thumbnails tmp/test data gitrepo <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    chown -R rails:rails /rails <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BUNDLE_PATH</span><span class="si">}</span><span class="s2">&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">USER</span><span class="w"> </span><span class="s">1000:1000</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Entrypoint prepares the database.</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;/rails/bin/docker-entrypoint&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Entrypoint prepares the database.</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;/rails/bin/docker-entrypoint&#34;</span><span class="p">]</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Start server via Rails by default, this can be overwritten at runtime</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="w"> </span><span class="s">3000</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;./bin/thrust&#34;</span><span class="p">,</span> <span class="s2">&#34;./bin/rails&#34;</span><span class="p">,</span> <span class="s2">&#34;server&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Start server via Rails by default, this can be overwritten at runtime</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">EXPOSE</span><span class="w"> </span><span class="s">3000</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;./bin/thrust&#34;</span><span class="p">,</span> <span class="s2">&#34;./bin/rails&#34;</span><span class="p">,</span> <span class="s2">&#34;server&#34;</span><span class="p">]</span><span class="err">
 </span></span></span></code></pre></div><h2 id="redmine-docker-run">Redmine Docker Run</h2>
 <p>이렇게 빌드한 이미지를 실행시켜 보면서 이번 장을 마무리하겠습니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -d -p 3000:3000 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -e <span class="nv">RAILS_MASTER_KEY</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>cat config/master.key<span class="k">)</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /workspace/redmine_data:/data <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /workspace/redmine_storage:/storage <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /workspace/redmine_plugins:/rails/plugins <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /workspace/redmine_repositories:/gitrepo <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --name redmine redmine
+</span></span></span><span class="line"><span class="cl">    -e <span class="nv">RAILS_MASTER_KEY</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>cat config/master.key<span class="k">)</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -v /workspace/redmine_data:/data <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -v /workspace/redmine_storage:/storage <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -v /workspace/redmine_plugins:/rails/plugins <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -v /workspace/redmine_repositories:/gitrepo <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --name redmine redmine
 </span></span></code></pre></div><h2 id="github-actions는-안-쓰나요">GitHub Actions는 안 쓰나요?</h2>
 <p>사용합니다.</p>
 <p>다만, Kamal deploy 과정에서 GitHub Packages에 업로드하기 때문에 이번 글에서는 생략하겠습니다.</p>
