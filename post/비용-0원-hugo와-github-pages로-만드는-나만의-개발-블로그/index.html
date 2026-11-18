@@ -154,9 +154,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Thu, 07 May 2026 18:43:43 &#43;0000"
+                  Modified <relative-time datetime="Wed, 18 Nov 2026 17:17:49 &#43;0000"
                     class="no-wrap">
-                    Thu, 07 May 2026 18:43:43 &#43;0000</relative-time>
+                    Wed, 18 Nov 2026 17:17:49 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -285,12 +285,12 @@
 <p>생성된 파일을 열어보면, 상단에 &lsquo;front matter&rsquo;라고 불리는 YAML, TOML, 또는 JSON 형식의 설정 정보가 포함된 것을 볼 수 있습니다.</p>
 <p>이 front matter는 <code>hugo new</code> 명령 실행 시 자동으로 추가되며, 각 글의 제목, 작성일, 초안(draft) 상태 등을 정의합니다. <code>archetypes/default.md</code> 파일을 수정하여 기본 front matter 내용을 변경할 수도 있습니다.</p>
 <p>기본 생성 내용은 다음과 같습니다. (<code>hugo.toml</code> 설정에 따라 형식이 다를 수 있습니다.)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">---
-</span></span><span class="line"><span class="cl">title = &#39;{{ replace .File.ContentBaseName <span class="sb">`-`</span> <span class="sb">` `</span> | title }}&#39;
-</span></span><span class="line"><span class="cl">date: {{ .Date }}
-</span></span><span class="line"><span class="cl">draft: true
-</span></span><span class="line"><span class="cl">---
-</span></span></code></pre></div><p>기본값은 다음과 같습니다:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">title = &#39;{{ replace .File.ContentBaseName `-` ` ` | title }}&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">date</span><span class="p">:</span><span class="w"> </span>{{<span class="w"> </span><span class="l">.Date }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></div><p>기본값은 다음과 같습니다:</p>
 <ul>
 <li><code>title</code>: 파일 이름에서 하이픈(-)을 공백으로 바꾼 후 각 단어의 첫 글자를 대문자로 변환한 값 (예: <code>블로그 제목</code>)</li>
 <li><code>date</code>: 파일 생성 시각 (ISO 8601 형식)</li>

@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Joungsik의 기술 블로그</title>
-    <link>https://joungsik.github.io/post/</link>
-    <description>Recent content in Posts on Joungsik의 기술 블로그</description>
-    <generator>Hugo</generator>
-    <language>ko-kr</language>
-    <lastBuildDate>Thu, 07 May 2026 18:43:43 +0000</lastBuildDate>
-    <atom:link href="https://joungsik.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Kamal로 Redmine 배포하기:Docker 컨테이너화부터 자동화까지 2장</title>
-      <link>https://joungsik.github.io/post/kamal%EB%A1%9C-redmine-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%ED%99%94%EB%B6%80%ED%84%B0-%EC%9E%90%EB%8F%99%ED%99%94%EA%B9%8C%EC%A7%80-2%EC%9E%A5/</link>
-      <pubDate>Sun, 10 Aug 2025 12:15:55 +0900</pubDate>
-      <guid>https://joungsik.github.io/post/kamal%EB%A1%9C-redmine-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%ED%99%94%EB%B6%80%ED%84%B0-%EC%9E%90%EB%8F%99%ED%99%94%EA%B9%8C%EC%A7%80-2%EC%9E%A5/</guid>
-      <description>이전 장에서 Docker 컨테이너화한 Redmine을 이번 장에서는 Kamal을 활용해 실제 배포하는 과정을 다룹니다. Kamal의 개념과 설정 방법, 배포 구성(config) 설명, GitHub Actions를 통한 main 브랜치 커밋 시 자동 배포까지 실무 경험을 바탕으로 설명합니다.</description>
-    </item>
-    <item>
-      <title>Kamal로 Redmine 배포하기:Docker 컨테이너화부터 자동화까지 1장</title>
-      <link>https://joungsik.github.io/post/kamal%EB%A1%9C-redmine-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%ED%99%94%EB%B6%80%ED%84%B0-%EC%9E%90%EB%8F%99%ED%99%94%EA%B9%8C%EC%A7%80-1%EC%9E%A5/</link>
-      <pubDate>Tue, 08 Jul 2025 07:02:23 +0900</pubDate>
-      <guid>https://joungsik.github.io/post/kamal%EB%A1%9C-redmine-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%ED%99%94%EB%B6%80%ED%84%B0-%EC%9E%90%EB%8F%99%ED%99%94%EA%B9%8C%EC%A7%80-1%EC%9E%A5/</guid>
-      <description>이 글은 Kamal을 활용하여 Redmine을 효율적으로 배포하는 방법을 다룹니다. 1장에서는 Redmine을 Docker 컨테이너로 만드는 과정을 상세히 설명하고, 2장에서는 Kamal을 통한 실제 배포와 GitHub Actions를 이용한 자동화 파이프라인 구축 전략을 제시합니다.</description>
-    </item>
-    <item>
-      <title>Hugo 블로그 글 배포 자동화 (With. Github Actions)</title>
-      <link>https://joungsik.github.io/post/hugo-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B8%80-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%ED%99%94-with.-github-actions/</link>
-      <pubDate>Sun, 06 Apr 2025 21:55:15 +0900</pubDate>
-      <guid>https://joungsik.github.io/post/hugo-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B8%80-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%ED%99%94-with.-github-actions/</guid>
-      <description>Hugo 블로그의 글 작성 후 Github Actions를 활용한 자동 배포 설정 방법을 알아봅니다.</description>
-    </item>
-    <item>
-      <title>비용 0원! Hugo와 GitHub Pages로 만드는 나만의 개발 블로그</title>
-      <link>https://joungsik.github.io/post/%EB%B9%84%EC%9A%A9-0%EC%9B%90-hugo%EC%99%80-github-pages%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%82%98%EB%A7%8C%EC%9D%98-%EA%B0%9C%EB%B0%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8/</link>
-      <pubDate>Thu, 03 Apr 2025 07:51:07 +0900</pubDate>
-      <guid>https://joungsik.github.io/post/%EB%B9%84%EC%9A%A9-0%EC%9B%90-hugo%EC%99%80-github-pages%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%82%98%EB%A7%8C%EC%9D%98-%EA%B0%9C%EB%B0%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8/</guid>
-      <description>Hugo와 GitHub Pages를 사용하여 비용 없이 개인 개발 블로그를 만드는 방법을 단계별로 설명합니다. GitHub 저장소 생성, Hugo 설치, 콘텐츠 작성, 테마 적용, 배포 과정을 다룹니다.</description>
-    </item>
-    <item>
-      <title>무료로 이메일 보내기: Google SMTP 서버 설정 방법</title>
-      <link>https://joungsik.github.io/post/%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-google-smtp-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95/</link>
-      <pubDate>Mon, 24 Mar 2025 15:00:00 +0900</pubDate>
-      <guid>https://joungsik.github.io/post/%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-google-smtp-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95/</guid>
-      <description>Google SMTP 서버를 활용하여 무료로 안전하게 이메일을 보내는 방법을 단계별로 알아봅니다.</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Posts on Joungsik의 기술 블로그</title>
+		<link>https://joungsik.github.io/post/</link>
+		<description>Recent content in Posts on Joungsik의 기술 블로그</description>
+		<generator>Hugo</generator>
+		<language>ko-kr</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 18 Nov 2026 17:17:49 +0000</lastBuildDate>
+		
+			<atom:link href="https://joungsik.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Kamal로 Redmine 배포하기:Docker 컨테이너화부터 자동화까지 2장</title>
+				<link>https://joungsik.github.io/post/kamal%EB%A1%9C-redmine-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%ED%99%94%EB%B6%80%ED%84%B0-%EC%9E%90%EB%8F%99%ED%99%94%EA%B9%8C%EC%A7%80-2%EC%9E%A5/</link>
+				<pubDate>Sun, 10 Aug 2025 12:15:55 +0900</pubDate>
+				<guid>https://joungsik.github.io/post/kamal%EB%A1%9C-redmine-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%ED%99%94%EB%B6%80%ED%84%B0-%EC%9E%90%EB%8F%99%ED%99%94%EA%B9%8C%EC%A7%80-2%EC%9E%A5/</guid>
+				<description>이전 장에서 Docker 컨테이너화한 Redmine을 이번 장에서는 Kamal을 활용해 실제 배포하는 과정을 다룹니다. Kamal의 개념과 설정 방법, 배포 구성(config) 설명, GitHub Actions를 통한 main 브랜치 커밋 시 자동 배포까지 실무 경험을 바탕으로 설명합니다.</description>
+			</item>
+			<item>
+				<title>Kamal로 Redmine 배포하기:Docker 컨테이너화부터 자동화까지 1장</title>
+				<link>https://joungsik.github.io/post/kamal%EB%A1%9C-redmine-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%ED%99%94%EB%B6%80%ED%84%B0-%EC%9E%90%EB%8F%99%ED%99%94%EA%B9%8C%EC%A7%80-1%EC%9E%A5/</link>
+				<pubDate>Tue, 08 Jul 2025 07:02:23 +0900</pubDate>
+				<guid>https://joungsik.github.io/post/kamal%EB%A1%9C-redmine-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%ED%99%94%EB%B6%80%ED%84%B0-%EC%9E%90%EB%8F%99%ED%99%94%EA%B9%8C%EC%A7%80-1%EC%9E%A5/</guid>
+				<description>이 글은 Kamal을 활용하여 Redmine을 효율적으로 배포하는 방법을 다룹니다. 1장에서는 Redmine을 Docker 컨테이너로 만드는 과정을 상세히 설명하고, 2장에서는 Kamal을 통한 실제 배포와 GitHub Actions를 이용한 자동화 파이프라인 구축 전략을 제시합니다.</description>
+			</item>
+			<item>
+				<title>Hugo 블로그 글 배포 자동화 (With. Github Actions)</title>
+				<link>https://joungsik.github.io/post/hugo-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B8%80-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%ED%99%94-with.-github-actions/</link>
+				<pubDate>Sun, 06 Apr 2025 21:55:15 +0900</pubDate>
+				<guid>https://joungsik.github.io/post/hugo-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B8%80-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%ED%99%94-with.-github-actions/</guid>
+				<description>Hugo 블로그의 글 작성 후 Github Actions를 활용한 자동 배포 설정 방법을 알아봅니다.</description>
+			</item>
+			<item>
+				<title>비용 0원! Hugo와 GitHub Pages로 만드는 나만의 개발 블로그</title>
+				<link>https://joungsik.github.io/post/%EB%B9%84%EC%9A%A9-0%EC%9B%90-hugo%EC%99%80-github-pages%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%82%98%EB%A7%8C%EC%9D%98-%EA%B0%9C%EB%B0%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8/</link>
+				<pubDate>Thu, 03 Apr 2025 07:51:07 +0900</pubDate>
+				<guid>https://joungsik.github.io/post/%EB%B9%84%EC%9A%A9-0%EC%9B%90-hugo%EC%99%80-github-pages%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%82%98%EB%A7%8C%EC%9D%98-%EA%B0%9C%EB%B0%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8/</guid>
+				<description>Hugo와 GitHub Pages를 사용하여 비용 없이 개인 개발 블로그를 만드는 방법을 단계별로 설명합니다. GitHub 저장소 생성, Hugo 설치, 콘텐츠 작성, 테마 적용, 배포 과정을 다룹니다.</description>
+			</item>
+			<item>
+				<title>무료로 이메일 보내기: Google SMTP 서버 설정 방법</title>
+				<link>https://joungsik.github.io/post/%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-google-smtp-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95/</link>
+				<pubDate>Mon, 24 Mar 2025 15:00:00 +0900</pubDate>
+				<guid>https://joungsik.github.io/post/%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-google-smtp-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95/</guid>
+				<description>Google SMTP 서버를 활용하여 무료로 안전하게 이메일을 보내는 방법을 단계별로 알아봅니다.</description>
+			</item>
+	</channel>
 </rss>
